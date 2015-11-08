@@ -140,6 +140,10 @@ input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
+.journey_button {
+  height: 35px;
+  margin: 0;
+}
 input {
   line-height: normal;
 }
@@ -6797,6 +6801,18 @@ body {
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(252, 182, 32, 0.6);
 }
 
+.form-control:focus#exampleInputPassword3 {
+  border-color: #85d5f8; /* Blu */
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(133, 213, 248, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(133, 213, 248, 0.6);
+}
+
+select.form-control:focus {
+  border-color: #85d5f8; /* Blu */
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(133, 213, 248, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(133, 213, 248, 0.6);
+}
+
 div.modal-header .journeyPostTitle input[placeholder] {
   color: #ee6730; /* was #999999 */
 }
@@ -7076,4 +7092,94 @@ img#chrome {
 
 #footer a:hover {
   color: #44ade2; /* Drkr Blu */
+}
+
+/* ------------------------- MEDIA QUERIES ------------------------- */
+
+@media only screen and (max-width: 700px) { 
+  body {
+    /*background-color: red;*/
+  }
+
+  p.lead.center {
+    width: 90%;
+    font-size: 1.6875em;
+  }
+
+  img.crest {
+    width: 75%;
+  }
+
+  img#chrome {
+    width: 4%;
+  }
+
+  .container {
+    padding: 0px;
+  }
+
+  .btn {
+    padding: 0px;
+    width: 100px;
+  }
+
+  .form-control {
+    display: inline-block;
+    margin: 50px;
+    width: 90%;
+    text-align: center;
+  }
+
+  input#exampleInputPassword3 {
+    width: 90%;
+  }
+
+  .form-control input {
+    width: 100%;
+  }
+
+  div#destButtons {
+    max-width: 90%;
+  }
+
+  .btn-group.btn-group-lg.center {
+    /*background-color: green;*/
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  button.btn.btn-warning {
+    width: 90%;
+  }
+
+  .btn-group .btn:first-child:not(:last-child):not(.dropdown-toggle),
+  .btn-group .btn:last-child:not(:first-child) {
+    border-radius: 0px;
+  }
+
+  button.btn.btn-info:nth-of-type(1),
+  button.btn.btn-info:nth-of-type(2),
+  button.btn.btn-info:nth-of-type(3),
+  button.btn.btn-info:nth-of-type(4),
+  button.btn.btn-info:nth-of-type(5),
+  button.btn.btn-info:nth-of-type(6),
+  button.btn.btn-info:nth-of-type(7),
+  button.btn.btn-info:nth-of-type(8),
+  button.btn.btn-info:nth-of-type(9) {
+    width: 32%;
+    text-align: center;
+    padding: 0px;
+  }
+
+  button.btn.btn-info:nth-of-type(3),
+  button.btn.btn-info:nth-of-type(6),
+  button.btn.btn-info:nth-of-type(9) {
+
+  }
+
+#footer p.center {
+  width:90%;
+}
+
 }

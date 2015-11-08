@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="/ASL/Passport/assets/css/custom3.css" />
 	<link rel="stylesheet/less" type="text/css" href="/ASL/Passport/assets/css/variables.less" />
 	<link rel="icon" type="image/png" href="/ASL/Passport/assets/img/favicon.png" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="assets/js/less.js/" type="text/javascript"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

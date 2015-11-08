@@ -18,7 +18,7 @@ NAME: Christina D. Thorpe-Rogers
 		        <!-- <h4 class="modal-title" id="myModalLabel">Journey Post Entry...</h4> -->
 			
 				<!-- Journey Post Entry -->
-				<form action="journeys/create" class="form-inline" method="POST" enctype="multipart/form-data">
+				<form action="journeys/create" class="form-inline journey-form" method="POST" enctype="multipart/form-data">
 				<h4><input type="text" name="title" value="" placeholder="Enter Journey Post Title…" style="background:none;border:none;width:300px;color:#ee6730;" required /></h4>
 			      </div>
 			      <div class="modal-body">
@@ -26,11 +26,11 @@ NAME: Christina D. Thorpe-Rogers
 					<input type="date" name="date" class="form-control" value="" autocomplete="on" required /><br />
 					<textarea rows="10" name="body" class="form-control" value="" placeholder="Body..." required></textarea><br />
 					<input type="htags" name="htags" class="form-control" value="#HappyTravels #TravelingChristian" placeholder="#Hashtagserwttwttw" required /><br />
-					<input type="file" name="img" class="input-group" value="" accept="image/*" required /><br />
+					<input type="file" name="img" class="input-group" value="" accept="image/*" /><br />
 					<!-- <input type="submit" value="SUBMIT"/> -->
 			      </div>
 			      <div class="modal-footer">
-			      <input style="font-size:1.5em;border-radius:6px;" type="submit" class="btn btn-warning" value="Create">
+			      <input style="font-size:1.5em;border-radius:6px;" type="submit" class="btn btn-warning journeyUpdateButton" value="Create">
 				</form>
 		      </div>
 		    </div>
@@ -42,7 +42,7 @@ NAME: Christina D. Thorpe-Rogers
 		<img src="/ASL/Passport/assets/img/tcp-crest-yllwshirt.svg" class="crest" />
 		<p style="width:875px" class="lead center">Welcome Traveler! You have arrived at Traveling Children Project's Journey Blog! Here you can share your journey with other Travelers and see where their travels have led them.</p>
 		<!-- Button trigger modal -->
-		<button type="button" class="btn btn-primary btn-lg journeyModalButton" data-toggle="modal" data-target="#journeyModal">
+		<button type="button" class="btn btn-primary btn-lg journeyModalButton journeyCreateButton" data-toggle="modal" data-target="#journeyModal">
 			<!-- <img src="/ASL/Passport/assets/img/tcp-compass-rose-org.svg" style="width:1.5em;" />&nbsp -->
 		   	<span class="glyphicon glyphicon-plus" style="color:#ef6831;font-size:1.0625em;" aria-hidden="true"></span>&nbsp Where has TC taken you? Click to create a post of your journey below.
 		</button>
@@ -53,7 +53,7 @@ NAME: Christina D. Thorpe-Rogers
 		<div class="journey_post">
 			<div class="jp_wrapper">
 			<?php foreach ($ten_posts as $post): ?>
-				<div class="journeyPost" data-contact-id="<?= $post->id ?>">
+				<div class="journeyPost" data-journey-id="<?= $post->id ?>">
 				  <a class="x" href="journeys/delete/<?= $post->id ?>">&times</a>
 				  <p class="jp_title"><b></b><?= $post->title ?></p>
 				  
@@ -64,8 +64,9 @@ NAME: Christina D. Thorpe-Rogers
 				  <p class="jp_body"><?= $post->body ?></a></p>
 				  <p class="htags"><?= $post->htags ?></p>
 				  <hr class="jp_divider"></hr>
-				  <a href="journeys/edit/#" class="btn btn-primary journeyButton" role="button">EDIT</a> 
-				      <a href="journeys/delete/<?= $post->id ?>" class="btn btn-warning" role="button">DELETE</a>
+				  <!-- <a href="/ASL/Passport/journeys/edit/<?= $post->id ?>" class="btn btn-primary journeyButton" role="button">EDIT</a>  -->
+				  <button class="btn btn-primary journey_button" data-toggle="modal" data-target="#journeyModal">EDIT</button>
+				  <a href="/ASL/Passport/journeys/delete/<?= $post->id ?>" class="btn btn-warning" role="button">DELETE</a>
 				</div><!-- /.journeyPost div -->
 			<? endforeach ?>
 			</div><!-- /.jp_wrapper -->
@@ -76,32 +77,40 @@ NAME: Christina D. Thorpe-Rogers
 
 	<script>
 		$(document).ready(function () {
-			var journey = $(".journeyPost"),
-			buttons = $(".journeyButton");
-		
+			var journeys 	= $(".journeyPost"),
+			buttons			= $(".journey_button"),
+			submitButton	= $('input[type="submit"]')[0],
+			fnameField 		= $('input[name="fname"]')[0],
+			titleField 		= $('input[name="title"]')[0],
+			dateField 		= $('input[name="date"]')[0],
+			bodyField 		= $('textarea[name="body"]')[0],
+			htagsField 		= $('input[name="htags"]')[0],
+			journeyID 		= null;
+			
 			buttons.click(function () {
 				var button = this;
-				var contact = contacts[$(buttons).journeys(button)];
-				var contactId = $(contact).data('contact-id');
-			
-				$.get('journeys', 'id=' + contactId, function (travelerPost) {
-					var idField = $('#id-element')[0],
-					fnameField 	= $('input[name="fname"]')[1],
-					titleField 	= $('input[name="title"]')[1],
-					dateField 	= $('input[name="date"]')[1],
-					bodyField 	= $('input[name="body"]')[1],
-					htagsField 	= $('input[name="htags"]')[1];
-					imgField 	= $('input[name="img"]')[1];
+				var journeyPost = journeys[$(buttons).index(button)];
+				journeyID = $(journeyPost).data('journey-id');
 				
-					travelerPost  	 = JSON.parse(travelerPost)[0];
-					idField.value 	 = travelerPost['id'];
+				$.get('/ASL/Passport/journeys/show/' + journeyID, function (travelerPost) {
+					// var idField = $('#id-element')[0],
+					// imgField 		= $('input[name="img"]')[0];
+					var travelerPost = JSON.parse(travelerPost)[0];
 					fnameField.value = travelerPost['fname'];
 					titleField.value = travelerPost['title'];
 					dateField.value  = travelerPost['date'];
 					bodyField.value  = travelerPost['body'];
 					htagsField.value = travelerPost['htags'];
-					imgField.value	 = travelerPost['img'];
+					submitButton.value = "Update";
+					// imgField.value	 = travelerPost['img'];
+					$(".journey-form")[0].setAttribute("action", "/ASL/Passport/journeys/edit/" + journeyID);
 				});
+			});
+			
+			var createJourneyButton = $(".journeyCreateButton")[0],
+			journeyUpdateButton = $('.journeyUpdateButton')[0];
+			$(createJourneyButton).click(function () {
+				submitButton.value = "Create";
 			});
 		});
 	</script>

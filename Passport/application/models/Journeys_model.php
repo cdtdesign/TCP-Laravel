@@ -21,14 +21,20 @@ class Journeys_model extends CI_Model {
 		$this->db->insert('journeys', $post);
 	}
 	
-	public function getTenLatestPosts() 
+	public function getTenLatestPosts()
 	{
 		return $this->db->order_by('date', 'desc')->get('journeys', 10)->result();
 	}
 	
-	public function edit()
+	public function journey_with_id($id)
 	{
-		$this->db->replace('journeys', $data);
+		return json_encode($this->db->get_where('journeys', array('id' => $id))->result());
+	}
+	
+	public function update_record($data)
+	{
+		$this->db->where('id', $data['id']);
+		$this->db->update('journeys', $data);
 	}
 	
 	public function delete($id)
