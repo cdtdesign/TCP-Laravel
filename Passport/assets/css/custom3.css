@@ -6779,6 +6779,10 @@ button.close {
   margin-right: auto;
 }
 
+p.lead.center {
+  width: 78%;
+}
+
 .container * {
   box-shadow: none;
   /*border-style: none;*/
@@ -6877,6 +6881,10 @@ button.close {
 
 /* -------------------------- JOURNEY POSTS [ .jp ] -------------------------- */
 
+span.glyphicon.glyphicon-plus::before {
+  margin: auto, 0;
+  text-align: center;
+}
 
 .journeyEditButton {
   height: 35px;

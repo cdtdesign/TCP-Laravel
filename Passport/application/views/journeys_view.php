@@ -77,7 +77,7 @@ NAME: Christina D. Thorpe-Rogers
 	<script>
 		$(document).ready(function () {
 			var journeys 	= $(".journeyPost"),
-			buttons			= $(".journey_button"),
+			buttons			= $(".journeyEditButton"),
 			submitButton	= $('input[type="submit"]')[0],
 			fnameField 		= $('input[name="fname"]')[0],
 			titleField 		= $('input[name="title"]')[0],
