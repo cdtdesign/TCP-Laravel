@@ -23,4 +23,21 @@
     <![endif]-->
   </head>
   <body>
+  	<!-- Modal -->
+  		<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  		  <div class="modal-dialog" role="document">
+  		    <div class="modal-content">
+  		      <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				  <h2>About</h2>
+  		        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+  			      </div>
+  			      <div class="modal-body">
+  					<p>Traveling Children Project (TCP) is a fun activity that encourages children, who we refer to as <b>Travelers,</b> and their families to explore a variety of destinations, creating memorable experiences and then recording those experiences in their Passport Journal. Follow travel guide, Traveling Christian (TC), either online or make your own path using the Journey Compass. Find the link to our PIY (print-it-yourself) downloadables at the very bottom of the page. 
+					</p>
+  			      </div>
+			  </div><!-- <div class="modal-footer"> -->
+  		      </div>
+  		    </div>
+  		  </div>
+  		</div>
   

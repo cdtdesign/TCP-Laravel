@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.42)
 # Database: passportdb
-# Generation Time: 2015-11-07 02:16:09 +0000
+# Generation Time: 2015-11-09 01:36:51 +0000
 # ************************************************************
 
 
@@ -89,7 +89,7 @@ CREATE TABLE `journeys` (
   `date` date NOT NULL,
   `body` text NOT NULL,
   `htags` varchar(100) NOT NULL DEFAULT '',
-  `img` binary(1) DEFAULT NULL,
+  `img` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -98,8 +98,9 @@ LOCK TABLES `journeys` WRITE;
 
 INSERT INTO `journeys` (`id`, `fname`, `title`, `date`, `body`, `htags`, `img`)
 VALUES
-	(1,'Christian','Pumkin Patch Farm','2015-11-02','Festive fall TC Journey to Pumpkin Patch Farm.','#TravelingChristian #HappyTravels',NULL),
-	(2,'Patrick','Orlando Science Center','2015-10-15','TC Journey to the Orlando Science Center. My favorite part were the dinosaurs!','#TravelingChristian #HappyTravels ',NULL);
+	(1,'Christian','TC Journey to Pumpkin Patch Farm','2015-10-24','We needed a pumpkin and a day of family fun, since Monday was a day off from school, so we went to check out the Pumpkin Patch Farm. Here, we all rode the hayride, while Christian had fun on the jumping pillow, a horse ride and their 40-foot zipline. Ended the fun visit with a challenging maze, where we had to locate 12 creepy Halloween characters within the maze.','#TravelingChristian #HappyTravels #fall #pumpkin','2015-10-26 12.10.30.jpg'),
+	(2,'Lucy','TC Journey to an Amusement Park','2015-10-30','Had an awesome day of fun riding so many great rides, eating yummy cotton candy and and goofing off with my family. Can\'t wait to go back!!','#TravelingChristian #HappyTravels #amusementpark','FunDestination_ThemeParks.jpg'),
+	(3,'Johnny','TC Journey to the World of Harry Potter!','2015-11-07','Journeyed to Hogwarts School of Witchcraft and Wizardry in the third book of Harry Potter and the Prisoner of Azkaban. Looking forward to see what happens on my next journey in Harry Potter and the Goblet of Fire.','#HappyTravels #TravelingChristian #HarryPotter #readinggoals','ReadingDestination_NewBook_sq.jpg');
 
 /*!40000 ALTER TABLE `journeys` ENABLE KEYS */;
 UNLOCK TABLES;

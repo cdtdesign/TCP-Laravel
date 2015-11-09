@@ -19,7 +19,7 @@ NAME: Christina D. Thorpe-Rogers
 			
 				<!-- Journey Post Entry -->
 				<form action="journeys/create" class="form-inline journey-form" method="POST" enctype="multipart/form-data">
-				<h4><input type="text" name="title" value="" placeholder="Enter Journey Post Title…" style="background:none;border:none;width:300px;color:#ee6730;" required /></h4>
+				<h4><input type="text" name="title" value="TC Journey to " placeholder="Enter Journey Post Title…" style="background:none;border:none;width:300px;color:#ee6730;" required /></h4>
 			      </div>
 			      <div class="modal-body">
 					<input type="text" name="fname" class="form-control journeyPostTitle" value="" placeholder="Traveler's First Name…" required /><br />
@@ -60,7 +60,7 @@ NAME: Christina D. Thorpe-Rogers
 				  <?php if($post->img != NULL): ?>
 					  <div class="jp_img"><img src="/ASL/Passport/assets/uploads/<?= $post->img ?>"></div>
 				  <?php endif ?>
-				  <p class="jp_fname_date"><em><a href="#"><b>Travleing <?= $post->fname ?>.</b></a> / <?= $post->date ?></em></p>
+				  <p class="jp_fname_date"><em><a href="#"><b>Traveling <?= $post->fname ?></b></a> / <?= $post->date ?></em></p>
 				  <p class="jp_body"><?= $post->body ?></a></p>
 				  <p class="htags"><?= $post->htags ?></p>
 				  <hr class="jp_divider"></hr>

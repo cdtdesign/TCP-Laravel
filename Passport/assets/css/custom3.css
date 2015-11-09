@@ -6817,6 +6817,10 @@ div.modal-header .journeyPostTitle input[placeholder] {
   color: #ee6730; /* was #999999 */
 }
 
+form.journey-form input[type="text"] {
+  width: 535px !important ;
+}
+
 .modal-header form h4 input[placeholder] {
   color: #ee6730;*/ /* Orange */
 }
@@ -6964,6 +6968,20 @@ button.close {
 
 /* ----------------------------- NAVBAR ----------------------------- */
 
+.aboutModalButton {
+  margin-top: 8px;
+  background-color: #3a2417; /* Dk Brown */
+  color: #fff;
+}
+
+/*.aboutModalButton a {
+  color: #ee6730; /* Orange */
+}*/
+
+button:hover.aboutModalButton {
+  color: #ee6730; /* Orange */
+}
+
 .navbar {
   /*background: #3a2417 url('../img/traveling-children-project-passport-wordmark.svg') no-repeat left center;*/
   font-weight: bold;
@@ -7078,11 +7096,19 @@ img#chrome {
 
 /* ---------------------------- FOOTER ----------------------------- */
 
+#footer.container {
+  background-color: #3a2417; /* Drk Brown */
+  width: 100%;
+  height: 300px;
+  padding: 20px;
+}
+
 #footer {
-  margin-top: 75px;
+  margin-top: 50px;
   height: 50px;
   font-size: .8125em;
   color: #53b7e8; /* cyan 60% mag 10% */
+  overflow: hidden;
 }
 
 #footer a {
@@ -7092,6 +7118,29 @@ img#chrome {
 
 #footer a:hover {
   color: #44ade2; /* Drkr Blu */
+}
+
+img.journeyKitDowload {
+  width: 30%;
+  height: 140px;
+  margin-top: 115px;
+  margin-bottom: 0px;
+  left: 55%;
+  vertical-align: center;
+}
+
+div#socialBadges {
+  vertical-align: center;
+  height: 150px;
+  text-align: center;
+}
+
+img.socialBadges {
+  margin: 5px;
+  margin-bottom: 25px;
+  width: 65px;
+  text-align: center;
+  vertical-align: bottom;
 }
 
 /* ------------------------- MEDIA QUERIES ------------------------- */
@@ -7108,6 +7157,7 @@ img#chrome {
 
   img.crest {
     width: 75%;
+    margin-bottom: 5px;
   }
 
   img#chrome {

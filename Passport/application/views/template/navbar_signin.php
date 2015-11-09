@@ -15,8 +15,8 @@
 		  <!-- Collect the nav links, forms, and other content for toggling -->
 		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#">About</a></li>
-			 <li class="disabled"><a href="#">Journey Blog</a></li>
+	        <li><button class="btn aboutModalButton" data-toggle="modal" data-target="#aboutModal">About</button></li>
+			 <li class="disabled" data-toggle="tooltip" data-placement="bottom"><a href="#">Journey Blog</a></li>
 			 <li><a href="#">Sign-In</a></li>
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign-Up <span class="caret"></span></a>
@@ -31,3 +31,8 @@
 	  </div><!-- /.container-fluid -->
 	</nav>
 </div><!-- /.container -->
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
