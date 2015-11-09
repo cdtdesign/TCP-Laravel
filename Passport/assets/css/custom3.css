@@ -140,10 +140,7 @@ input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
-.journey_button {
-  height: 35px;
-  margin: 0;
-}
+
 input {
   line-height: normal;
 }
@@ -6791,6 +6788,11 @@ body {
   background: #9dddf9 url('../img/tcp-pattern.png') repeat left top;
 }
 
+.tooltip {
+  font-weight: 500;
+  
+}
+
 
 /* -------------------------- FORM --------------------------- */
 
@@ -6875,8 +6877,23 @@ button.close {
 
 /* -------------------------- JOURNEY POSTS [ .jp ] -------------------------- */
 
-.journeyModalButton {
-  margin-bottom: 20px;
+
+.journeyEditButton {
+  height: 35px;
+  margin: 0px;
+}
+
+.journeyDeleteButton {
+  height: 35px;
+  margin: 0px;
+}
+
+.journeyModalButton {  
+  height: 75px;
+  width: 75px;
+  border-radius: 60px;
+  font-size: 3em;
+  vertical-align: middle !important;
 }
 
 .x {
@@ -7120,27 +7137,162 @@ img#chrome {
   color: #44ade2; /* Drkr Blu */
 }
 
-img.journeyKitDowload {
-  width: 30%;
-  height: 140px;
-  margin-top: 115px;
-  margin-bottom: 0px;
-  left: 55%;
-  vertical-align: center;
+div#tcDownloads {
+  text-align: center;
 }
 
-div#socialBadges {
-  vertical-align: center;
-  height: 150px;
+img.journeyKitDowload {
+  width: 365px;
+  display: inline-block;
+}
+
+div#socialBadges  {
   text-align: center;
+  margin-top: 0px;
+  margin-bottom: 40px;
 }
 
 img.socialBadges {
+  width: 55px;
   margin: 5px;
-  margin-bottom: 25px;
-  width: 65px;
-  text-align: center;
-  vertical-align: bottom;
+  display: inline-block;
+}
+
+/* ---------------------- HOVER TRANSITIONS ---------------------- */
+
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/* Grow Rotate */
+.hvr-grow-rotate {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-grow-rotate:hover, .hvr-grow-rotate:focus, .hvr-grow-rotate:active {
+  -webkit-transform: scale(1.1) rotate(4deg);
+  transform: scale(1.1) rotate(4deg);
+}
+
+/* Bounce In */
+.hvr-bounce-in {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+
+/* Bob */
+@-webkit-keyframes hvr-bob {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes hvr-bob {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+
+@-webkit-keyframes hvr-bob-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes hvr-bob-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+
+.hvr-bob {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+}
+.hvr-bob:hover, .hvr-bob:focus, .hvr-bob:active {
+  -webkit-animation-name: hvr-bob-float, hvr-bob;
+  animation-name: hvr-bob-float, hvr-bob;
+  -webkit-animation-duration: .3s, 1.5s;
+  animation-duration: .3s, 1.5s;
+  -webkit-animation-delay: 0s, .3s;
+  animation-delay: 0s, .3s;
+  -webkit-animation-timing-function: ease-out, ease-in-out;
+  animation-timing-function: ease-out, ease-in-out;
+  -webkit-animation-iteration-count: 1, infinite;
+  animation-iteration-count: 1, infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-direction: normal, alternate;
+  animation-direction: normal, alternate;
 }
 
 /* ------------------------- MEDIA QUERIES ------------------------- */
@@ -7150,13 +7302,25 @@ img.socialBadges {
     /*background-color: red;*/
   }
 
-  p.lead.center {
-    width: 90%;
-    font-size: 1.6875em;
+  button.journeyModalButton {
+  /*margin-bottom: 20px;*/
+  min-height: 75px;
+  width: 75px !important;
+  border-radius: 50px;
+  font-size: 3em;
+  }
+
+  div.center.welcome {
+    width: 300px;
+  }
+
+  div.center.welcome p {
+    width: 105%;
+    font-size: 1.5em;
   }
 
   img.crest {
-    width: 75%;
+    width: 100%;
     margin-bottom: 5px;
   }
 

@@ -38,13 +38,12 @@ NAME: Christina D. Thorpe-Rogers
 		</div>
 	
 	<!-- Crest & Welcone Text -->
-	<div class="center">
-		<img src="/ASL/Passport/assets/img/tcp-crest-yllwshirt.svg" class="crest" />
-		<p style="width:875px" class="lead center">Welcome Traveler! You have arrived at Traveling Children Project's Journey Blog! Here you can share your journey with other Travelers and see where their travels have led them.</p>
+	<div class="center welcome">
+		<img src="/ASL/Passport/assets/img/tcp-crest-yllwshirt.svg" class="crest hvr-grow-rotate" />
+		<p class="lead center">Welcome Traveler! You have arrived at Traveling Children Project's Journey Blog! Here you can share your journey with other Travelers and see where their travels have led them. <em style="font-weight:400;">Where has TC taken you? Click below to create a post of your latest journey.</em></p>
 		<!-- Button trigger modal -->
 		<button type="button" class="btn btn-primary btn-lg journeyModalButton journeyCreateButton" data-toggle="modal" data-target="#journeyModal">
-			<!-- <img src="/ASL/Passport/assets/img/tcp-compass-rose-org.svg" style="width:1.5em;" />&nbsp -->
-		   	<span class="glyphicon glyphicon-plus" style="color:#ef6831;font-size:1.0625em;" aria-hidden="true"></span>&nbsp Where has TC taken you? Click to create a post of your journey below.
+		   	<span class="glyphicon glyphicon-plus" style="color:#ef6831;font-size:1.0625em;" aria-hidden="true" style="width:150px;" data-toggle="tooltip" data-placement="right" title="Click to create post."></span>
 		</button>
 	</div>
 	
@@ -65,8 +64,8 @@ NAME: Christina D. Thorpe-Rogers
 				  <p class="htags"><?= $post->htags ?></p>
 				  <hr class="jp_divider"></hr>
 				  <!-- <a href="/ASL/Passport/journeys/edit/<?= $post->id ?>" class="btn btn-primary journeyButton" role="button">EDIT</a>  -->
-				  <button class="btn btn-primary journey_button" data-toggle="modal" data-target="#journeyModal">EDIT</button>
-				  <a href="/ASL/Passport/journeys/delete/<?= $post->id ?>" class="btn btn-warning" role="button">DELETE</a>
+				  <button class="btn btn-primary journeyEditButton" data-toggle="modal" data-target="#journeyModal">EDIT</button>
+				  <a href="/ASL/Passport/journeys/delete/<?= $post->id ?>" class="btn btn-warning journeyDeleteButton" role="button">DELETE</a>
 				</div><!-- /.journeyPost div -->
 			<? endforeach ?>
 			</div><!-- /.jp_wrapper -->
@@ -113,4 +112,10 @@ NAME: Christina D. Thorpe-Rogers
 				submitButton.value = "Create";
 			});
 		});
+	</script>
+		
+	<script>
+	$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	})
 	</script>

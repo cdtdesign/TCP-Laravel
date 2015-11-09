@@ -1,7 +1,8 @@
 <div class="container">
 	
-	<div>
-		<img src="/ASL/Passport/assets/img/tcp-crest-yllwshirt.svg" class="crest" />
+	<!-- Crest & Welcome Text -->
+	<div class="center welcome">
+		<img src="/ASL/Passport/assets/img/tcp-crest-yllwshirt.svg" class="crest hvr-grow-rotate" />
 		<p class="lead center">Welcome to the Traveling Children Project Passport! Your passport to fun experiences!</p>
 	</div>
 	

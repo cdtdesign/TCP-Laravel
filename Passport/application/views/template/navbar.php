@@ -9,7 +9,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-		  <a href="#"><img src="/ASL/Passport/assets/img/traveling-children-project-passport-wordmark.svg" lowsrc="/ASL/Passport/assets/img/traveling-children-project-passport-wordmark.png" alt="Traveling Children Project Passport" class="wordmark" /></a>
+		  <a href="#"><img src="/ASL/Passport/assets/img/traveling-children-project-passport-wordmark.svg" lowsrc="/ASL/Passport/assets/img/traveling-children-project-passport-wordmark.png" alt="Traveling Children Project Passport" class="wordmark hvr-grow" /></a>
 	    </div>
 		
 		  <!-- Collect the nav links, forms, and other content for toggling -->

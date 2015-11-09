@@ -9,14 +9,14 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-		  <a href="#"><img src="/ASL/Passport/assets/img/traveling-children-project-passport-wordmark.svg" lowsrc="/ASL/Passport/assets/img/traveling-children-project-passport-wordmark.png" alt="Traveling Children Project Passport" class="wordmark" /></a>
+		  <a href="#"><img src="/ASL/Passport/assets/img/traveling-children-project-passport-wordmark.svg" lowsrc="/ASL/Passport/assets/img/traveling-children-project-passport-wordmark.png" alt="Traveling Children Project Passport" class="wordmark hvr-grow" /></a>
 	    </div>
 		
 		  <!-- Collect the nav links, forms, and other content for toggling -->
 		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav navbar-right">
 	        <li><button class="btn aboutModalButton" data-toggle="modal" data-target="#aboutModal">About</button></li>
-			 <li class="disabled" data-toggle="tooltip" data-placement="bottom"><a href="#">Journey Blog</a></li>
+			 <li class="disabled" data-toggle="tooltip" data-placement="bottom" title="Sign-In to view Journey Blog"><a href="#">Journey Blog</a></li>
 			 <li><a href="#">Sign-In</a></li>
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign-Up <span class="caret"></span></a>
@@ -31,8 +31,3 @@
 	  </div><!-- /.container-fluid -->
 	</nav>
 </div><!-- /.container -->
-<script>
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
-</script>
