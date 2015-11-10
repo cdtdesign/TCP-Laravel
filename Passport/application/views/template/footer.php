@@ -7,7 +7,7 @@
 	        <a href="https://instagram.com/travelingchristian/" target="_blank"><img class="socialBadges hvr-bob" src="/ASL/Passport/assets/img/socials/tcp-social-instagram.png" title="IG" alt="Instagram"></a>
 	        <a href="https://www.facebook.com/TravelingChristian" target="_blank"><img class="socialBadges hvr-bob" src="/ASL/Passport/assets/img/socials/tcp-social-facebook.png" title="FB" alt="Facebook"></a>
 		</div><!-- END socialBadges -->
-		<div id="tcDownloads"><a href="http://bit.ly/JourneyKitPDF" target="_blank"><img src="/ASL/Passport/assets/img/tcp-journeykit-footer-peek.svg" class="journeyKitDowload" alt="Download TC here!"></a></div>
+		<div id="tcDownloads"><a href="http://bit.ly/JourneyKitPDF" target="_blank"><img src="/ASL/Passport/assets/img/tcp-journeykit-footer-peek.svg" class="journeyKitDowload" alt="Download TC here!" data-toggle="tooltip" data-placement="right" title="Download Journey Kit!"></a></div>
 	</div><!-- /.container -->
 	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

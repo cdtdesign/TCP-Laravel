@@ -6,12 +6,15 @@ class Journeys extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Journeys_model');
+		// Config for the upload library
 		$upload_config['upload_path'] = '/assets/uploads/';
 		$upload_config['allowed_types'] = 'gif|jpg|png';
 		$upload_config['max_size']	= '100';
 		$upload_config['max_width']  = '1024';
 		$upload_config['max_height']  = '768';
+		
+		// Load some libraries
+		$this->load->model('Journeys_model');
 		$this->load->library('upload', $upload_config);
 		$this->load->helper('url');
 	}
@@ -29,6 +32,7 @@ class Journeys extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 	
+	// Returns journey data for one journey as JSON
 	public function show($id)
 	{
 		echo $this->Journeys_model->journey_with_id($id);

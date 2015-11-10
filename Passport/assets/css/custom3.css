@@ -6881,10 +6881,15 @@ button.close {
 
 /* -------------------------- JOURNEY POSTS [ .jp ] -------------------------- */
 
-span.glyphicon.glyphicon-plus::before {
+span.glyphicon.glyphicon-plus {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+/*span.glyphicon.glyphicon-plus::before {
   margin: auto, 0;
   text-align: center;
-}
+}*/
 
 .journeyEditButton {
   height: 35px;
@@ -6960,6 +6965,7 @@ span.glyphicon.glyphicon-plus::before {
 
 .jp_img img {
   width: 290px;
+  
 }
 
 /*.journeyPost:nth-child(4) .jp_img img {

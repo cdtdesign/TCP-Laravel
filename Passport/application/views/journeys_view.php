@@ -1,7 +1,7 @@
 <!-- ////////////////////////////////////////////////
 
 COURSE: Advanced Server-Side Languages (ASL) - Online
-ASSIGNMENT: Week 2 - Project Version 1
+ASSIGNMENT: Week 2 - Project Version 1 - TCP Passport Web App
 DATE: November 5, 2015
 NAME: Christina D. Thorpe-Rogers
 
@@ -15,7 +15,6 @@ NAME: Christina D. Thorpe-Rogers
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <!-- <h4 class="modal-title" id="myModalLabel">Journey Post Entry...</h4> -->
 			
 				<!-- Journey Post Entry -->
 				<form action="journeys/create" class="form-inline journey-form" method="POST" enctype="multipart/form-data">
@@ -27,7 +26,6 @@ NAME: Christina D. Thorpe-Rogers
 					<textarea rows="10" name="body" class="form-control" value="" placeholder="Body..." required></textarea><br />
 					<input type="htags" name="htags" class="form-control" value="#HappyTravels #TravelingChristian" placeholder="#Hashtagserwttwttw" required /><br />
 					<input type="file" name="img" class="input-group" value="" accept="image/*" /><br />
-					<!-- <input type="submit" value="SUBMIT"/> -->
 			      </div>
 			      <div class="modal-footer">
 			      <input style="font-size:1.5em;border-radius:6px;" type="submit" class="btn btn-warning journeyUpdateButton" value="Create">
@@ -63,7 +61,6 @@ NAME: Christina D. Thorpe-Rogers
 				  <p class="jp_body"><?= $post->body ?></a></p>
 				  <p class="htags"><?= $post->htags ?></p>
 				  <hr class="jp_divider"></hr>
-				  <!-- <a href="/ASL/Passport/journeys/edit/<?= $post->id ?>" class="btn btn-primary journeyButton" role="button">EDIT</a>  -->
 				  <button class="btn btn-primary journeyEditButton" data-toggle="modal" data-target="#journeyModal">EDIT</button>
 				  <a href="/ASL/Passport/journeys/delete/<?= $post->id ?>" class="btn btn-warning journeyDeleteButton" role="button">DELETE</a>
 				</div><!-- /.journeyPost div -->
@@ -73,8 +70,16 @@ NAME: Christina D. Thorpe-Rogers
 	</div><!-- /.jp_section -->
 	
 </div><!-- /.container -->
+	
+	<script>
+	// Tooltip functionality
+	$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	})
+	</script>
 
 	<script>
+		// Link variables to field inputs
 		$(document).ready(function () {
 			var journeys 	= $(".journeyPost"),
 			buttons			= $(".journeyEditButton"),
@@ -86,11 +91,13 @@ NAME: Christina D. Thorpe-Rogers
 			htagsField 		= $('input[name="htags"]')[0],
 			journeyID 		= null;
 			
+			// Edit button click functionality
 			buttons.click(function () {
 				var button = this;
 				var journeyPost = journeys[$(buttons).index(button)];
 				journeyID = $(journeyPost).data('journey-id');
 				
+				// Gets the journey info and decodes the JSON
 				$.get('/ASL/Passport/journeys/show/' + journeyID, function (travelerPost) {
 					// var idField = $('#id-element')[0],
 					// imgField 		= $('input[name="img"]')[0];
@@ -105,17 +112,11 @@ NAME: Christina D. Thorpe-Rogers
 					$(".journey-form")[0].setAttribute("action", "/ASL/Passport/journeys/edit/" + journeyID);
 				});
 			});
-			
+			// Create button click functionality
 			var createJourneyButton = $(".journeyCreateButton")[0],
 			journeyUpdateButton = $('.journeyUpdateButton')[0];
 			$(createJourneyButton).click(function () {
 				submitButton.value = "Create";
 			});
 		});
-	</script>
-		
-	<script>
-	$(function () {
-	  $('[data-toggle="tooltip"]').tooltip()
-	})
 	</script>
