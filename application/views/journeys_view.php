@@ -34,7 +34,7 @@ NAME: Christina D. Thorpe-Rogers
 		    </div>
 		  </div>
 		</div>
-	
+
 	<!-- Crest & Welcone Text -->
 	<div class="center welcome">
 		<img src="/assets/img/tcp-crest-yllwshirt.svg" class="crest hvr-grow-rotate" />
@@ -64,7 +64,7 @@ NAME: Christina D. Thorpe-Rogers
 				  <button class="btn btn-primary journeyEditButton" data-toggle="modal" data-target="#journeyModal">EDIT</button>
 				  <a href="/journeys/delete/<?= $post->id ?>" class="btn btn-warning journeyDeleteButton" role="button">DELETE</a>
 				</div><!-- /.journeyPost div -->
-			<? endforeach ?>
+			<?php endforeach ?>
 			</div><!-- /.jp_wrapper -->
 		</div><!-- /.journey_post -->
 	</div><!-- /.jp_section -->
