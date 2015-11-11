@@ -17,8 +17,11 @@ NAME: Christina D. Thorpe-Rogers
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
 				<!-- Journey Post Entry -->
-				<form action="journeys/create" class="form-inline journey-form" method="POST" enctype="multipart/form-data">
-				<h4><input type="text" name="title" value="TC Journey to " placeholder="Enter Journey Post Title…" style="background:none;border:none;width:300px;color:#ee6730;" required /></h4>
+				<form action="/journeys/create" class="form-inline journey-form" method="POST" enctype="multipart/form-data">
+				<h4>
+					<label for="title">TC Journey to </label>
+					<input type="text" name="title" id="title" placeholder="Enter Journey Post Title…" style="background:none;border:none;color:#ee6730;margin-left: 15px;line-height: normal;width: 375px !important;" required />
+				</h4>
 			      </div>
 			      <div class="modal-body">
 					<input type="text" name="fname" class="form-control journeyPostTitle" value="" placeholder="Traveler's First Name…" required /><br />
