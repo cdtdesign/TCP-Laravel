@@ -6798,7 +6798,7 @@ body {
 }
 
 
-/* -------------------------- FORM --------------------------- */
+/* -------------------------- JOURNEY BLOG FORM --------------------------- */
 
 .form-control:focus {
   border-color: #f69568; /* was #85d5f8 */
@@ -6830,6 +6830,13 @@ form.journey-form input[type="text"] {
 .modal-header form h4 input[placeholder] {
   color: #ee6730;*/ /* Orange */
 }
+
+/* -------------------------- TRAVELER SIGN-UP FORM --------------------------- */
+
+#signupModal {
+  
+}
+
 
 /* ----------------------------- MODAL ------------------------------ */
 
@@ -7135,7 +7142,7 @@ img#chrome {
 }
 
 #footer {
-  margin-top: 50px;
+  margin-top: 20px;
   height: 50px;
   font-size: .8125em;
   color: #53b7e8; /* cyan 60% mag 10% */
@@ -7315,6 +7322,11 @@ img.socialBadges {
   body {
     /*background-color: red;*/
   }
+
+  span.glyphicon.glyphicon-plus {
+  margin-bottom: 5px;
+  margin-left: 15px;
+}
 
   button.journeyModalButton {
   /*margin-bottom: 20px;*/
