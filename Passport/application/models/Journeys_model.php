@@ -19,13 +19,18 @@ class Journeys_model extends CI_Model {
 	// Sending user input into DB
 	public function insert_entry($post)
 	{
+		$post['travelerid'] = '2';
 		$this->db->insert('journeys', $post);
 	}
 	
 	// Gets latest 10 records from DB, desc order by date, limit 10
 	public function getTenLatestPosts()
 	{
-		return $this->db->order_by('date', 'desc')->get('journeys', 10)->result();
+		$journeys = $this->db->order_by('date', 'desc')->get('journeys', 10)->result();
+		foreach ($journeys as $journey) {
+			$journey->user = $this->db->get_where('travelers', array('id' => $journey->travelerid))->result()[0];
+		}
+		return $journeys;
 	}
 	
 	// Get journey data

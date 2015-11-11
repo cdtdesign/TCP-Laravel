@@ -51,26 +51,26 @@
 			<integer>1</integer>
 			<key>contentSelection</key>
 			<data>
-			YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFy
-			Y2hpdmVyVCR0b3ASAAGGoK8QDwcIFRYXGBkfICEoLDA0OFUkbnVs
-			bNMJCgsMEBRXTlMua2V5c1pOUy5vYmplY3RzViRjbGFzc6MNDg+A
-			AoADgASjERITgAWABoAKgA5UdHlwZVRyb3dzVGtleXNfECZTZWxl
-			Y3Rpb25EZXRhaWxUeXBlUHJpbWFyeUtleWVkRGV0YWlsc9MJCgsa
-			HB6hG4AHoR2ACIAJUTIJ0iIjJCVaJGNsYXNzbmFtZVgkY2xhc3Nl
-			c18QE05TTXV0YWJsZURpY3Rpb25hcnmjJCYnXE5TRGljdGlvbmFy
-			eVhOU09iamVjdNIKCykroSqAC4AN0gstLi9ZTlMuc3RyaW5ngAxS
-			aWTSIiMxMl8QD05TTXV0YWJsZVN0cmluZ6MxMydYTlNTdHJpbmfS
-			IiM1Nl5OU011dGFibGVBcnJheaM1NydXTlNBcnJhedIiIyY5oiYn
-			XxAPTlNLZXllZEFyY2hpdmVy0Tw9VGRhdGGAAQAIABEAGgAjAC0A
-			MgA3AEkATwBWAF4AaQBwAHQAdgB4AHoAfgCAAIIAhACGAIsAkACV
-			AL4AxQDHAMkAywDNAM8A0QDSANcA4gDrAQEBBQESARsBIAEiASQB
-			JgErATUBNwE6AT8BUQFVAV4BYwFyAXYBfgGDAYYBmAGbAaAAAAAA
-			AAACAQAAAAAAAAA+AAAAAAAAAAAAAAAAAAABog==
+			YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFy
+			Y2hpdmVyVCR0b3ASAAGGoK0HCBUWFxgZHSQoLDA0VSRudWxs0wkK
+			CwwQFFdOUy5rZXlzWk5TLm9iamVjdHNWJGNsYXNzow0OD4ACgAOA
+			BKMREhOABYAGgAiADFR0eXBlVHJvd3NUa2V5c18QJlNlbGVjdGlv
+			bkRldGFpbFR5cGVQcmltYXJ5S2V5ZWREZXRhaWxz0wkKCxobHKCg
+			gAfSHh8gIVokY2xhc3NuYW1lWCRjbGFzc2VzXxATTlNNdXRhYmxl
+			RGljdGlvbmFyeaMgIiNcTlNEaWN0aW9uYXJ5WE5TT2JqZWN00goL
+			JSehJoAJgAvSCykqK1lOUy5zdHJpbmeAClJpZNIeHy0uXxAPTlNN
+			dXRhYmxlU3RyaW5noy0vI1hOU1N0cmluZ9IeHzEyXk5TTXV0YWJs
+			ZUFycmF5ozEzI1dOU0FycmF50h4fIjWiIiNfEA9OU0tleWVkQXJj
+			aGl2ZXLRODlUZGF0YYABAAgAEQAaACMALQAyADcARQBLAFIAWgBl
+			AGwAcAByAHQAdgB6AHwAfgCAAIIAhwCMAJEAugDBAMIAwwDFAMoA
+			1QDeAPQA+AEFAQ4BEwEVARcBGQEeASgBKgEtATIBRAFIAVEBVgFl
+			AWkBcQF2AXkBiwGOAZMAAAAAAAACAQAAAAAAAAA6AAAAAAAAAAAA
+			AAAAAAABlQ==
 			</data>
 			<key>contentSortColIsAsc</key>
 			<true/>
 			<key>contentViewport</key>
-			<string>{{0, 0}, {1298.5, 723}}</string>
+			<string>{{0, 0}, {1182.5, 723}}</string>
 			<key>isToolbarVisible</key>
 			<true/>
 			<key>table</key>
@@ -78,7 +78,7 @@
 			<key>view</key>
 			<string>SP_VIEW_CONTENT</string>
 			<key>windowVerticalDividerPosition</key>
-			<real>140</real>
+			<real>247</real>
 		</dict>
 	</dict>
 	<key>encrypted</key>
@@ -89,6 +89,9 @@
 	<array/>
 	<key>queryHistory</key>
 	<array>
+		<string>SET FOREIGN_KEY_CHECKS=1</string>
+		<string>SET FOREIGN_KEY_CHECKS=0</string>
+		<string>SELECT UUID()</string>
 		<string>UPDATE contacts SET fname='Patrick', lname='Rogers', phone='534453', email='pat@cdtdesign.com', url='https://www.facebook.com/patrick.rogers.7946' WHERE id='12'</string>
 		<string>select n as age,
 	case 
@@ -295,51 +298,6 @@ left join (
 where numbers.n &gt;= 18
 and numbers.n &lt;= 65</string>
 		<string>select n as age, Price,
-	case 
-	when dvdCountPrice is not null then dvdCountPrice
-	else 0
-	end as dvdCountPrice
-from numbers
-left join (
-	select age, count(dvd.dvdId) as dvdCountPrice
-	from dvd
-	join userDvd on userDvd.dvdId = dvd.dvdId
-	join users on users.userId = userDvd.userId
-	group by age asc
-) as dvdCount on dvdCount.age = numbers.n
-where numbers.n &gt;= 18
-and numbers.n &lt;= 65</string>
-		<string>select Price, n as age, 
-	case 
-	when dvdCountPrice is not null then dvdCountPrice
-	else 0
-	end as dvdCountPrice
-from numbers
-left join (
-	select age, Price, count(dvd.dvdId) as dvdCountPrice
-	from dvd
-	join userDvd on userDvd.dvdId = dvd.dvdId
-	join users on users.userId = userDvd.userId
-	group by age asc
-) as dvdCount on dvdCount.age = numbers.n
-where numbers.n &gt;= 18
-and numbers.n &lt;= 65</string>
-		<string>select n as age, 
-	case 
-	when dvdCountPrice is not null then dvdCountPrice
-	else 0
-	end as dvdCountPrice
-from numbers
-left join (
-	select age, Price, count(dvd.dvdId) as dvdCountPrice
-	from dvd
-	join userDvd on userDvd.dvdId = dvd.dvdId
-	join users on users.userId = userDvd.userId
-	group by age asc
-) as dvdCount on dvdCount.age = numbers.n
-where numbers.n &gt;= 18
-and numbers.n &lt;= 65</string>
-		<string>select n as age, Price
 	case 
 	when dvdCountPrice is not null then dvdCountPrice
 	else 0

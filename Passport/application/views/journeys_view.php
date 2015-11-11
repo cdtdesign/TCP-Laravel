@@ -21,7 +21,7 @@ NAME: Christina D. Thorpe-Rogers
 				<h4><input type="text" name="title" value="TC Journey to " placeholder="Enter Journey Post Title…" style="background:none;border:none;width:300px;color:#ee6730;" required /></h4>
 			      </div>
 			      <div class="modal-body">
-					<input type="text" name="fname" class="form-control journeyPostTitle" value="" placeholder="Traveler's First Name…" required /><br />
+					<input type="text" name="travelerid" class="form-control journeyPostTitle" value="3" placeholder="Traveler's First Name…" required /><br />
 					<input type="date" name="date" class="form-control" value="" autocomplete="on" required /><br />
 					<textarea rows="10" name="body" class="form-control" value="" placeholder="Body..." required></textarea><br />
 					<input type="htags" name="htags" class="form-control" value="#HappyTravels #TravelingChristian" placeholder="#Hashtagserwttwttw" required /><br />
@@ -57,7 +57,7 @@ NAME: Christina D. Thorpe-Rogers
 				  <?php if($post->img != NULL): ?>
 					  <div class="jp_img"><img src="/ASL/Passport/assets/uploads/<?= $post->img ?>"></div>
 				  <?php endif ?>
-				  <p class="jp_fname_date"><em><a href="#"><b>Traveling <?= $post->fname ?></b></a> / <?= $post->date ?></em></p>
+				  <p class="jp_fname_date"><em><a href="#"><b>Traveling <?= $post->user->fname ?></b></a> / <?= $post->date ?></em></p>
 				  <p class="jp_body"><?= $post->body ?></a></p>
 				  <p class="htags"><?= $post->htags ?></p>
 				  <hr class="jp_divider"></hr>
