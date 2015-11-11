@@ -6925,7 +6925,7 @@ button.close {
   /*color: #ee6730;*/ /* Orange */
   z-index: 8000;
   font-size:1.5em;
-  padding-right: 5px;
+  padding-right: 10px;
 }
 
 .jp_section {
@@ -6942,10 +6942,15 @@ button.close {
   width: 330px;
   min-height: 240px;
   margin: 25px;
-  padding: 15px;
+  /*padding: 15px;*/
   background-color: #fedf8d;
   border-radius: 4px;
 }
+
+.jpPadding {
+  padding: 15px;
+}
+
 
 .jp_wrapper {
     display: inline-block;
@@ -6959,21 +6964,19 @@ button.close {
 .jp_title {
   font-weight: 300;
   font-size: 1.5em;
-  line-height: .9625em;
+  text-align: center;
+  line-height: 1.125em;
   color: #ee6730; /* Orange */
 }
 
 .jp_img {
-  width: 290px;
-  height: 290px;
+  width: 100%;
   overflow: hidden;
-  margin: 5px;
-  /*border-color: #fedf8d;*/
   background-color: rgba(255, 255, 255, .25);
 }
 
 .jp_img img {
-  width: 290px;
+  width: 330px;
   
 }
 

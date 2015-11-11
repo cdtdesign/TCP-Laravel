@@ -52,17 +52,22 @@ NAME: Christina D. Thorpe-Rogers
 			<?php foreach ($ten_posts as $post): ?>
 				<div class="journeyPost" data-journey-id="<?= $post->id ?>">
 				  <a class="x" href="journeys/delete/<?= $post->id ?>">&times</a>
-				  <p class="jp_title"><b></b><?= $post->title ?></p>
-				  
+				  <div class="jpPadding">
+				  	<p class="jp_title"><b></b><?= $post->title ?></p>
+				  </div><!-- /.jpPadding -->
 				  <?php if($post->img != NULL): ?>
 					  <div class="jp_img"><img src="/ASL/Passport/assets/uploads/<?= $post->img ?>"></div>
 				  <?php endif ?>
-				  <p class="jp_fname_date"><em><a href="#"><b>Traveling <?= $post->user->fname ?></b></a> / <?= $post->date ?></em></p>
-				  <p class="jp_body"><?= $post->body ?></a></p>
-				  <p class="htags"><?= $post->htags ?></p>
-				  <hr class="jp_divider"></hr>
-				  <button class="btn btn-primary journeyEditButton" data-toggle="modal" data-target="#journeyModal">EDIT</button>
-				  <a href="/ASL/Passport/journeys/delete/<?= $post->id ?>" class="btn btn-warning journeyDeleteButton" role="button">DELETE</a>
+				  <div class="jpPadding">
+					  <p class="jp_fname_date"><em><a href="#"><b>Traveling <?= $post->user->fname ?></b></a> / <?= $post->date ?></em></p>
+					  <p class="jp_body"><?= $post->body ?></a></p>
+					  <p class="htags"><?= $post->htags ?></p>
+			  	  </div><!-- /.jpPadding -->
+				  <div class="jpPadding">
+					  <hr class="jp_divider"></hr>
+					  <button class="btn btn-primary journeyEditButton" data-toggle="modal" data-target="#journeyModal">EDIT</button>
+					  <a href="/ASL/Passport/journeys/delete/<?= $post->id ?>" class="btn btn-warning journeyDeleteButton" role="button">DELETE</a>
+				   </div><!-- /.jpPadding -->
 				</div><!-- /.journeyPost div -->
 			<? endforeach ?>
 			</div><!-- /.jp_wrapper -->
