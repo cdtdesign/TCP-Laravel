@@ -13,7 +13,7 @@ NAME: Christina D. Thorpe-Rogers
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h2>Traveler Passport Profile</h2>
+				<h4>Traveler Passport Profile</h4>
 				<!-- Traveler Email Sign-Up -->
 				<form action="home/signup" class="form-inline signup-form" method="POST" enctype="multipart/form-data">
 			      </div><!-- /.modal-header -->

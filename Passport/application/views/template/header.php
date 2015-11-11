@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title><?= $title ?></title>
-	<link rel="icon" type="image/png" href="/ASL/Passport/assets/img/favicon.png">
+	<link rel="icon" type="image/png" href="ASL/Passport/assets/img/favicon.png">
     <!-- Bootstrap -->
     <link href="/ASL/Passport/assets/css/bootstrap.min.css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="/ASL/Passport/assets/css/custom3.css" />

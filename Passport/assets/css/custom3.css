@@ -6888,14 +6888,16 @@ button.close {
 
 /* -------------------------- JOURNEY POSTS [ .jp ] -------------------------- */
 
-span.glyphicon.glyphicon-plus {
+.glyphicon.glyphicon-plus {
   margin-bottom: 10px;
   margin-right: 10px;
+  text-align: center;
 }
 
-/*span.glyphicon.glyphicon-plus::before {
+/*.glyphicon.glyphicon-plus::before {
   margin: auto, 0;
   text-align: center;
+  vertical-align: middle;
 }*/
 
 .journeyEditButton {
