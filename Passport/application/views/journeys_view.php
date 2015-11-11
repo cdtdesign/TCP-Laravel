@@ -62,8 +62,7 @@ NAME: Christina D. Thorpe-Rogers
 					  <p class="jp_fname_date"><em><a href="#"><b>Traveling <?= $post->user->fname ?></b></a> / <?= $post->date ?></em></p>
 					  <p class="jp_body"><?= $post->body ?></a></p>
 					  <p class="htags"><?= $post->htags ?></p>
-			  	  </div><!-- /.jpPadding -->
-				  <div class="jpPadding">
+					  <!-- Modal Footer -->
 					  <hr class="jp_divider"></hr>
 					  <button class="btn btn-primary journeyEditButton" data-toggle="modal" data-target="#journeyModal">EDIT</button>
 					  <a href="/ASL/Passport/journeys/delete/<?= $post->id ?>" class="btn btn-warning journeyDeleteButton" role="button">DELETE</a>
