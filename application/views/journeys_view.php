@@ -8,7 +8,15 @@ NAME: Christina D. Thorpe-Rogers
 ///////////////////////////////////////////////// -->
 
 <div class="container">
-
+<?php if ($this->session->flashdata('image_uploaded')): ?>
+	<div class="message-container">
+		<p class="message success-message">Saved!</p>
+	</div>
+	<script>
+		// Jump to the edited post (The space offset is in the styles of the anchor)
+		window.location.href = "#<?= $this->session->flashdata('post_edited') ?>";
+	</script>
+<?php endif ?>
 	<!-- Modal -->
 		<div class="modal fade" id="journeyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">
@@ -28,7 +36,7 @@ NAME: Christina D. Thorpe-Rogers
 					<input type="date" name="date" class="form-control" value="" autocomplete="on" required /><br />
 					<textarea rows="10" name="body" class="form-control" value="" placeholder="Body..." required></textarea><br />
 					<input type="htags" name="htags" class="form-control" value="#HappyTravels #TravelingChristian" placeholder="#Hashtagserwttwttw" required /><br />
-					<input type="file" name="img" class="input-group" value="" accept="image/*" /><br />
+					<input type="file" name="journey_header_image" class="input-group" value="" accept="image/*" /><br />
 			      </div>
 			      <div class="modal-footer">
 			      <input style="font-size:1.5em;border-radius:6px;" type="submit" class="btn btn-warning journeyUpdateButton" value="Create">
@@ -38,7 +46,7 @@ NAME: Christina D. Thorpe-Rogers
 		  </div>
 		</div>
 
-	<!-- Crest & Welcone Text -->
+	<!-- Crest & Welcome Text -->
 	<div class="center welcome">
 		<img src="/assets/img/tcp-crest-yllwshirt.svg" class="crest hvr-grow-rotate" />
 		<p class="lead center">Welcome Traveler! You have arrived at Traveling Children Project's Journey Blog! Here you can share your journey with other Travelers and see where their travels have led them. <em style="font-weight:400;">Where has TC taken you? Click below to create a post of your latest journey.</em></p>
@@ -54,6 +62,7 @@ NAME: Christina D. Thorpe-Rogers
 			<div class="jp_wrapper">
 			<?php foreach ($ten_posts as $post): ?>
 				<div class="journeyPost" data-journey-id="<?= $post->id ?>">
+					<a name="<?= $post->id ?>"></a>
 				  <a class="x" href="journeys/delete/<?= $post->id ?>">&times</a>
 				  <p class="jp_title"><b></b><?= $post->title ?></p>
 
@@ -115,11 +124,25 @@ NAME: Christina D. Thorpe-Rogers
 					$(".journey-form")[0].setAttribute("action", "/journeys/edit/" + journeyID);
 				});
 			});
+
 			// Create button click functionality
 			var createJourneyButton = $(".journeyCreateButton")[0],
 			journeyUpdateButton = $('.journeyUpdateButton')[0];
 			$(createJourneyButton).click(function () {
 				submitButton.value = "Create";
 			});
+
+			// If the message container is showing we'll animate it away
+			var messageContainer = $(".message-container");
+			$(messageContainer).click(function () {
+				// If the user is impatient and clicks the message
+				// container we'll get it out of their way
+				messageContainer.fadeOut();
+			});
+			setTimeout(function () {
+				// Otherwise we'll dismiss the message
+				// container after a few seconds
+				messageContainer.fadeOut();
+			}, 2250);
 		});
 	</script>

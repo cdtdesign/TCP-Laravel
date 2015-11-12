@@ -6827,6 +6827,45 @@ form.journey-form input[type="text"] {
   width: 535px !important ;
 }
 
+.message-container {
+  background-color: rgba(255, 255, 255, 0.975);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.message {
+  color: #444;
+  font-size: 1.35em;
+  letter-spacing: 0.5px;
+  position: absolute;
+  top: 45%;
+  text-align: center;
+  width: 100%;
+}
+
+/* Page jump offset */
+a[name] {
+    position: relative;
+    border-top: -100px solid transparent;
+    margin-top: -20px;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+}
+
+a[name]:before {
+    content: "";
+    position: absolute;
+    top: -35px;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #ccc;
+}
+
 .modal-header form h4 input[placeholder] {
   color: #ee6730;*/ /* Orange */
 }

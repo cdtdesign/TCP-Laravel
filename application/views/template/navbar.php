@@ -9,7 +9,11 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-		  <a href="home"><img src="/assets/img/traveling-children-project-passport-wordmark.svg" lowsrc="/assets/img/traveling-children-project-passport-wordmark.png" alt="Traveling Children Project Passport" class="wordmark hvr-grow" /></a>
+		  <a href="/home">
+				<!-- <object class="wordmark hvr-grow" data="/assets/img/traveling-children-project-passport-wordmark.svg" type="image/svg+xml"> -->
+				  <img src="/assets/img/traveling-children-project-passport-wordmark.png" alt="Traveling Children Project Passport" class="wordmark hvr-grow">
+				<!-- </object> -->
+			</a>
 	    </div>
 
 		  <!-- Collect the nav links, forms, and other content for toggling -->
