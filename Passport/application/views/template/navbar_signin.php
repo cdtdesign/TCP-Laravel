@@ -60,7 +60,7 @@ NAME: Christina D. Thorpe-Rogers
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign-Up <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li id="facebook-signup"><?= $fbook ?></li>
+	            <li id="facebook-signup"><?php echo '<a href="' . htmlspecialchars($loginUrl) . '">Sign-In with Facebook!</a>'; ?></li>
 					<!-- <a href="#">Sign-In with Facebook!</a></li> -->
 	            <li role="separator" class="divider"></li>
 				<!-- Button trigger signup modal -->
