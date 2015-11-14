@@ -6,7 +6,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 require_once __DIR__ . '../../../assets/Facebook/autoload.php';
 
 class Home extends CI_Controller {
-	
 	public function __construct()
 	{
 	parent::__construct();
@@ -24,19 +23,20 @@ class Home extends CI_Controller {
 			  ]);
 	$helper = $fb->getRedirectLoginHelper();
 	$permissions = ['email', 'public_profile', 'user_friends']; // Optional permissions
-	$loginUrl = $helper->getLoginUrl('https://example.com/fb-callback.php', $permissions);
+	$loginUrl = $helper->getLoginUrl('https://' . $_SERVER['HTTP_HOST'] . '/fb-callback.php', $permissions);
 	// $loginUrl = $helper->getLoginUrl('https://example.com/fb-callback.php', $permissions);
 	// echo '<a href="' . htmlspecialchars($loginUrl) . '">Sign-In with Facebook!</a>';
-	// $fbook['fbook'] = '<a href="' . htmlspecialchars($loginUrl) . '">Sign-In with Facebook!</a>';
+	$this->fbook = '<a href="' . htmlspecialchars($loginUrl) . '">Sign-In with Facebook!</a>';
 	// echo $loginUrl;
 	}
 		
 	public function index()
 	{
 		// Loads the views for navbar.php, header.php, home_view.php and footer.php
-		$title['title'] = 'TCP Passport';
-		$this->load->view('template/navbar_signin');
-		$this->load->view('template/header', $title);
+		$viewData['title'] = 'TCP Passport';
+		$viewData['fbook'] = $this->fbook;
+		$this->load->view('template/navbar_signin', $viewData);
+		$this->load->view('template/header');
 		$this->load->view('home_view');
 		$this->load->view('template/footer');
 	}
