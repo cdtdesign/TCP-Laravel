@@ -15,15 +15,14 @@
 		  <!-- Collect the nav links, forms, and other content for toggling -->
 		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><button class="btn aboutModalButton" data-toggle="modal" data-target="#aboutModal">About</button></li>
+	        <li><button class="btn aboutModalButton" data-toggle="modal" data-target="#aboutModal"><a href="#">About</a></button></li>
 			 <li><a href="#">Journey Blog</a></li>
-			 <li><a href="#"><?php  ?></a></li>
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Passport <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li id=""><a href="#"></a></li>
-	            <li role="separator" class="divider"></li>
 	            <li><a href="#">Account Settings</a></li>
+	            <li role="separator" class="divider"></li>
+	            <li><a href="#">Sign Out</a></li>
 	          </ul>
 	        </li>
 	      </ul>

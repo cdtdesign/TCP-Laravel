@@ -9,7 +9,7 @@ class Home extends CI_Controller {
 	public function __construct()
 	{
 	parent::__construct();
-	$this->config->load('config_fb');
+	// $this->config->load('config_fb');
 	$fb = new Facebook\Facebook([
 			  'app_id' => '1660831194160373',
 			  'app_secret' => '7a2c2ba7ec16c0f7c757375220d356c2',
@@ -23,10 +23,8 @@ class Home extends CI_Controller {
 			  ]);
 	$helper = $fb->getRedirectLoginHelper();
 	$permissions = ['email', 'public_profile', 'user_friends']; // Optional permissions
-	$loginUrl = $helper->getLoginUrl('https://' . $_SERVER['HTTP_HOST'] . '/fb-callback.php', $permissions);
-	// $loginUrl = $helper->getLoginUrl('https://example.com/fb-callback.php', $permissions);
-	// echo '<a href="' . htmlspecialchars($loginUrl) . '">Sign-In with Facebook!</a>';
-	$this->fbook = '<a href="' . htmlspecialchars($loginUrl) . '">Sign-In with Facebook!</a>';
+	$loginUrl = $helper->getLoginUrl('http://tcp.dev/ASL/Passport/home#signupModal', $permissions);
+	$this->fbook = '<a href="' . htmlspecialchars($loginUrl) . '">Sign In with Facebook!</a>';
 	// echo $loginUrl;
 	}
 		
@@ -39,5 +37,11 @@ class Home extends CI_Controller {
 		$this->load->view('template/header');
 		$this->load->view('home_view');
 		$this->load->view('template/footer');
+	}
+	public function logout() {
+	$signed_request_cookie = 'fbsr_' . $this->config->item('appID');
+	setcookie($signed_request_cookie, '', time() - 3600, "/");
+	$this->session->sess_destroy();  //session destroy
+	redirect('home', 'refresh');  //redirect to the home page
 	}
 }

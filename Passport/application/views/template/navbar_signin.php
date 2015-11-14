@@ -54,17 +54,17 @@ NAME: Christina D. Thorpe-Rogers
 		  <!-- Collect the nav links, forms, and other content for toggling -->
 		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><button class="btn aboutModalButton" data-toggle="modal" data-target="#aboutModal">About</button></li>
+	        <li><button class="btn aboutModalButton" data-toggle="modal" data-target="#aboutModal"><a href="#">About</a></button></li>
 			 <li class="disabled" data-toggle="tooltip" data-placement="bottom" title="Sign-In to view Journey Blog"><a href="#">Journey Blog</a></li>
-			 <li><a href="#">Sign-In</a></li>
+			 <li><a href="#">Sign In</a></li>
 	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign-Up <span class="caret"></span></a>
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign Up <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 	            <li id="facebook-signup"><?= $fbook ?></li>
 					<!-- <a href="#">Sign-In with Facebook!</a></li> -->
 	            <li role="separator" class="divider"></li>
 				<!-- Button trigger signup modal -->
-	            <li data-toggle="modal" data-target=".bs-example-modal-sm"><a href="#">Sign-Up with Your Email</a></li>
+	            <li data-toggle="modal" data-target=".bs-example-modal-sm"><a href="#signupModal">Sign Up with Your Email</a></li>
 	          </ul>
 	        </li>
 	      </ul>

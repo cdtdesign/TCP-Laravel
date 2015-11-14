@@ -7016,13 +7016,21 @@ button.close {
   color: #fff;
 }
 
-/*.aboutModalButton a {
-  color: #ee6730; /* Orange */
-}*/
+.aboutModalButton a {
+  color: #fff;
+}
 
-button:hover.aboutModalButton {
+.aboutModalButton a:hover {
   color: #ee6730; /* Orange */
 }
+
+/*button:active.aboutModalButton {
+  border: none;
+}
+
+button:visited.aboutModalButton {
+  border: none;
+}*/
 
 .navbar {
   /*background: #3a2417 url('../img/traveling-children-project-passport-wordmark.svg') no-repeat left center;*/
