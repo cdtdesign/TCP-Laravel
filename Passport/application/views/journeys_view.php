@@ -7,7 +7,7 @@ NAME: Christina D. Thorpe-Rogers
 
 ///////////////////////////////////////////////// -->
 	
-<div class="container">
+<div class="navAllowance container">
 
 	<!-- Modal -->
 		<div class="modal fade" id="journeyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

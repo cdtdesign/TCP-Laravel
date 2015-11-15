@@ -1,5 +1,4 @@
 <?php
-session_start();
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 //include the autoload.php from Facebook directory
@@ -10,25 +9,34 @@ class Home extends CI_Controller {
 	{
 	parent::__construct();
 	// $this->config->load('config_fb');
-	$fb = new Facebook\Facebook([
+	// session_start();
+	$this->fb = new Facebook\Facebook([
 			  'app_id' => '1660831194160373',
 			  'app_secret' => '7a2c2ba7ec16c0f7c757375220d356c2',
 			  'default_access_token' => '{access-token}',
 			  'enable_beta_mode' => true,
 			  'default_graph_version' => 'v2.3',
 			  // 'http_client_handler' => 'guzzle',
-			  'persistent_data_handler' => 'session', // Other option is 'memory'
+			  'persistent_data_handler' => 'session' // Other option is 'memory'
 			  // 'url_detection_handler' => new MyUrlDetectionHandler(),
 			  // 'pseudo_random_string_generator' => new MyPseudoRandomStringGenerator(),
 			  ]);
-	$helper = $fb->getRedirectLoginHelper();
-	$permissions = ['email', 'public_profile', 'user_friends']; // Optional permissions
-	$loginUrl = $helper->getLoginUrl('http://tcp.dev/ASL/Passport/home#signupModal', $permissions);
-	$this->fbook = '<a href="' . htmlspecialchars($loginUrl) . '">Sign In with Facebook!</a>';
+	$helper = $this->fb->getRedirectLoginHelper();
+	$permissions = ['email', 'public_profile']; // Optional permissions
+	$loginUrl = $helper->getLoginUrl('http://tcp.dev/ASL/Passport/', $permissions);
+	$this->fbook = '<a href="' . htmlspecialchars($loginUrl) . '">Sign Up with Facebook!</a>';
+	$jsHelper = $this->fb->getJavaScriptHelper();
+	$this->access_token = $jsHelper->getAccessToken();
 	// echo $loginUrl;
+	
+	$this->load->model('Traveler_model');
 	}
-		
-	public function index()
+	
+	public function index() {
+		redirect('home');
+	}
+	
+	public function home()
 	{
 		// Loads the views for navbar.php, header.php, home_view.php and footer.php
 		$viewData['title'] = 'TCP Passport';
@@ -38,10 +46,22 @@ class Home extends CI_Controller {
 		$this->load->view('home_view');
 		$this->load->view('template/footer');
 	}
+	
+	public function create_traveler() {
+		/**
+		 * Create a new user and save their information
+		 * to the database by sending it to the model
+		 */
+		$traveler = $this->input->post();
+		$traveler['street'] = "";
+		$traveler['city'] = "";
+		$traveler['state'] = "";
+		$traveler['zip'] = "";
+		$traveler['birthday'] = "";
+		$traveler['pic'] = "";
+		$this->Traveler_model->save_traveler($traveler);
+	}
+	
 	public function logout() {
-	$signed_request_cookie = 'fbsr_' . $this->config->item('appID');
-	setcookie($signed_request_cookie, '', time() - 3600, "/");
-	$this->session->sess_destroy();  //session destroy
-	redirect('home', 'refresh');  //redirect to the home page
 	}
 }

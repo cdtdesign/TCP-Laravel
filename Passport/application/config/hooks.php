@@ -11,3 +11,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |	http://codeigniter.com/user_guide/general/hooks.html
 |
 */
+
+$hook['pre_system'] = array(
+    'function' => 'auth_constants',
+    'filename' => 'auth_constants.php',
+    'filepath' => 'hooks'
+);

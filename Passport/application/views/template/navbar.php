@@ -22,7 +22,7 @@
 	          <ul class="dropdown-menu">
 	            <li><a href="#">Account Settings</a></li>
 	            <li role="separator" class="divider"></li>
-	            <li><a href="#">Sign Out</a></li>
+	            <li><a href="#" id="logoutLink">Sign Out</a></li>
 	          </ul>
 	        </li>
 	      </ul>

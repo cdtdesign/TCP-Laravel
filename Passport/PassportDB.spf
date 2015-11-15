@@ -45,8 +45,6 @@
 		<dict>
 			<key>connectionEncoding</key>
 			<string>utf8</string>
-			<key>contentFilter</key>
-			<dict/>
 			<key>contentPageNumber</key>
 			<integer>1</integer>
 			<key>contentSelection</key>
@@ -58,25 +56,25 @@
 			bkRldGFpbFR5cGVQcmltYXJ5S2V5ZWREZXRhaWxz0wkKCxobHKCg
 			gAfSHh8gIVokY2xhc3NuYW1lWCRjbGFzc2VzXxATTlNNdXRhYmxl
 			RGljdGlvbmFyeaMgIiNcTlNEaWN0aW9uYXJ5WE5TT2JqZWN00goL
-			JSehJoAJgAvSCykqK1lOUy5zdHJpbmeAClJpZNIeHy0uXxAPTlNN
-			dXRhYmxlU3RyaW5noy0vI1hOU1N0cmluZ9IeHzEyXk5TTXV0YWJs
-			ZUFycmF5ozEzI1dOU0FycmF50h4fIjWiIiNfEA9OU0tleWVkQXJj
-			aGl2ZXLRODlUZGF0YYABAAgAEQAaACMALQAyADcARQBLAFIAWgBl
-			AGwAcAByAHQAdgB6AHwAfgCAAIIAhwCMAJEAugDBAMIAwwDFAMoA
-			1QDeAPQA+AEFAQ4BEwEVARcBGQEeASgBKgEtATIBRAFIAVEBVgFl
-			AWkBcQF2AXkBiwGOAZMAAAAAAAACAQAAAAAAAAA6AAAAAAAAAAAA
-			AAAAAAABlQ==
+			JSehJoAJgAvSCykqK1lOUy5zdHJpbmeACld1c2VyX2lk0h4fLS5f
+			EA9OU011dGFibGVTdHJpbmejLS8jWE5TU3RyaW5n0h4fMTJeTlNN
+			dXRhYmxlQXJyYXmjMTMjV05TQXJyYXnSHh8iNaIiI18QD05TS2V5
+			ZWRBcmNoaXZlctE4OVRkYXRhgAEACAARABoAIwAtADIANwBFAEsA
+			UgBaAGUAbABwAHIAdAB2AHoAfAB+AIAAggCHAIwAkQC6AMEAwgDD
+			AMUAygDVAN4A9AD4AQUBDgETARUBFwEZAR4BKAEqATIBNwFJAU0B
+			VgFbAWoBbgF2AXsBfgGQAZMBmAAAAAAAAAIBAAAAAAAAADoAAAAA
+			AAAAAAAAAAAAAAGa
 			</data>
 			<key>contentSortColIsAsc</key>
 			<true/>
 			<key>contentViewport</key>
-			<string>{{0, 0}, {1182.5, 723}}</string>
+			<string>{{0, 0}, {1080, 723}}</string>
 			<key>isToolbarVisible</key>
 			<true/>
 			<key>table</key>
 			<string>travelers</string>
 			<key>view</key>
-			<string>SP_VIEW_CONTENT</string>
+			<string>SP_VIEW_CUSTOMQUERY</string>
 			<key>windowVerticalDividerPosition</key>
 			<real>247</real>
 		</dict>
@@ -89,6 +87,110 @@
 	<array/>
 	<key>queryHistory</key>
 	<array>
+		<string>--
+-- Community Auth - MySQL table install
+--
+-- Community Auth is an open source authentication application for CodeIgniter 3
+--
+-- @package     Community Auth
+-- @author      Robert B Gottier
+-- @copyright   Copyright (c) 2011 - 2015, Robert B Gottier. (http://brianswebdesign.com/)
+-- @license     BSD - http://www.opensource.org/licenses/BSD-3-Clause
+-- @link        http://community-auth.com
+--
+
+--
+-- Table structure for table `ci_session`
+--
+
+CREATE TABLE IF NOT EXISTS `ci_sessions` (
+  `ai` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `id` varchar(40) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `timestamp` int(10) unsigned NOT NULL DEFAULT '0',
+  `data` blob NOT NULL,
+  PRIMARY KEY (`ai`),
+  UNIQUE KEY `ci_sessions_id_ip` (`id`,`ip_address`),
+  KEY `ci_sessions_timestamp` (`timestamp`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ips_on_hold`
+--
+
+CREATE TABLE IF NOT EXISTS `ips_on_hold` (
+  `ai` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `IP_address` varchar(45) NOT NULL,
+  `time` datetime NOT NULL,
+  PRIMARY KEY (`ai`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login_errors`
+--
+
+CREATE TABLE IF NOT EXISTS `login_errors` (
+  `ai` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username_or_email` varchar(255) NOT NULL,
+  `IP_address` varchar(45) NOT NULL,
+  `time` datetime NOT NULL,
+  PRIMARY KEY (`ai`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `denied_access`
+--
+
+CREATE TABLE IF NOT EXISTS `denied_access` (
+  `ai` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `IP_address` varchar(45) NOT NULL,
+  `time` datetime NOT NULL,
+  `reason_code` tinyint(2) DEFAULT 0,
+  PRIMARY KEY (`ai`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `username_or_email_on_hold`
+--
+
+CREATE TABLE IF NOT EXISTS `username_or_email_on_hold` (
+  `ai` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username_or_email` varchar(255) NOT NULL,
+  `time` datetime NOT NULL,
+  PRIMARY KEY (`ai`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `user_id` int(10) unsigned NOT NULL,
+  `user_name` varchar(12) DEFAULT NULL,
+  `user_email` varchar(255) NOT NULL,
+  `user_pass` varchar(60) NOT NULL,
+  `user_salt` varchar(32) NOT NULL,
+  `user_last_login` datetime DEFAULT NULL,
+  `user_login_time` datetime DEFAULT NULL,
+  `user_session_id` varchar(40) DEFAULT NULL,
+  `user_date` datetime NOT NULL,
+  `user_modified` datetime NOT NULL,
+  `user_agent_string` varchar(32) DEFAULT NULL,
+  `user_level` tinyint(2) unsigned NOT NULL,
+  `user_banned` enum('0','1') NOT NULL DEFAULT '0',
+  `passwd_recovery_code` varchar(60) DEFAULT NULL,
+  `passwd_recovery_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `user_name` (`user_name`),
+  UNIQUE KEY `user_email` (`user_email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------</string>
+		<string>-- --------------------------------------------------------</string>
 		<string>SET FOREIGN_KEY_CHECKS=1</string>
 		<string>SET FOREIGN_KEY_CHECKS=0</string>
 		<string>SELECT UUID()</string>
@@ -275,36 +377,6 @@ and numbers.n &lt;= 65</string>
 from numbers
 left join (
 	select age, Price, count(dvd.dvdId) as dvdCount
-	from dvd
-	join userDvd on userDvd.dvdId = dvd.dvdId
-	join users on users.userId = userDvd.userId
-	group by age asc
-) as dvdCount on dvdCount.age = numbers.n
-where numbers.n &gt;= 18
-and numbers.n &lt;= 65</string>
-		<string>select n as age, Price,
-	case 
-	when dvdCountPrice is not null then dvdCountPrice
-	else 0
-	end as dvdCountPrice
-from numbers
-left join (
-	select age, Price, count(dvd.dvdId) as dvdCountPrice
-	from dvd
-	join userDvd on userDvd.dvdId = dvd.dvdId
-	join users on users.userId = userDvd.userId
-	group by age asc
-) as dvdCount on dvdCount.age = numbers.n
-where numbers.n &gt;= 18
-and numbers.n &lt;= 65</string>
-		<string>select n as age, Price,
-	case 
-	when dvdCountPrice is not null then dvdCountPrice
-	else 0
-	end as dvdCountPrice
-from numbers
-left join (
-	select age, count(dvd.dvdId) as dvdCountPrice
 	from dvd
 	join userDvd on userDvd.dvdId = dvd.dvdId
 	join users on users.userId = userDvd.userId

@@ -26,7 +26,10 @@ NAME: Christina D. Thorpe-Rogers
 					<input type="text" name="state" class="form-control" value="" placeholder="ST" autocomplete="on" required /><br />
 					<input type="text" name="zip" class="form-control" value="" placeholder="Zip Code" autocomplete="on" required /><br />
 					<input type="date" name="birth" class="form-control" value="" autocomplete="on" required />
-					<div style="margin-top:15px;margin-bottom:15px;"><input type="radio" name="msex" value="male" checked> Male <input type="radio" name="fsex" style="margin:5px;" ="female"> Female <input type="radio" name="nosex" value="decline" style="margin:5px;"> Decline <br /></div>
+					<div style="margin-top:15px;margin-bottom:15px;">
+						<input type="radio" name="sex" value="male" checked> Male </input>
+						<input type="radio" name="sex" value="female" style="margin:5px;"> Female </input>
+						<input type="radio" name="sex" value="decline" style="margin:5px;"> Decline </input><br /></div>
 					<input type="file" name="img" class="input-group" value="" accept="image/*" /><br />
 			      </div><!-- /.modal-body -->
 			      <div class="modal-footer">

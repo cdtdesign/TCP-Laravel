@@ -13,8 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 body {
 	text-align: center;
 	background-color: #fedf8d;
-	margin: 5%;
-	font: 2em normal Helvetica, Arial, sans-serif;
+	margin: 3%;
+	font: 1.25em normal Helvetica, Arial, sans-serif;
 	font-weight: bold;
 	color: #ef6831;
 }
@@ -31,7 +31,7 @@ h1 {
 	color: #ef6831;
 	background-color: transparent;
 	/*border-bottom: 1px solid #D0D0D0;*/
-	font-size: 15em;
+	font-size: 1em;
 	font-weight: bold;
 	letter-spacing: -.04em;
 	margin: 0 0 0px 0;
@@ -41,13 +41,13 @@ h1 {
 code {
 	text-align: center;
 	font-family: Helvetica, Arial, sans-serif;
-	font-size: 12px;
+	font-size: 1em;
 	background-color: #f9f9f9;
 	/*border: 1px solid #D0D0D0;*/
 	color: #002166;
 	display: block;
-	margin: 14px 0 14px 0;
-	padding: 5px 5px 5px 5px;
+	margin: 4px 0 4px 0;
+	padding: 5px 5px 0px 5px;
 }
 
 #container {
@@ -57,14 +57,14 @@ code {
 }
 
 p {
-	font-size: 3em;
-	line-height: .0625em;
-	letter-spacing: -.04em;
-	margin: 5px 5px 5px 5px;
+	font-size: 1em;
+/*	line-height: .0625em;
+*/	letter-spacing: -.04em;
+	margin: 5px 5px 0px 5px;
 }
 
 #thumbsDownError {
-	width: 65%;
+	width: 60%;
 }
 </style>
 </head>
