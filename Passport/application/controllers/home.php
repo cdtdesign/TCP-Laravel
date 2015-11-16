@@ -31,11 +31,16 @@ class Home extends Auth_Controller {
 		// echo $loginUrl;
 	
 		// $this->load->model('Traveler_model');
+		
+		// Load some libraries
+		$this->load->model('Home_model');
+		// $this->load->library('upload', $upload_config);
+		$this->load->helper('url');
 	}
 	
-	public function index() {
-		redirect('home');
-	}
+	// public function index() {
+// 		redirect('home');
+// 	}
 	
 	public function home()
 	{
@@ -60,20 +65,26 @@ class Home extends Auth_Controller {
 		$this->load->view('template/footer');
 	}
 	
-	public function create_traveler() {
+	// Returns journey data for one journey as JSON
+	public function show($id)
+	{
+		echo $this->Home_model->profile_with_id($id);
+	}
+	
+	// public function create_traveler() {
 		/**
 		 * Create a new Traveler and save their information
 		 * to the database by sending it to the model
 		 */
-		$traveler = $this->input->post();
-		$traveler['street'] = "";
-		$traveler['city'] = "";
-		$traveler['state'] = "";
-		$traveler['zip'] = "";
-		$traveler['birthday'] = "";
-		$traveler['pic'] = "";
-		$this->Traveler_model->save_traveler($traveler);
-	}
+		// $traveler = $this->input->post();
+// 		$traveler['street'] = "";
+// 		$traveler['city'] = "";
+// 		$traveler['state'] = "";
+// 		$traveler['zip'] = "";
+// 		$traveler['birthday'] = "";
+// 		$traveler['pic'] = "";
+// 		$this->Traveler_model->save_traveler($traveler);
+// 	}
 	
 	////////// This is all Community Auth stuff copied from 'Examples.php' //////////
     /**

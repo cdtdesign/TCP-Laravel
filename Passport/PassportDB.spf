@@ -45,8 +45,6 @@
 		<dict>
 			<key>connectionEncoding</key>
 			<string>utf8</string>
-			<key>contentFilter</key>
-			<dict/>
 			<key>contentPageNumber</key>
 			<integer>1</integer>
 			<key>contentSelection</key>
@@ -70,14 +68,9 @@
 			<key>contentSortColIsAsc</key>
 			<true/>
 			<key>contentViewport</key>
-			<string>{{0, 0}, {1192, 708}}</string>
+			<string>{{0, 0}, {1192, 723}}</string>
 			<key>isToolbarVisible</key>
 			<true/>
-			<key>queries</key>
-			<string>SET FOREIGN_KEY_CHECKS=0;
-
-INSERT INTO `travelers` (`user_name`, `user_pass`, `user_email`, `user_level`, `user_salt`, `user_id`, `user_date`, `user_modified`) VALUES ('cdtdesign', '$2a$09$1efed50ec1e44bbb4dc3euIRjJ6ququF57qxuk36As/pOzcwI9Wmu', 'christina@cdtdesign.com', '1', '1efed50ec1e44bbb4dc3e3c45ab00b47', 800255157, '2015-11-15 22:25:11', '2015-11-15 22:25:11')
-</string>
 			<key>table</key>
 			<string>travelers</string>
 			<key>view</key>

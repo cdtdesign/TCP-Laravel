@@ -147,7 +147,7 @@
 			passField		= $('input[type="lpassword"]')[0];
 			
 			// SignIn button click functionality
-			var signupButton = $(".signupButton")[0];
+			var signinButton = $(".signinButton")[0];
 			$(signinButton).click(function () {
 				submitButton.value = "Sign In!";
 			});

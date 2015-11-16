@@ -43,7 +43,7 @@ NAME: Christina D. Thorpe-Rogers
 		<!-- <button type="button" class="btn btn-primary btn-lg journeyModalButton journeyCreateButton" data-toggle="modal" data-target="#journeyModal">
 		   	<span class="glyphicon glyphicon-plus hvr-icon-spin" style="color:#ef6831;font-size:1.0625em;" aria-hidden="true" style="width:150px;" data-toggle="tooltip" data-placement="right" title="Click to create post."></span>
 		</button> -->
-		<button type="button" style="margin:auto,0;" class="btn btn-primary btn-lg journeyModalButton journeyCreateButton" data-toggle="modal" data-target="#journeyModal"><span class="hvr-icon-spin" style="color:#ef6831;text-align:center;vertical-align:middle;font-size:1.125em;"></span>
+		<button type="button" style="margin:auto,0;" class="btn btn-primary btn-lg journeyModalButton journeyCreateButton" data-toggle="modal" data-target="#journeyModal"><span class="hvr-icon-spin" style="color:#ef6831;text-align:center;line-height:50px;font-size:1.125em;"></span>
 		</button>
 	</div>
 	
