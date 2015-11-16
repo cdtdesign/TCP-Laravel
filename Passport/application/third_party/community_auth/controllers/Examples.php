@@ -35,7 +35,7 @@ class Examples extends MY_Controller
     public function index()
     {
         if ($this->require_role('admin')) {
-
+		
             echo $this->load->view('examples/page_header', '', TRUE);
 
             echo '<p>You are logged in!</p>';
@@ -144,7 +144,7 @@ class Examples extends MY_Controller
             'user_name'     => 'cdtdesign',
             'user_pass'     => 'Cdtdesign15',
             'user_email'    => 'christina@cdtdesign.com.com',
-            'user_level'    => '9', // 9 if you want to login @ examples/index (was set to 1)
+            'user_level'    => 9 // 9 if you want to login @ examples/index (was set to 1),
         );
 
         $this->load->library('form_validation');

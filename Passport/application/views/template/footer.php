@@ -21,7 +21,7 @@
 	</script>
 	
 	<script>
-	  // This is called with the results from from FB.getLoginStatus().
+	  // Facebook JS ---> This is called with the results from from FB.getLoginStatus().
 	  function statusChangeCallback(response) {
 	    console.log('statusChangeCallback');
 	    console.log(response);
@@ -94,9 +94,7 @@
 	  function testAPI() {
 	    console.log('Welcome!  Fetching your information.... ');
 		
-		/**
-		 * We have successfully signed the user in so we can fetch their data
-		 */
+		//We have successfully signed the user in so we can fetch their data
 		var desiredUserData = [
 			'first_name',
 			'last_name',
@@ -108,27 +106,26 @@
 	      // document.getElementById('status').innerHTML =
 	      //   'Thanks for logging in, ' + response.name + '!';
 		  
-		  console.log(response);
-		  
-		  var traveler_gender;
-		  switch (response.gender.toLowerCase()) {
-		  case "male":
-			  traveler_gender = 1;
-			  break;
-		  case "female":
-			  traveler_gender = 2;
-			  break;
-		  default:
-			  traveler_gender = 3;
-		  }
-	  
-		  $.ajax('/ASL/Passport/home/create_traveler/', {
+			// var traveler_gender;
+			// switch (response.gender.toLowerCase()) {
+			// case "male":
+			//   traveler_gender = 1;
+			//   break;
+			// case "female":
+			//   traveler_gender = 2;
+			//   break;
+			// default:
+			//   traveler_gender = 3;
+			// }
+
+		  // Pull FB info into traveler profile
+		  $.ajax('/ASL/Passport/create_traveler/', {
 			'method': 'POST',
 			'data': {
-				'fname': response.first_name,
+				'user_name': response.first_name,
 				'lname': response.last_name,
-				'gender': traveler_gender,
-				'email': response.email
+				// 'gender': traveler_gender,
+				'user_email': response.email
 			}
 		  }, function (response) {
 				console.log("New traveler should have been created.");
@@ -136,9 +133,79 @@
 	    });
 	  }
 	  
-	  $("#logoutLink").click(function () {
-		  FB.logout();
-	  });
+	  // $("#logoutLink").click(function () {
+// 		  FB.logout();
+// 	  });
+	</script>
+
+	<script>
+		// Link variables to SignIn field inputs
+		$(document).ready(function () {
+			var signin 		= $(".signinModal"),
+			signinButton	= $('input[type="submit"]')[0],
+			user_nameField 	= $('input[name="user_name"]')[0],
+			passField		= $('input[type="lpassword"]')[0];
+			
+			// SignIn button click functionality
+			var signupButton = $(".signupButton")[0];
+			$(signinButton).click(function () {
+				submitButton.value = "Sign In!";
+			});
+			
+		});
+	</script>
+
+	<script>
+		// Link variables to Passport field inputs
+		$(document).ready(function () {
+			var traveler 	= $(".signupModal"),
+			// buttons			= $(".journeyEditButton"),
+			signupButton	= $('input[type="submit"]')[0],
+			editProfileBttn = $(".editProfileButton")[0],
+			fnameField 		= $('input[name="user_name"]')[0],
+			lnameField		= $('input[name="lname"]')[0],
+			emailField 		= $('input[name="user_email"]')[0],
+			streetField 	= $('input[name="street"]')[0],
+			cityField 		= $('textarea[name="city"]')[0],
+			stateField 		= $('input[name="state"]')[0],
+			zipField 		= $('input[name="zip"]')[0],
+			birthField 		= $('input[name="birth"]')[0],
+			sexField 		= $('input[name="gender"]')[0],
+			// picField 	= $('input[name="htags"]')[0],
+			travelerID 		= null;
+			
+			// editProfile button click functionality
+			editProfileBttn.click(function () {
+				var button = this;
+				var travelerProfile = traveler[$(editProfileBttn).index(button)];
+				travelerID = $(travelerProfile).data('traveler-id');
+				
+				// Gets the Traveler info and decodes JSON
+				$.get('/ASL/Passport/travelers/show/' + travelerID, function (travelerProfile) {
+					// var idField = $('#id-element')[0],
+					// picField 		= $('input[name="pic"]')[0];
+					var travelerProfile = JSON.parse(travelerProfile)[0];
+					fnameField.value    = travelerProfile['user_name'];
+					lnameField.value    = travelerProfile['lname'];
+					emailField.value    = travelerProfile['user_email'];
+					streetField.value   = travelerProfile['street'];
+					cityField.value     = travelerProfile['city'];
+					stateField.value    = travelerProfile['state'];
+					zipField.value      = travelerProfile['zip'];
+					birthField.value    = travelerProfile['birth'];
+					sexField.value      = travelerProfile['gender'];
+					saveButton.value    = "Save";
+					// imgField.value	= travelerPost['img'];
+					$(".signup-form")[0].setAttribute("action", "/ASL/Passport/traveler/edit/" + travelerID);
+				});
+			});
+			// SignUp button click functionality
+			var signupButton = $(".signupButton")[0],
+			editProfileButton = $('.editProfileButton')[0];
+			$(signupButton).click(function () {
+				submitButton.value = "Sign Up!";
+			});
+		});
 	</script>
 	   
 	<link rel="stylesheet" type="text/css" href="/ASL/Passport/assets/css/custom3.css">

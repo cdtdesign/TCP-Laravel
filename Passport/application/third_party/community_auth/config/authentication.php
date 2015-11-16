@@ -257,7 +257,7 @@ $config['recovery_code_expiration'] = 60 * 60 * 2;
 | the session cookie is immediately re-created.
 */
 
-$config['delete_session_cookie_on_logout'] = FALSE;
+$config['delete_session_cookie_on_logout'] = TRUE;
 
 /*
 | -----------------------------------------------------------------
@@ -280,7 +280,7 @@ $config['show_login_form_on_logout'] = TRUE;
 | they will be redirected to. The default is to be redirected to the home page.
 */
 
-$config['default_login_redirect'] = '';
+$config['default_login_redirect'] = 'Home';
 
 /*
 | -----------------------------------------------------------------
@@ -292,7 +292,7 @@ $config['default_login_redirect'] = '';
 | added, so you just put in optional login pages here.
 */
 
-$config['allowed_pages_for_login'] = array();
+$config['allowed_pages_for_login'] = array('Home');
 
 /*
 | -----------------------------------------------------------------

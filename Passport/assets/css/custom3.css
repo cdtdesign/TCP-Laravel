@@ -6790,6 +6790,7 @@ p.lead.center {
 
 body {
   background: #9dddf9 url('../img/tcp-pattern.png') repeat left top;
+  background-attachment: fixed;
 }
 
 .tooltip {
@@ -6888,11 +6889,11 @@ button.close {
 
 /* -------------------------- JOURNEY POSTS [ .jp ] -------------------------- */
 
-.glyphicon.glyphicon-plus {
+/*.glyphicon.glyphicon-plus {
   margin-bottom: 10px;
   margin-right: 10px;
   text-align: center;
-}
+}*/
 
 /*.glyphicon.glyphicon-plus::before {
   margin: auto, 0;
@@ -7192,6 +7193,38 @@ img.socialBadges {
 }
 
 /* ---------------------- HOVER TRANSITIONS ---------------------- */
+
+/* Icon Spin */
+.hvr-icon-spin {
+  /*margin: auto;*/
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  /*padding-right: 2.2em;*/
+}
+.hvr-icon-spin:before {
+  content: "\f067";
+  /*position: absolute;*/
+  /*right: 1em;
+  padding: 0 1px;*/
+  font-family: FontAwesome;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+.hvr-icon-spin:hover:before, .hvr-icon-spin:focus:before, .hvr-icon-spin:active:before {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
 
 .hvr-grow {
   display: inline-block;

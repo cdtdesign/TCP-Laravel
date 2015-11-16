@@ -71,7 +71,7 @@ p {
 <body>
 	<div id="container">
 		<?php echo $message; ?>
-		<img id="thumbsDownError" src="/ASL/Passport/assets/img/tcp-404-page-not-found.svg" />
+		<img id="thumbsDownError" src="/ASL/Passport/assets/img/tcp-error-encountered.svg" />
 		<!-- <h1>404</h1>
 		<p><b>Page Not Found</b></p> -->
 	</div>

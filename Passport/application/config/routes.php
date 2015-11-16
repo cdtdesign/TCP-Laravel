@@ -46,14 +46,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | When you set this option to TRUE, it will replace ALL dashes in the
 | controller and method URI segments.
 |
-| Examples:	my-controller/index	-> my_controller/index
+| Home:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'Home/index';
 $route['home'] = 'Home/home';
-$route['home/create_traveler'] = 'Home/create_traveler';
-// $route['createChristina'] = 'Examples/create_user';
+$route['journeys'] = 'journeys';
+// $route['home/create_traveler'] = 'Home/create_traveler';
+$route['create_traveler'] = 'Home/create_user';
+$route['check_auth'] = 'Home/index';
+$route['logout'] = 'Home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route[LOGIN_PAGE] = 'examples/login';
+$route[LOGIN_PAGE] = 'Home/login';
+// $route[LOGIN_PAGE] = 'Home';
 // $route['journeys'] = 'delete/';
