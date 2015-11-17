@@ -6,6 +6,11 @@ DATE: November 5, 2015
 NAME: Christina D. Thorpe-Rogers
 
 ///////////////////////////////////////////////// -->
+<<<<<<< HEAD:application/views/journeys_view.php
+=======
+	
+<div class="navAllowance container">
+>>>>>>> cdtdesign/master:application/views/journeys_view.php
 
 <div class="container">
 <?php if ($this->session->flashdata('image_uploaded')): ?>
@@ -32,7 +37,7 @@ NAME: Christina D. Thorpe-Rogers
 				</h4>
 			      </div>
 			      <div class="modal-body">
-					<input type="text" name="fname" class="form-control journeyPostTitle" value="" placeholder="Traveler's First Name…" required /><br />
+					<input type="text" style="display:none;" name="travelerid" class="form-control journeyPostTitle" value="3" placeholder="Traveler's First Name…" required /><br />
 					<input type="date" name="date" class="form-control" value="" autocomplete="on" required /><br />
 					<textarea rows="10" name="body" class="form-control" value="" placeholder="Body..." required></textarea><br />
 					<input type="htags" name="htags" class="form-control" value="#HappyTravels #TravelingChristian" placeholder="#Hashtagserwttwttw" required /><br />
@@ -49,10 +54,13 @@ NAME: Christina D. Thorpe-Rogers
 	<!-- Crest & Welcome Text -->
 	<div class="center welcome">
 		<img src="/assets/img/tcp-crest-yllwshirt.svg" class="crest hvr-grow-rotate" />
+<<<<<<< HEAD:application/views/journeys_view.php
 		<p class="lead center">Welcome Traveler! You have arrived at Traveling Children Project's Journey Blog! Here you can share your journey with other Travelers and see where their travels have led them. <em style="font-weight:400;">Where has TC taken you? Click below to create a post of your latest journey.</em></p>
+=======
+		<p class="lead center"><span>Welcome Traveler!</span> You have arrived at Traveling Children Project's Journey Blog! Here you can share your journey with other Travelers and also see where their travels have led them. <em style="font-weight:500;">Where has TC taken you? Click the button below to create a post of your latest journey!</em></p>
+>>>>>>> cdtdesign/master:application/views/journeys_view.php
 		<!-- Button trigger modal -->
-		<button type="button" class="btn btn-primary btn-lg journeyModalButton journeyCreateButton" data-toggle="modal" data-target="#journeyModal">
-		   	<span class="glyphicon glyphicon-plus" style="color:#ef6831;font-size:1.0625em;" aria-hidden="true" style="width:150px;" data-toggle="tooltip" data-placement="right" title="Click to create post."></span>
+		<button type="button" style="margin:auto,0;" class="btn btn-primary btn-lg journeyModalButton journeyCreateButton" data-toggle="modal" data-target="#journeyModal"><span class="hvr-icon-spin" style="color:#ef6831;text-align:center;line-height:50px;font-size:1.125em;"></span>
 		</button>
 	</div>
 
@@ -64,6 +72,7 @@ NAME: Christina D. Thorpe-Rogers
 				<div class="journeyPost" data-journey-id="<?= $post->id ?>">
 					<a name="<?= $post->id ?>"></a>
 				  <a class="x" href="journeys/delete/<?= $post->id ?>">&times</a>
+<<<<<<< HEAD:application/views/journeys_view.php
 				  <p class="jp_title"><b></b><?= $post->title ?></p>
 
 				  <?php if($post->img != NULL): ?>
@@ -75,6 +84,23 @@ NAME: Christina D. Thorpe-Rogers
 				  <hr class="jp_divider"></hr>
 				  <button class="btn btn-primary journeyEditButton" data-toggle="modal" data-target="#journeyModal">EDIT</button>
 				  <a href="/journeys/delete/<?= $post->id ?>" class="btn btn-warning journeyDeleteButton" role="button">DELETE</a>
+=======
+				  <div class="jpPadding">
+				  	<p class="jp_title"><b><?= $post->title ?></b></p>
+				  </div><!-- /.jpPadding -->
+				  <?php if($post->img != NULL): ?>
+					  <div class="jp_img"><img src="/assets/uploads/<?= $post->img ?>"></div>
+				  <?php endif ?>
+				  <div class="jpPadding">
+					  <p class="jp_fname_date"><em><a href="#"><b>Traveling <?= $post->user->fname ?></b></a> / <?= $post->date ?></em></p>
+					  <p class="jp_body"><?= $post->body ?></a></p>
+					  <p class="htags"><?= $post->htags ?></p>
+					  <!-- Modal Footer -->
+					  <hr class="jp_divider"></hr>
+					  <button class="btn btn-primary journeyEditButton" data-toggle="modal" data-target="#journeyModal">EDIT</button>
+					  <a href="/journeys/delete/<?= $post->id ?>" class="btn btn-warning journeyDeleteButton" role="button">DELETE</a>
+				   </div><!-- /.jpPadding -->
+>>>>>>> cdtdesign/master:application/views/journeys_view.php
 				</div><!-- /.journeyPost div -->
 			<?php endforeach ?>
 			</div><!-- /.jp_wrapper -->
@@ -91,7 +117,7 @@ NAME: Christina D. Thorpe-Rogers
 	</script>
 
 	<script>
-		// Link variables to field inputs
+		// Link variables to Journey Post field inputs
 		$(document).ready(function () {
 			var journeys 	= $(".journeyPost"),
 			buttons			= $(".journeyEditButton"),

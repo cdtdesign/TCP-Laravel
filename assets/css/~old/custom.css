@@ -1,0 +1,311 @@
+body {
+	/*background-color: #9dddf9;*/
+	background: #9dddf9 url('../img/tcp-pattern.png') repeat left top;
+	color: #3a2417; /* Drk Brown */
+}
+
+.center {
+	/*display: block;
+	margin-left: auto;
+	margin-right: auto;*/
+}
+
+p.center {
+	text-align: center;
+}
+
+.center form {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+img#chrome {
+	width: 2%;
+}
+
+img.crest {
+	width: 30%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* --------------------------- BUTTONS --------------------------- */
+
+#destSearch button {
+	border-width: 0px;
+	margin: 2px;
+}
+
+#destTypes button {
+	border-width: 0px;
+	margin: 2px;
+}
+
+/* --------------------------- NAV BAR --------------------------- */
+
+.navbar-brand img {
+	width: 30%;
+	position: absolute;
+}
+
+.tcp-navbar-right {
+	float: right;
+	list-style: none;
+	display: inline-block;
+	height: 50px;
+	margin: 0px;
+	background-color: #3a2417; /* Drk Brown */
+}
+
+.tcp-navbar-right span {
+	color: #ef6831; /* Orange */
+}
+
+.tcp-navbar-right span a {
+	color: #ef6831; /* Orange */
+}
+
+.tcp-navbar-right li {
+	list-style: none;
+	display: inline-block;
+	min-width: 50px;
+	height: 45px;
+	padding: 10px;
+	padding-bottom: 1px;
+	margin: 10px;
+	font-weight: bold;
+	color: #fff;
+	border: 3px;
+	border-color: #fff; /* Lt Brown */
+	text-align: center;
+}
+
+.tcp-navbar-right li a:hover {
+	color: #ef6831; /* Orange */
+}
+
+.tcp-navbar-right li a {
+	text-decoration: none;
+}
+
+#facebook-signup li {
+	width: 90%;
+	height: 45px;
+	padding: 5px;
+	border-radius: 5px;
+	background-color: #2268aa; /* FB Blu */
+}
+
+#facebook-signup a {
+	border-radius: 5px;
+	background-color: #2268aa;
+	color: #85b4e0; /* FB Lt Blu */
+}
+
+#facebook-signup a:hover {
+	color: #fff;
+}
+
+.navbar {
+	height: 60px;
+	background-color: #3a2417; /* Drk Brown */
+	border: none;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	width: 100%;
+	color: #fff;
+}
+
+.navbar a {
+	color: #fff;
+}
+
+.dropdown-menu {
+	padding: 10px;
+	height: 140px;
+	background-color: #ffe189; /* Yellow */
+	border: none;
+	text-align: center;
+}
+
+.dropdown-menu li {
+	width: 90%;
+	height: 45px;
+	padding:5px;
+	margin-top: 1px;
+}
+
+.dropdown-menu li a {
+	font-weight: bold;
+	padding: 15px;
+	color: #ef6831; /* Orange */
+}
+
+.dropdown-menu li a:hover {
+	border-radius: 5px;
+	background-color: #fcc012; /* Gold */
+	color: #fff;
+}
+
+/*.navbar-default .navbar-nav li a {
+	color: #fff;
+	font-weight: bold;
+}
+
+.navbar-default .navbar-nav li a:hover {
+	color: #ef6831;
+}
+
+.navbar-default .navbar-nav li a:active {
+	color: #613711;
+}
+
+.navbar-nav li.dropdown-menu {
+	color: #000;
+}
+
+.wordmark {
+	max-width: 100%;
+}
+
+.form-group input {
+	border: 0px;
+}*/
+
+/* ---------------------- DESTINATION FORM ---------------------- */
+
+.destination-form {
+	max-width: 650px;
+	height: 45px;
+	display: inline;
+    margin-bottom: 0;
+    vertical-align: middle;
+    font-size: 1.25em;
+    color: #000;
+}
+
+.destination-form input[type="text"] {
+	width: 55%;
+	height: 45px;
+	display: inline-block;
+	border: 0px;
+	padding: 15px;
+	border-radius: 5px;
+	font-size: 1em;
+    color: #000;
+}
+
+.destination-form input[placeholder] {
+	text-align: right;
+	color: #5bcbf5; /* cyan blu 55% */
+}
+
+::-webkit-input-placeholder {
+   color: #5bcbf5; /* cyan blu 55% */
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #5bcbf5; /* cyan blu 55% */
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #5bcbf5; /* cyan blu 55% */
+}
+
+:-ms-input-placeholder {  
+   color: #5bcbf5; /* cyan blu 55% */
+}
+
+.destination-form select {
+	height: 45px;
+	background-color: #fff;
+	border-radius: 0px;
+	border: 0px;
+	color: #5bcbf5; /* cyan blu 55% */
+}
+
+.destination-form button {
+	height: 45px;
+	width: 95px;
+	background-color: #ef6831; /* Orange */
+	border: none;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 1em;
+	color: #fff;
+}
+
+
+/* ---------------------- DESTINATION BUTTONS ---------------------- */
+
+
+#destination-panel {
+	left: 19%;
+	position: fixed;
+	margin: auto, 0;
+	padding: 0;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#destination-panel a {
+	text-decoration: none;
+	color: #9dddf9;
+}
+
+#destination-panel a:hover {
+	color: #fff;
+}
+
+.destination-buttons li {
+	list-style: none;
+	display: inline-block;
+	min-width: 30px;
+	height: 50px;
+	padding: 15px;
+	margin: 2px;
+	margin-top: 25px;
+	background-color: #5bcbf5; /* cyan blu 55% */
+	text-decoration: none;
+	font-size: .875em;
+	font-weight: bold;
+	color: #fff;
+}
+
+.destination-buttons li a {
+	padding: 10px;
+}
+
+li.lefty {
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+}
+
+li.righty {
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+}
+
+/* ---------------------------- FOOTER ----------------------------- */
+
+#footer {
+	margin-top: 125px;
+	height: 50px;
+	font-size: .8125em;
+	color: #5bcbf5; /* cyan blu 55% */
+}
+
+#footer a {
+	color: #5bcbf5; /* cyan blu 55% */
+	text-decoration: none;
+}
+
+#footer a:hover {
+	color: #44ade2; /* Drkr Blu */
+}
+

@@ -6790,6 +6790,7 @@ p.lead.center {
 
 body {
   background: #9dddf9 url('../img/tcp-pattern.png') repeat left top;
+  background-attachment: fixed;
 }
 
 .tooltip {
@@ -6927,14 +6928,16 @@ button.close {
 
 /* -------------------------- JOURNEY POSTS [ .jp ] -------------------------- */
 
-span.glyphicon.glyphicon-plus {
+/*.glyphicon.glyphicon-plus {
   margin-bottom: 10px;
   margin-right: 10px;
-}
+  text-align: center;
+}*/
 
-/*span.glyphicon.glyphicon-plus::before {
+/*.glyphicon.glyphicon-plus::before {
   margin: auto, 0;
   text-align: center;
+  vertical-align: middle;
 }*/
 
 .journeyEditButton {
@@ -6962,7 +6965,7 @@ span.glyphicon.glyphicon-plus {
   /*color: #ee6730;*/ /* Orange */
   z-index: 8000;
   font-size:1.5em;
-  padding-right: 5px;
+  padding-right: 10px;
 }
 
 .jp_section {
@@ -6975,10 +6978,19 @@ span.glyphicon.glyphicon-plus {
   float: left;
   width: 28.014184397% !important;
   min-height: 240px;
+<<<<<<< HEAD:assets/css/custom3.css
   margin: 2.6595744681% !important;
   padding: 1.5957446809% !important;
+=======
+  margin: 25px;
+  /*padding: 15px;*/
+>>>>>>> cdtdesign/master:assets/css/custom3.css
   background-color: #fedf8d;
   border-radius: 4px;
+}
+
+.jpPadding {
+  padding: 15px;
 }
 
 .jp_wrapper {
@@ -6991,6 +7003,7 @@ span.glyphicon.glyphicon-plus {
 }
 
 .jp_title {
+<<<<<<< HEAD:assets/css/custom3.css
     font-weight: 300;
     font-size: 1.35em;
     line-height: normal;
@@ -7003,11 +7016,28 @@ span.glyphicon.glyphicon-plus {
   width: 112.85743674%;
   overflow: hidden;
   margin: 7.5151515152% -6.4558269535% !important;
+=======
+  font-weight: 300;
+  font-size: 1.5em;
+  text-align: center;
+  line-height: 1.125em;
+  color: #ee6730; /* Orange */
+}
+
+.jp_img {
+  width: 100%;
+  overflow: hidden;
+>>>>>>> cdtdesign/master:assets/css/custom3.css
   background-color: rgba(255, 255, 255, .25);
 }
 
 .jp_img img {
+<<<<<<< HEAD:assets/css/custom3.css
   width: 100%
+=======
+  width: 330px;
+  
+>>>>>>> cdtdesign/master:assets/css/custom3.css
 }
 
 .jp_fname_date {
@@ -7043,13 +7073,21 @@ span.glyphicon.glyphicon-plus {
   color: #fff;
 }
 
-/*.aboutModalButton a {
-  color: #ee6730; /* Orange */
-}*/
+.aboutModalButton a {
+  color: #fff;
+}
 
-button:hover.aboutModalButton {
+.aboutModalButton a:hover {
   color: #ee6730; /* Orange */
 }
+
+/*button:active.aboutModalButton {
+  border: none;
+}
+
+button:visited.aboutModalButton {
+  border: none;
+}*/
 
 .navbar {
   /*background: #3a2417 url('../img/traveling-children-project-passport-wordmark.svg') no-repeat left center;*/
@@ -7211,6 +7249,38 @@ img.socialBadges {
 }
 
 /* ---------------------- HOVER TRANSITIONS ---------------------- */
+
+/* Icon Spin */
+.hvr-icon-spin {
+  /*margin: auto;*/
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  /*padding-right: 2.2em;*/
+}
+.hvr-icon-spin:before {
+  content: "\f067";
+  /*position: absolute;*/
+  /*right: 1em;
+  padding: 0 1px;*/
+  font-family: FontAwesome;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+.hvr-icon-spin:hover:before, .hvr-icon-spin:focus:before, .hvr-icon-spin:active:before {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
 
 .hvr-grow {
   display: inline-block;
@@ -7452,5 +7522,22 @@ img.socialBadges {
 #footer p.center {
   width:90%;
 }
+
+}
+
+@media only screen and (min-width: 701px) {
+  
+  /*nav.navbar.navbar-inverse {
+   position: fixed;
+   width: 1138px;
+   height: 62;
+   z-index: 1000;
+}
+
+.navAllowance {
+  margin-top: 80px;
+}*/
+
+
 
 }
