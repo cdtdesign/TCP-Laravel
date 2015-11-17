@@ -49,7 +49,7 @@ class Journeys extends CI_Controller {
 		move_uploaded_file($_FILES['img']['tmp_name'], '/Applications/MAMP/htdocs/assets/uploads/' . $_FILES['img']['name']);
 		
 		// Save the image uploaded and get its' filename
-		var_dump($this->upload->display_errors());
+		// var_dump($this->upload->display_errors());
 		$this->Journeys_model->insert_entry($submittedPostData);
 		$this->load->view('journeys_view');
 		redirect('journeys');

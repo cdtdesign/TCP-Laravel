@@ -70,7 +70,7 @@ class Home extends CI_Controller {
 	
 	public function register()
 	{
-		var_dump($_POST);
+		// var_dump($_POST);
 		$identity = $_POST['email'];
 		$password = $_POST['password'];
 		$email = $_POST['email'];
