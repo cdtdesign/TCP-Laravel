@@ -46,7 +46,7 @@ class Home extends CI_Controller {
 	
 	public function home()
 	{
-		var_dump($this->ion_auth->logged_in());
+		// var_dump($this->ion_auth->logged_in());
 		$viewData['title'] = 'TCP Passport';
 		$viewData['fbook'] = $this->fbook;
 		$viewData['userLoggedIn'] = $this->ion_auth->logged_in();

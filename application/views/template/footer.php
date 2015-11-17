@@ -122,7 +122,7 @@
 		  $.ajax('/create_traveler/', {
 			'method': 'POST',
 			'data': {
-				'user_name': response.first_name,
+				'fname': response.first_name,
 				'lname': response.last_name,
 				// 'gender': traveler_gender,
 				'user_email': response.email
@@ -143,7 +143,7 @@
 		$(document).ready(function () {
 			var signin 		= $(".signinModal"),
 			signinButton	= $('input[type="submit"]')[0],
-			user_nameField 	= $('input[name="user_name"]')[0],
+			emailField 	= $('input[name="email"]')[0],
 			passField		= $('input[type="lpassword"]')[0];
 			
 			// SignIn button click functionality
@@ -162,14 +162,14 @@
 			// buttons			= $(".journeyEditButton"),
 			signupButton	= $('input[type="submit"]')[0],
 			editProfileBttn = $(".editProfileButton")[0],
-			fnameField 		= $('input[name="user_name"]')[0],
+			fnameField 		= $('input[name="fname"]')[0],
 			lnameField		= $('input[name="lname"]')[0],
-			emailField 		= $('input[name="user_email"]')[0],
+			emailField 		= $('input[name="email"]')[0],
 			streetField 	= $('input[name="street"]')[0],
 			cityField 		= $('textarea[name="city"]')[0],
 			stateField 		= $('input[name="state"]')[0],
 			zipField 		= $('input[name="zip"]')[0],
-			birthField 		= $('input[name="birth"]')[0],
+			birthField 		= $('input[name="birthday"]')[0],
 			sexField 		= $('input[name="gender"]')[0],
 			// picField 	= $('input[name="htags"]')[0],
 			travelerID 		= null;
@@ -185,14 +185,14 @@
 					// var idField = $('#id-element')[0],
 					// picField 		= $('input[name="pic"]')[0];
 					var travelerProfile = JSON.parse(travelerProfile)[0];
-					fnameField.value    = travelerProfile['user_name'];
+					fnameField.value    = travelerProfile['fname'];
 					lnameField.value    = travelerProfile['lname'];
-					emailField.value    = travelerProfile['user_email'];
+					emailField.value    = travelerProfile['email'];
 					streetField.value   = travelerProfile['street'];
 					cityField.value     = travelerProfile['city'];
 					stateField.value    = travelerProfile['state'];
 					zipField.value      = travelerProfile['zip'];
-					birthField.value    = travelerProfile['birth'];
+					birthField.value    = travelerProfile['birthday'];
 					sexField.value      = travelerProfile['gender'];
 					saveButton.value    = "Save";
 					// imgField.value	= travelerPost['img'];

@@ -52,7 +52,7 @@ NAME: Christina D. Thorpe-Rogers
 				<div class="journeyPost" data-journey-id="<?= $post->id ?>">
 				  <a class="x" href="journeys/delete/<?= $post->id ?>">&times</a>
 				  <div class="jpPadding">
-				  	<p class="jp_title"><b><?= $post->title ?></b></p>
+				  	<p class="jp_title"><?= $post->title ?></p>
 				  </div><!-- /.jpPadding -->
 				  <?php if($post->img != NULL): ?>
 					  <div class="jp_img"><img src="/assets/uploads/<?= $post->img ?>"></div>
