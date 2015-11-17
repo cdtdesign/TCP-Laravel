@@ -49,16 +49,11 @@ class Home extends CI_Controller {
 		var_dump($this->ion_auth->logged_in());
 		$viewData['title'] = 'TCP Passport';
 		$viewData['fbook'] = $this->fbook;
-		$viewData['userLoggedIn'] = false;
-		
-		if ($this->ion_auth->logged_in()) {
-			$viewData['userLoggedIn'] = true;
-		}
+		$viewData['userLoggedIn'] = $this->ion_auth->logged_in();
 		
 		if ($viewData['userLoggedIn']) {
 			// Loads the views for navbar.php + header.php, home_view.php and footer.php
 			$this->load->view('template/navbar', $viewData);
-
 		} else {
 			// Loads view for navbar_signin.php + header.php, home_view.php and footer.php
 			$this->load->view('template/navbar_signin', $viewData);

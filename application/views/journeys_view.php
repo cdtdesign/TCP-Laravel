@@ -67,7 +67,7 @@ NAME: Christina D. Thorpe-Rogers
 					  <a href="/journeys/delete/<?= $post->id ?>" class="btn btn-warning journeyDeleteButton" role="button">DELETE</a>
 				   </div><!-- /.jpPadding -->
 				</div><!-- /.journeyPost div -->
-			<? endforeach ?>
+			<?php endforeach ?>
 			</div><!-- /.jp_wrapper -->
 		</div><!-- /.journey_post -->
 	</div><!-- /.jp_section -->
