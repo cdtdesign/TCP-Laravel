@@ -7053,15 +7053,12 @@ img.wordmark {
 .dropdown-menu li a {
   font-weight: bold;
   text-align: center;
-}
-
-li#email-signup a {
   width: 100%;
   height: 40px;
   padding: 10px;
 }
 
-li#email-signup a:hover {
+.dropdown-menu li a:hover {
   background-color: #ee6730; /* Orange */
   width: 100%;
   height: 40px;
