@@ -38,19 +38,19 @@ class Home extends CI_Controller {
 		$this->load->helper('url');
 	}
 	
-	public function index() {
+	public function index()
+	{
 		// When the user visits the root, send them to /home
 		redirect('home');
 	}
 	
 	public function home()
 	{
-		var_dump($this->ion_auth->logged_in());
 		$viewData['title'] = 'TCP Passport';
 		$viewData['fbook'] = $this->fbook;
 		$viewData['userLoggedIn'] = false;
 		
-		if (isset($_SESSION['auth_identifiers'])) {
+		if ($this->ion_auth->logged_in()) {
 			$viewData['userLoggedIn'] = true;
 		}
 		
@@ -65,5 +65,13 @@ class Home extends CI_Controller {
 		$this->load->view('template/header');
 		$this->load->view('home_view');
 		$this->load->view('template/footer');
+	}
+	
+	public function register()
+	{
+		$identity = $_POST['email'];
+		$password = $_POST['password'];
+		$email = $_POST['email'];
+		$this->ion_auth->register($identity, $password, $email, $_POST);
 	}
 }

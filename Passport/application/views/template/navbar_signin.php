@@ -15,22 +15,22 @@ NAME: Christina D. Thorpe-Rogers
 		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4>Traveler Sign Up</h4>
 					<!-- Traveler Email Sign-Up -->
-					<form action="home/signup" class="form-inline signup-form" method="POST" enctype="multipart/form-data">
+					<form action="home/register" class="form-inline signup-form" method="POST" enctype="multipart/form-data">
 			   </div><!-- /.modal-header -->
 			      <div class="modal-body">
-					<input type="text" name="user_name" class="form-control journeyPostTitle" value="" placeholder="Traveler's First Name" autocomplete="on" required ><br />
+					<input type="text" name="fname" class="form-control journeyPostTitle" value="" placeholder="Traveler's First Name" autocomplete="on" required ><br />
 					<input type="text" name="lname" class="form-control" value="" placeholder="Traveler's Last Name" autocomplete="on" required ><br />
-					<input type="email" name="user_email" class="form-control" value="" placeholder="Email Address" required ><br />
-					<input type="password" name="user_pass" class="form-control" value="" required ><br />
+					<input type="email" name="email" class="form-control" value="" placeholder="Email Address" required ><br />
+					<input type="password" name="password" class="form-control" value="" required ><br />
 					<input type="text" name="street" class="form-control" value="" placeholder="Street Address, Apt #" autocomplete="on" required ><br />
 					<input type="text" name="city" class="form-control" value="" placeholder="City" autocomplete="on" required /><br />
 					<input type="text" name="state" class="form-control" value="" placeholder="ST" autocomplete="on" required ><br />
 					<input type="text" name="zip" class="form-control" value="" placeholder="Zip Code" autocomplete="on" required ><br />
 					<input type="date" name="birth" class="form-control" value="" autocomplete="on" required >
 					<div style="margin-top:15px;margin-bottom:15px;">
-						<input type="radio" name="gender" value="male" checked> Male </input>
-						<input type="radio" name="gender" value="female" style="margin:5px;"> Female </input>
-						<input type="radio" name="gender" value="decline" style="margin:5px;"> Decline <br /></div>
+						<input type="radio" name="gender" value="1" checked> Male </input>
+						<input type="radio" name="gender" value="2" style="margin:5px;"> Female </input>
+						<input type="radio" name="gender" value="3" style="margin:5px;"> Decline <br /></div>
 					<input type="file" name="img" class="input-group" value="" accept="image/*" /><br />
 			      </div><!-- /.modal-body -->
 			      <div class="modal-footer">
@@ -48,7 +48,7 @@ NAME: Christina D. Thorpe-Rogers
 					      <div class="modal-header">
 						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 								<h4>Traveler Sign In</h4>
-								  <form action="auth/login" class="form-inline signin-form" method="POST" enctype="multipart/form-data">
+								  <form action="/auth/login" class="form-inline signin-form" method="POST" enctype="multipart/form-data">
 								  </div><!-- /.modal-header -->
 								  <div class="modal-body">
 										<input type="text" name="identity" class="form-control" value="" placeholder="Enter User ID" autocomplete="on" required><br />
