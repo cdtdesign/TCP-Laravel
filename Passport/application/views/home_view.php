@@ -1,4 +1,3 @@
-<!-- <?= var_dump($userLoggedIn) ?> -->
 <div class="container">
 	
 	<!-- Crest & Welcome Text -->

@@ -6,6 +6,7 @@ class Journeys extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		
 		// Config for the upload library
 		$upload_config['upload_path'] = '/assets/uploads/';
 		$upload_config['allowed_types'] = 'gif|jpg|png';
@@ -26,7 +27,7 @@ class Journeys extends CI_Controller {
 		$this->load->view('template/navbar');
 		$this->load->view('template/header', $viewData);
 		
-		// Active Record Query
+		// Active Record Query to post journeys to Journey Blog
 		$viewData['ten_posts'] = $this->Journeys_model->getTenLatestPosts();
 		$this->load->view('journeys_view', $viewData);
 		$this->load->view('template/footer');

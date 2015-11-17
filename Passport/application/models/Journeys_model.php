@@ -12,8 +12,8 @@ class Journeys_model extends CI_Model {
 	
 	public function __construct()
     {
-            // Call the CI_Model constructor
-            parent::__construct();
+	    // Call the CI_Model constructor
+	    parent::__construct();
     }
 	
 	// Sending user input into DB
@@ -28,7 +28,7 @@ class Journeys_model extends CI_Model {
 	{
 		$journeys = $this->db->order_by('date', 'desc')->get('journeys', 10)->result();
 		foreach ($journeys as $journey) {
-			$journey->user = $this->db->get_where('travelers', array('user_id' => $journey->travelerid))->result()[0];
+			$journey->user = $this->db->get_where('travelers', array('id' => $journey->travelerid))->result()[0];
 		}
 		return $journeys;
 	}

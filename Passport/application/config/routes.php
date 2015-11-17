@@ -49,15 +49,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Home:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+/* Config */
 $route['default_controller'] = 'Home/index';
-$route['home'] = 'Home/home';
-$route['journeys'] = 'journeys';
-// $route['home/create_traveler'] = 'Home/create_traveler';
-$route['create_traveler'] = 'Home/create_user';
-$route['check_auth'] = 'Home/index';
-$route['logout'] = 'Home';
-$route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route[LOGIN_PAGE] = 'Home/login';
-// $route[LOGIN_PAGE] = 'Home';
-// $route['journeys'] = 'delete/';
+
+/* Home */
+$route['home'] = 'Home/home';
+
+/* Journeys */
+$route['journeys'] = 'journeys';
+
+/* Errors */
+$route['404_override'] = '';

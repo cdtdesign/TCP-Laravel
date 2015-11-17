@@ -40,9 +40,6 @@ NAME: Christina D. Thorpe-Rogers
 		<img src="/ASL/Passport/assets/img/tcp-crest-yllwshirt.svg" class="crest hvr-grow-rotate" />
 		<p class="lead center"><span>Welcome Traveler!</span> You have arrived at Traveling Children Project's Journey Blog! Here you can share your journey with other Travelers and also see where their travels have led them. <em style="font-weight:500;">Where has TC taken you? Click the button below to create a post of your latest journey!</em></p>
 		<!-- Button trigger modal -->
-		<!-- <button type="button" class="btn btn-primary btn-lg journeyModalButton journeyCreateButton" data-toggle="modal" data-target="#journeyModal">
-		   	<span class="glyphicon glyphicon-plus hvr-icon-spin" style="color:#ef6831;font-size:1.0625em;" aria-hidden="true" style="width:150px;" data-toggle="tooltip" data-placement="right" title="Click to create post."></span>
-		</button> -->
 		<button type="button" style="margin:auto,0;" class="btn btn-primary btn-lg journeyModalButton journeyCreateButton" data-toggle="modal" data-target="#journeyModal"><span class="hvr-icon-spin" style="color:#ef6831;text-align:center;line-height:50px;font-size:1.125em;"></span>
 		</button>
 	</div>
@@ -55,13 +52,13 @@ NAME: Christina D. Thorpe-Rogers
 				<div class="journeyPost" data-journey-id="<?= $post->id ?>">
 				  <a class="x" href="journeys/delete/<?= $post->id ?>">&times</a>
 				  <div class="jpPadding">
-				  	<p class="jp_title"><b></b><?= $post->title ?></p>
+				  	<p class="jp_title"><b><?= $post->title ?></b></p>
 				  </div><!-- /.jpPadding -->
 				  <?php if($post->img != NULL): ?>
 					  <div class="jp_img"><img src="/ASL/Passport/assets/uploads/<?= $post->img ?>"></div>
 				  <?php endif ?>
 				  <div class="jpPadding">
-					  <p class="jp_fname_date"><em><a href="#"><b>Traveling <?= $post->user->user_name ?></b></a> / <?= $post->date ?></em></p>
+					  <p class="jp_fname_date"><em><a href="#"><b>Traveling <?= $post->user->fname ?></b></a> / <?= $post->date ?></em></p>
 					  <p class="jp_body"><?= $post->body ?></a></p>
 					  <p class="htags"><?= $post->htags ?></p>
 					  <!-- Modal Footer -->
@@ -90,7 +87,7 @@ NAME: Christina D. Thorpe-Rogers
 			var journeys 	= $(".journeyPost"),
 			buttons			= $(".journeyEditButton"),
 			submitButton	= $('input[type="submit"]')[0],
-			fnameField 		= $('input[name="user_name"]')[0],
+			fnameField 		= $('input[name="fname"]')[0],
 			titleField 		= $('input[name="title"]')[0],
 			dateField 		= $('input[name="date"]')[0],
 			bodyField 		= $('textarea[name="body"]')[0],
@@ -108,7 +105,7 @@ NAME: Christina D. Thorpe-Rogers
 					// var idField = $('#id-element')[0],
 					// imgField 		= $('input[name="img"]')[0];
 					var travelerPost = JSON.parse(travelerPost)[0];
-					fnameField.value = travelerPost['user_name'];
+					fnameField.value = travelerPost['fname'];
 					titleField.value = travelerPost['title'];
 					dateField.value  = travelerPost['date'];
 					bodyField.value  = travelerPost['body'];

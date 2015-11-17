@@ -44,7 +44,7 @@
 				  <li data-toggle="modal" data-target="#passportProfileModal"><a href="#passportProfileModal">View Passport Profile</a></li>
 	            <!-- <li><a href="#">Passport Profile</a></li> -->
 	            <li role="separator" class="divider"></li>
-	            <li><a href="logout" id="logoutLink">Sign Out</a></li>
+	            <li><a href="home" id="logoutLink">Sign Out</a></li>
 	          </ul>
 	        </li>
 	      </ul>
