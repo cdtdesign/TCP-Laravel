@@ -48,11 +48,11 @@ NAME: Christina D. Thorpe-Rogers
 					      <div class="modal-header">
 						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 								<h4>Traveler Sign In</h4>
-								  <form action="home/login" class="form-inline signin-form" method="POST" enctype="multipart/form-data">
+								  <form action="auth/login" class="form-inline signin-form" method="POST" enctype="multipart/form-data">
 								  </div><!-- /.modal-header -->
 								  <div class="modal-body">
-										<input type="text" name="user_id" class="form-control" value="" placeholder="Enter User ID" autocomplete="on" required><br />
-										<input type="password" name="user_pass" class="form-control" value="" placeholder="Enter Password" required><br />
+										<input type="text" name="identity" class="form-control" value="" placeholder="Enter User ID" autocomplete="on" required><br />
+										<input type="password" name="password" class="form-control" value="" placeholder="Enter Password" required><br />
 							      </div><!-- /.modal-body -->
 								  <div class="modal-footer">
 									    <input style="font-size:1.5em;border-radius:6px;" id="signinButton" type="submit" class="btn btn-warning signinButton" value="Sign In!">

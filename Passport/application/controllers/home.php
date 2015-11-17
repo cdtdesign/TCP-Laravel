@@ -8,6 +8,11 @@ class Home extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		
+		/* Ion Auth */
+		$this->load->library('ion_auth');
+		
+		/* Facebook API */
 		$this->fb = new Facebook\Facebook([
 				  'app_id' => '1660831194160373',
 				  'app_secret' => '7a2c2ba7ec16c0f7c757375220d356c2',
@@ -40,6 +45,7 @@ class Home extends CI_Controller {
 	
 	public function home()
 	{
+		var_dump($this->ion_auth->logged_in());
 		$viewData['title'] = 'TCP Passport';
 		$viewData['fbook'] = $this->fbook;
 		$viewData['userLoggedIn'] = false;
