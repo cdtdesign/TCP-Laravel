@@ -1,3 +1,4 @@
+cdtgra74
 .DS_Store
 
 application/cache/*
@@ -25,3 +26,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.stTheme.cache
 *.sublime-workspace
 *.sublime-project
+
+sessions
+
+sessions/ci_session55ff200f7829e18df2a5fe7cc130709231cc5f17

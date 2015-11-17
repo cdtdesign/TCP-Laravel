@@ -65,17 +65,19 @@ class Home extends CI_Controller {
 		}
 		$this->load->view('template/header');
 		$this->load->view('home_view');
-		$this->load->view('techangemplate/footer');
+		$this->load->view('template/footer');
 	}
 	
 	public function register()
 	{
+		var_dump($_POST);
 		$identity = $_POST['email'];
 		$password = $_POST['password'];
 		$email = $_POST['email'];
+		$_POST['gender'] = (int) $_POST['gender'];
 		if ($this->ion_auth->register($identity, $password, $email, $_POST)) {
 			// The user was successfully created
-			$this->ion_auth->login($identity, $password, TRUE);
+			$this->ion_auth->login($identity, $password);
 			redirect('home');
 		} else {
 			// The user was not created for some reason

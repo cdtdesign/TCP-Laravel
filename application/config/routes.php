@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 /* Authentication */
-$route['auth/login'] = 'Home/index';
+// $route['auth/login'] = 'Home/index';
 
 /* Config */
 $route['default_controller'] = 'Home/index';
