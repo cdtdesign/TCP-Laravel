@@ -7251,8 +7251,8 @@ img.socialBadges {
   transition-property: transform;
 }
 .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
 }
 
 /* Grow Rotate */
@@ -7271,8 +7271,8 @@ img.socialBadges {
   transition-property: transform;
 }
 .hvr-grow-rotate:hover, .hvr-grow-rotate:focus, .hvr-grow-rotate:active {
-  -webkit-transform: scale(1.1) rotate(4deg);
-  transform: scale(1.1) rotate(4deg);
+  -webkit-transform: scale(1.15) rotate(4deg);
+  transform: scale(1.15) rotate(4deg);
 }
 
 /* Bounce In */
