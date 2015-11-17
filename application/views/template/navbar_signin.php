@@ -13,7 +13,7 @@ NAME: Christina D. Thorpe-Rogers
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4>Traveler Sign Up</h4>
+					<h4>Traveler Passport Sign Up</h4>
 					<!-- Traveler Email Sign-Up -->
 					<form action="home/register" class="form-inline signup-form" method="POST" enctype="multipart/form-data">
 			   </div><!-- /.modal-header -->
@@ -91,7 +91,7 @@ NAME: Christina D. Thorpe-Rogers
 		  			<!-- <a href="#">Sign In with Facebook!</a></li> -->
 		  	          <li role="separator" class="divider"></li>
 		  		<!-- Button trigger Sign Up modal -->
-		  	          <li data-toggle="modal" data-target="#signupModal"><a href="#signupModal">Sign Up with Your Email</a></li>
+		  	          <li id="email-signup" data-toggle="modal" data-target="#signupModal"><a href="#signupModal">Sign Up with Your Email</a></li>
 		  	        </ul>
 		  	      </li><!-- /.dropdown -->
 		  	    </ul>

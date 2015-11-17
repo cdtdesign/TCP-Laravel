@@ -25,7 +25,7 @@
   </head>
   <body>
 	  
-  	<!-- Modal -->
+  	<!-- About Modal -->
   		<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel">
   		  <div class="modal-dialog" role="document">
   		    <div class="modal-content">

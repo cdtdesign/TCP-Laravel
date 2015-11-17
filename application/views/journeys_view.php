@@ -38,7 +38,7 @@ NAME: Christina D. Thorpe-Rogers
 	<!-- Crest & Welcone Text -->
 	<div class="center welcome">
 		<img src="/assets/img/tcp-crest-yllwshirt.svg" class="crest hvr-grow-rotate" />
-		<p class="lead center"><span>Welcome Traveler!</span> You have arrived at Traveling Children Project's Journey Blog! Here you can share your journey with other Travelers and also see where their travels have led them. <em style="font-weight:500;">Where has TC taken you? Click the button below to create a post of your latest journey!</em></p>
+		<p class="lead center"><span>Welcome Traveler!</span> You have arrived at Traveling Children Project's Journey Blog! Here you can share your journey with other Travelers and also see where their travels have led them. <em style="font-weight:500;">Where has TC taken you? Click the button below to share your latest journeys here!</em></p>
 		<!-- Button trigger modal -->
 		<button type="button" style="margin:auto,0;" class="btn btn-primary btn-lg journeyModalButton journeyCreateButton" data-toggle="modal" data-target="#journeyModal"><span class="hvr-icon-spin" style="color:#ef6831;text-align:center;line-height:50px;font-size:1.125em;"></span>
 		</button>
