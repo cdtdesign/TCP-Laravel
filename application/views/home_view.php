@@ -7,7 +7,6 @@
 	</div>
 
 	<!-- SEARCH FORM -->
-
 	<form style="" class="form-inline center" id="destSearch">
 	  <div class="form-group">
 		<select class="form-control">
@@ -27,7 +26,6 @@
 	</form>
 
 	<!-- BUTTONS -->
-
 	<div class="center" id="destButtons">
 	<div class="btn-group btn-group-lg center" role="group" aria-label="...">
 	  <button type="button" class="btn btn-info"><a href="#">Active</a></button>
@@ -42,4 +40,4 @@
 	</div>
 	</div>
 
-</div><!-- /.container -->
+</div> <!-- .container -->
