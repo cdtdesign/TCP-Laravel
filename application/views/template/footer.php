@@ -16,8 +16,8 @@
     <script src="/assets/js/bootstrap.min.js"></script>
 	<script>
 	$(function () {
-	  $('[data-toggle="tooltip"]').tooltip()
-	})
+		$('[data-toggle="tooltip"]').tooltip();
+	});
 	</script>
 	
 	<script>
@@ -59,7 +59,7 @@
 		    cookie     : true,  // enable cookies to allow the server to access 
 		                        // the session
 		    xfbml      : true,  // parse social plugins on this page
-		    version    : 'v2.2' // use version 2.2
+		    version    : 'v2.5' // use version 2.5
 		  });
 
 		  // Now that we've initialized the JavaScript SDK, we call 
@@ -74,10 +74,10 @@
 		  //
 		  // These three cases are handled in the callback function.
 
-`		  FB.getLoginStatus(function(response) {
+		  FB.getLoginStatus(function(response) {
 		    statusChangeCallback(response);
 		  });
-`
+
 	  };
 
 	  // Load the SDK asynchronously
@@ -103,31 +103,24 @@
 		];
 		
 	    FB.api('/me', {fields: desiredUserData}, function(response) {
-	      // console.log('Successful login for: ' + response.name);
-	      // document.getElementById('status').innerHTML =
-	      //   'Thanks for logging in, ' + response.name + '!';
+		      console.log('Successful login for: ' + response.first_name);
+		      document.getElementById('status').innerHTML =
+		        'Thanks for logging in, ' + response.name + '!';
 		  
-		  var users_email = response.email;
-		  
-		  // Pull FB info into traveler profile
-		  $.ajax('auth/create_user', {
-			'method': 'POST',
-			'data': {
-				'first_name': response.first_name,
-				'last_name': response.last_name,
-				'email': response.email,
-				'password': 'Facebook15',
-				'password_confirm': 'Facebook15'
-			}
-		  }, function () {
-			  // The new user was created, so we can get
-			  // their data and fill the modal with it.
-			  $.ajax('user/' + users_email, null, function (response) {
-				  console.log("Done!");
-				  console.log(response);
-			  });
+			  var users_email = response.email;
+			  console.log("Beginning to try creating the user");
+			  // Pull FB info into traveler profile
+			  $.ajax('create_traveler', {
+				'method': 'POST',
+				'data': {
+					'first_name': response.first_name,
+					'last_name': response.last_name,
+					'email': response.email,
+					'password': 'Facebook15',
+					'password_confirm': 'Facebook15'
+					}
+				});
 			});
-	    });
 	  }
 	  
 	  $("#logoutLink").click(function () {
@@ -204,7 +197,13 @@
 			});
 		});
 	</script>
-	   
+		
+		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+		</fb:login-button>
+		
+		<div id="status">
+		</div>
+		
 	<link rel="stylesheet" type="text/css" href="/assets/css/custom3.css">
   </body>
 </html>
