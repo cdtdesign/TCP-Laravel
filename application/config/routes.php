@@ -49,10 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Home:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-<<<<<<< HEAD:application/config/routes.php
-$route['default_controller'] = 'home';
-$route['translate_uri_dashes'] = FALSE;
-=======
 
 /* Config */
 $route['default_controller'] = 'Home/index';
@@ -68,4 +64,3 @@ $route['journeys'] = 'journeys';
 
 /* Errors */
 $route['404_override'] = '';
->>>>>>> cdtdesign/master:application/config/routes.php

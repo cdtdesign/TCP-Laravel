@@ -74,19 +74,11 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-<<<<<<< HEAD:application/config/database.php
 	'dsn'	   => 'mysql:host=tcp.dev;dbname=TravelingChildrenProject',
 	'hostname' => 'tcp.dev',
 	'username' => 'Alexander',
 	'password' => '1MCjEkAUtvm9xSlbnjCdk1QQ2bauZs',
 	'database' => 'TravelingChildrenProject',
-=======
-	'dsn'	   => 'mysql:host=127.0.0.1;dbname=passportdb',
-	'hostname' => '127.0.0.1',
-	'username' => 'root',
-	'password' => 'root',
-	'database' => 'passportdb',
->>>>>>> cdtdesign/master:application/config/database.php
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
