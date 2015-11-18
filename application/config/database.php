@@ -74,8 +74,9 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	   => 'mysql:host=tcp.dev;dbname=TravelingChildrenProject',
+	// 'dsn'	   => 'mysql:host=tcp.dev;',
 	'hostname' => 'tcp.dev',
+	'port' => 3306,
 	'username' => 'Alexander',
 	'password' => '1MCjEkAUtvm9xSlbnjCdk1QQ2bauZs',
 	'database' => 'TravelingChildrenProject',

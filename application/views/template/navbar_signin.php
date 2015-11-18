@@ -74,4 +74,3 @@ NAME: Christina D. Thorpe-Rogers
 		  	</div><!-- /.container-fluid -->
 		 </nav>
 		</div><!-- /.container -->
->>>>>>> cdtdesign/master

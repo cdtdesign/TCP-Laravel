@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+require_once __DIR__ . '../../../assets/Facebook/autoload.php';
+
 class Home extends CI_Controller {
 	public function __construct()
 	{
