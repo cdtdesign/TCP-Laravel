@@ -32,7 +32,7 @@ class Home extends CI_Controller {
 		$this->access_token = $jsHelper->getAccessToken();
 		// echo $loginUrl;
 	
-		// $this->load->model('Traveler_model');
+		$this->load->model('Traveler_model');
 		
 		// $this->load->library('upload', $upload_config);
 		$this->load->helper('url');
@@ -46,7 +46,7 @@ class Home extends CI_Controller {
 	
 	public function home()
 	{
-		// var_dump($this->ion_auth->logged_in());
+		var_dump($this->ion_auth->logged_in());
 		$viewData['title'] = 'TCP Passport';
 		$viewData['fbook'] = $this->fbook;
 		$viewData['userLoggedIn'] = $this->ion_auth->logged_in();
@@ -65,12 +65,13 @@ class Home extends CI_Controller {
 	
 	public function register()
 	{
-		// var_dump($_POST);
 		$identity = $_POST['email'];
 		$password = $_POST['password'];
 		$email = $_POST['email'];
 		$_POST['gender'] = (int) $_POST['gender'];
 		if ($this->ion_auth->register($identity, $password, $email, $_POST)) {
+			$this->Journeys_model->save_traveler($_POST);
+			
 			// The user was successfully created
 			$this->ion_auth->login($identity, $password);
 			redirect('home');
@@ -78,5 +79,11 @@ class Home extends CI_Controller {
 			// The user was not created for some reason
 			echo "You weren't created... :/";
 		}
+	}
+	
+	public function getUserData($id)
+	{
+		header("Content-Type: application/json");
+		echo json_encode($this->ion_auth->user($id)->row());
 	}
 }

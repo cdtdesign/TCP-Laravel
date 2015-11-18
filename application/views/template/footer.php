@@ -54,30 +54,30 @@
 	  }
 
 	  window.fbAsyncInit = function() {
-	  FB.init({
-	    appId      : '1660831194160373',
-	    cookie     : true,  // enable cookies to allow the server to access 
-	                        // the session
-	    xfbml      : true,  // parse social plugins on this page
-	    version    : 'v2.2' // use version 2.2
-	  });
+		  FB.init({
+		    appId      : '1660831194160373',
+		    cookie     : true,  // enable cookies to allow the server to access 
+		                        // the session
+		    xfbml      : true,  // parse social plugins on this page
+		    version    : 'v2.2' // use version 2.2
+		  });
 
-	  // Now that we've initialized the JavaScript SDK, we call 
-	  // FB.getLoginStatus().  This function gets the state of the
-	  // person visiting this page and can return one of three states to
-	  // the callback you provide.  They can be:
-	  //
-	  // 1. Logged into your app ('connected')
-	  // 2. Logged into Facebook, but not your app ('not_authorized')
-	  // 3. Not logged into Facebook and can't tell if they are logged into
-	  //    your app or not.
-	  //
-	  // These three cases are handled in the callback function.
+		  // Now that we've initialized the JavaScript SDK, we call 
+		  // FB.getLoginStatus().  This function gets the state of the
+		  // person visiting this page and can return one of three states to
+		  // the callback you provide.  They can be:
+		  //
+		  // 1. Logged into your app ('connected')
+		  // 2. Logged into Facebook, but not your app ('not_authorized')
+		  // 3. Not logged into Facebook and can't tell if they are logged into
+		  //    your app or not.
+		  //
+		  // These three cases are handled in the callback function.
 
-	  FB.getLoginStatus(function(response) {
-	    statusChangeCallback(response);
-	  });
-
+`		  FB.getLoginStatus(function(response) {
+		    statusChangeCallback(response);
+		  });
+`
 	  };
 
 	  // Load the SDK asynchronously
@@ -101,41 +101,38 @@
 			'gender',
 			'email'
 		];
+		
 	    FB.api('/me', {fields: desiredUserData}, function(response) {
 	      // console.log('Successful login for: ' + response.name);
 	      // document.getElementById('status').innerHTML =
 	      //   'Thanks for logging in, ' + response.name + '!';
 		  
-			// var traveler_gender;
-			// switch (response.gender.toLowerCase()) {
-			// case "male":
-			//   traveler_gender = 1;
-			//   break;
-			// case "female":
-			//   traveler_gender = 2;
-			//   break;
-			// default:
-			//   traveler_gender = 3;
-			// }
-
+		  var users_email = response.email;
+		  
 		  // Pull FB info into traveler profile
-		  $.ajax('/create_traveler/', {
+		  $.ajax('auth/create_user', {
 			'method': 'POST',
 			'data': {
-				'fname': response.first_name,
-				'lname': response.last_name,
-				// 'gender': traveler_gender,
-				'user_email': response.email
+				'first_name': response.first_name,
+				'last_name': response.last_name,
+				'email': response.email,
+				'password': 'Facebook15',
+				'password_confirm': 'Facebook15'
 			}
-		  }, function (response) {
-				console.log("New traveler should have been created.");
+		  }, function () {
+			  // The new user was created, so we can get
+			  // their data and fill the modal with it.
+			  $.ajax('user/' + users_email, null, function (response) {
+				  console.log("Done!");
+				  console.log(response);
+			  });
 			});
 	    });
 	  }
 	  
-	  // $("#logoutLink").click(function () {
-// 		  FB.logout();
-// 	  });
+	  $("#logoutLink").click(function () {
+		  FB.logout();
+	  });
 	</script>
 
 	<script>
