@@ -12,11 +12,11 @@ NAME: Christina D. Thorpe-Rogers
 		  <div class="modal-dialog modal-sm" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h2>Traveler Passport Profile</h2>
-				<!-- Traveler Email Sign-Up -->
-				<form action="home/signup" class="form-inline signup-form" method="POST" enctype="multipart/form-data">
-			      </div><!-- /.modal-header -->
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4>Traveler Passport Sign Up</h4>
+					<!-- Traveler Email Sign-Up -->
+					<form action="home/register" class="form-inline signup-form" method="POST" enctype="multipart/form-data">
+			   </div><!-- /.modal-header -->
 			      <div class="modal-body">
 					<input type="text" name="fname" class="form-control journeyPostTitle" value="" placeholder="Traveler's First Name" required /><br />
 					<input type="text" name="lname" class="form-control" value="" placeholder="Traveler's Last Name" autocomplete="on" required /><br />
@@ -51,23 +51,27 @@ NAME: Christina D. Thorpe-Rogers
 		  <a href="home"><img src="/assets/img/traveling-children-project-passport-wordmark.svg" lowsrc="/assets/img/traveling-children-project-passport-wordmark.png" alt="Traveling Children Project Passport" class="wordmark hvr-grow" /></a>
 	    </div>
 
-		  <!-- Collect the nav links, forms, and other content for toggling -->
-		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav navbar-right">
-	        <li><button class="btn aboutModalButton" data-toggle="modal" data-target="#aboutModal">About</button></li>
-			 <li class="disabled" data-toggle="tooltip" data-placement="bottom" title="Sign-In to view Journey Blog"><a href="#">Journey Blog</a></li>
-			 <li><a href="#">Sign-In</a></li>
-	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign-Up <span class="caret"></span></a>
-	          <ul class="dropdown-menu">
-	            <li id="facebook-signup"><a href="#">Sign-Up with Facebook</a></li>
-	            <li role="separator" class="divider"></li>
-				<!-- Button trigger signup modal -->
-	            <li data-toggle="modal" data-target=".bs-example-modal-sm"><a href="#">Sign-Up with Your Email</a></li>
-	          </ul>
-	        </li>
-	      </ul>
-	    </div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
-	</nav>
-</div><!-- /.container -->
+		  		<!-- Collect the nav links, forms, and other content for toggling -->
+		  		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		  	    <ul class="nav navbar-nav navbar-right">
+		  	<!-- Button trigger About modal -->
+		  	      <li><button class="btn aboutModalButton" data-toggle="modal" data-target="#aboutModal"><a href="#">About</a></button></li>
+		  		<li class="disabled" data-toggle="tooltip" data-placement="bottom" title="Sign In to view Journey Blog"><a href="#">Journey Blog</a></li>
+		  		<!-- Button trigger Sign In modal -->
+		  		<li data-toggle="modal" data-target="#signinModal"><a href="#signinModal">Sign In</a></li>
+		  		<li class="dropdown">
+		  	        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign Up <span class="caret"></span></a>
+		  	        <ul class="dropdown-menu">
+		  	          <li id="facebook-signup"><?= $fbook ?></li>
+		  			<!-- <a href="#">Sign In with Facebook!</a></li> -->
+		  	          <li role="separator" class="divider"></li>
+		  		<!-- Button trigger Sign Up modal -->
+		  	          <li id="email-signup" data-toggle="modal" data-target="#signupModal"><a href="#signupModal">Sign Up with Your Email</a></li>
+		  	        </ul>
+		  	      </li><!-- /.dropdown -->
+		  	    </ul>
+		  	  </div><!-- /.navbar-collapse -->
+		  	</div><!-- /.container-fluid -->
+		 </nav>
+		</div><!-- /.container -->
+>>>>>>> cdtdesign/master

@@ -64,6 +64,11 @@
  * Different environments will require different levels of error reporting.
  * By default development will show errors but testing and live will hide them.
  */
+	
+if( ! ini_get('date.timezone') )
+{
+	date_default_timezone_set('GMT');
+}
 switch (ENVIRONMENT)
 {
 	case 'development':

@@ -1,8 +1,7 @@
 <?php
-/*
- * This file can be deleted
- */
-
+// /*
+//  * This file can be deleted
+//  */
 // defined('BASEPATH') OR exit('No direct script access allowed');
 //
 // class Traveler_model extends CI_Model {
@@ -25,11 +24,11 @@
 //         parent::__construct();
 //     }
 //
-// 	public function save_traveler($create_traveler) {
-// 		/**
-// 		 * Accept data from the controller method 'create_traveler()'
-// 		 * then save the data to the database
-// 		 */
-// 		$this->db->insert('travelers', $create_traveler);
-// 	}
+// 	// public function save_traveler($create_traveler) {
+// // 		/**
+// // 		 * Accept data from the controller method 'create_traveler()'
+// // 		 * then save the data to the database
+// // 		 */
+// // 		$this->db->insert('travelers', $create_traveler);
+// // 	}
 // }

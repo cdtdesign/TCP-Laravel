@@ -17,11 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-<<<<<<< HEAD:application/config/config.php
 $config['base_url'] = 'http://tcp.dev/';
-=======
-$config['base_url'] = 'http://travelingchildrenproject.com/';
->>>>>>> cdtdesign/master:application/config/config.php
 
 /*
 |--------------------------------------------------------------------------
@@ -211,7 +207,7 @@ $config['directory_trigger'] = 'd';
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 0;
+$config['log_threshold'] = 4;
 
 /*
 |--------------------------------------------------------------------------
@@ -368,11 +364,7 @@ $config['encryption_key'] = 'abc123tcp';
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 7200;
-<<<<<<< HEAD:application/config/config.php
-$config['sess_save_path'] = '/Users/alexander/Sites/Traveling-Children-Project/system/libraries/Session/Sessions';
-=======
-$config['sess_save_path'] = 'sessions';
->>>>>>> cdtdesign/master:application/config/config.php
+$config['sess_save_path'] = '{APPPATH}/system/libraries/Session/Sessions';
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;

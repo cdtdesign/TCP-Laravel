@@ -7109,6 +7109,17 @@ img.wordmark {
 .dropdown-menu li a {
   font-weight: bold;
   text-align: center;
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #ee6730; /* Orange */
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  color: #fff;
 }
 
 li #facebook-signup a {
@@ -7116,7 +7127,6 @@ li #facebook-signup a {
   width: 100%;
   height: 40px;
   padding: 10px;
-  border-radius: 0px;
   color: #2268aa; /* FB Blu */
 }
 
@@ -7297,8 +7307,8 @@ img.socialBadges {
   transition-property: transform;
 }
 .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
 }
 
 /* Grow Rotate */
@@ -7317,8 +7327,8 @@ img.socialBadges {
   transition-property: transform;
 }
 .hvr-grow-rotate:hover, .hvr-grow-rotate:focus, .hvr-grow-rotate:active {
-  -webkit-transform: scale(1.1) rotate(4deg);
-  transform: scale(1.1) rotate(4deg);
+  -webkit-transform: scale(1.15) rotate(4deg);
+  transform: scale(1.15) rotate(4deg);
 }
 
 /* Bounce In */
