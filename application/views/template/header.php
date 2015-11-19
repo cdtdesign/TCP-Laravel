@@ -11,7 +11,7 @@
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="/assets/css/custom3.css" />
 	<link rel="stylesheet/less" type="text/css" href="/assets/css/variables.less" />
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+	<!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all"> -->
 	<link rel="icon" type="image/png" href="/assets/img/favicon.png" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<!-- <script src="/assets/js/less.js" type="text/javascript"></script> -->
