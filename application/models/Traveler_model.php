@@ -6,8 +6,8 @@
 //
 // class Traveler_model extends CI_Model {
 // 	/* Properties */
-// 	public $fname;
-// 	public $lname;
+// 	public $first_name;
+// 	public $last_name;
 // 	public $email;
 // 	public $street;
 // 	public $city;

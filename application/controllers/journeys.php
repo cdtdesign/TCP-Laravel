@@ -6,7 +6,7 @@ class Journeys extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		
+
 		// Config for the upload library
 		$upload_config['upload_path'] = '/assets/uploads/';
 		$upload_config['allowed_types'] = 'gif|jpg|png';
@@ -24,16 +24,11 @@ class Journeys extends CI_Controller {
 	public function index()
 	{
 		// Loads the views for navbar.php, header.php, journeys_view.php and footer.php
+		$this->load->view('template/header', $viewData);
 		$viewData['title'] = 'TCP Passport';
 		$this->load->view('template/navbar');
-		$this->load->view('template/header', $viewData);
-<<<<<<< HEAD:application/controllers/journeys.php
 
-		// Active Record Query
-=======
-		
 		// Active Record Query to post journeys to Journey Blog
->>>>>>> cdtdesign/master:application/controllers/journeys.php
 		$viewData['ten_posts'] = $this->Journeys_model->getTenLatestPosts();
 		$this->load->view('journeys_view', $viewData);
 		$this->load->view('template/footer');
@@ -53,7 +48,6 @@ class Journeys extends CI_Controller {
 		echo "CREATE";
 		print_r($_FILES['journey_header_image']['tmp_name']);
 		// Move file to 'uploads' folder
-<<<<<<< HEAD:application/controllers/journeys.php
 
 		/**
 		 * Remember to make sure the 'uploads' directory has
@@ -64,10 +58,6 @@ class Journeys extends CI_Controller {
 		 */
 		move_uploaded_file($_FILES['journey_header_image']['tmp_name'], '/Users/alexander/Sites/Traveling-Children-Project/assets/uploads/' . $_FILES['journey_header_image']['name']);
 
-=======
-		move_uploaded_file($_FILES['img']['tmp_name'], '/Applications/MAMP/htdocs/assets/uploads/' . $_FILES['img']['name']);
-		
->>>>>>> cdtdesign/master:application/controllers/journeys.php
 		// Save the image uploaded and get its' filename
 		// var_dump($this->upload->display_errors());
 		$this->Journeys_model->insert_entry($submittedPostData);
@@ -79,7 +69,6 @@ class Journeys extends CI_Controller {
 	{
 		$data = $this->input->post();
 		$data['id'] = $id;
-<<<<<<< HEAD:application/controllers/journeys.php
 
 		if ($_FILES['journey_header_image']['size'] >= 2097152) {
 			// The image  is larger than the 2MB limit; Refresh
@@ -100,13 +89,6 @@ class Journeys extends CI_Controller {
 		}
 
 		// Update the rest of the data (i.e. with or without the image)
-=======
-		$data['img'] = $_FILES['img']['name'];
-		
-		// Move file to 'uploads' folder
-		move_uploaded_file($_FILES['img']['tmp_name'], '/Applications/MAMP/htdocs/assets/uploads/' . $_FILES['img']['name']);
-		
->>>>>>> cdtdesign/master:application/controllers/journeys.php
 		$this->Journeys_model->update_record($data);
 
 		$this->session->set_flashdata('image_uploaded', $image_uploaded);

@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Journeys_model extends CI_Model {
 
-	public $travelerid;
+	public $first_name;
 	public $title;
 	public $date;
 	public $body;
@@ -11,19 +11,11 @@ class Journeys_model extends CI_Model {
 	public $img;
 
 	public function __construct()
-<<<<<<< HEAD:application/models/Journeys_model.php
   {
     // Call the CI_Model constructor
     parent::__construct();
   }
 
-=======
-    {
-	    // Call the CI_Model constructor
-	    parent::__construct();
-    }
-	
->>>>>>> cdtdesign/master:application/models/Journeys_model.php
 	// Sending user input into DB
 	public function insert_entry($post)
 	{
