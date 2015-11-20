@@ -5,38 +5,35 @@
   // Facebook SDK
   window.fbAsyncInit = function() {
     FB.init({
-        appId: '1660831194160373',
-        cookie: true,
-        xfbml: true,
-        version: 'v2.5'
+      appId: '1660831194160373',
+      cookie: true,
+      xfbml: true,
+      version: 'v2.5'
     });
 
-    $(document).ready(function () {
-      FB.login(function (response) {
+    $(document).ready(function() {
+      FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
-          // The user is logged in
-          $("#logoutLink").click(function() {
-              FB.logout();
-          });
-        } else {
+          /**
+           * The user has authenticated with
+           * both Facebook and TCP.
+           */
           // The user has signed up through Facebook
           var uid = response.authResponse.userID,
           accessToken = response.authResponse.accessToken,
           desiredData = 'id,first_name,last_name,gender,email';
 
-          FB.api('/' + uid + '?fields=' + desiredData, function (response) {
+          FB.api('/' + uid + '?fields=' + desiredData, function(response) {
             // We have successfully signed the user
             // in, so we can fetch their data
 
             // TODO: Remove this log stuff
             console.log('Successful login for: ' + response.first_name);
-            document.getElementById('status').innerHTML =
-                'Thanks for logging in, ' + response.name + '!';
 
             // Pull FB info into traveler profile
             $.ajax('create_traveler', {
               'method': 'POST',
-              'successs': function () {
+              'successs': function() {
                 console.log('The new user should have been added to the database.')
               },
               'data': {
@@ -47,6 +44,23 @@
               }
             }); // '$.ajax()'
           }); // 'FB.api()'
+
+          // The user is logged in; Let them log out
+          $("#logoutLink").click(function() {
+            FB.logout();
+          });
+        } else {
+          /**
+           * The user either hasn't authorised TCP or
+           * they're logged out of Facebook. We'll
+           * present the pop-up to allow them to
+           * either give us permission to authenticate
+           * them or authenticate with Facebook, then
+           * give us access to their information.
+           */
+          $('#facebook-signup').click(function () {
+            FB.login();
+          }); // '$('#facebook-signup').click'
         } // 'if (!response.error)'
       }); // 'FB.login()'
     }); // '$(document).ready'
