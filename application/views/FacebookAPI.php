@@ -1,5 +1,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="//connect.facebook.net/en_US/sdk.js"></script>
+<?= '<script>var facebooker = '.$facebooker.'</script>' ?>
 <script>
   console.log('Facebook API has loaded');
   // Facebook SDK
@@ -13,17 +14,17 @@
 
     $(document).ready(function() {
       FB.getLoginStatus(function(response) {
-        console.log(response.status);
-        if (response.status === 'connected') {
+        if (response.status === 'connected' && facebooker) {
+          console.log('Signed up with Facebook in the past.')
           /**
-           * The user has authenticated with
-           * both Facebook and TCP.
+           * The user has signed up with Facebook in
+           * the past, so we don't want to create a
+           * new record in the database for them, we
+           * want to ask Facebook if they're
+           * authenticated with the application
            */
 
-          // Get their token; This prevents just anyone from
-          // sending a random POST request telling us a user
-          // has logged in through Facebook when they haven't
-          // by looking for the same token in the database
+          // Get their token
           var uid = response.authResponse.userID,
           accessToken = response.authResponse.token,
           tokenExpirationStamp = response.authResponse.signedRequest.expires,
@@ -33,7 +34,7 @@
             // The token has expired and the user
             // must reauthenticate with Facebook
             accessToken = 'Expired at ' + tokenExpirationStamp;
-            FB.login();
+            // FB.login();
           }
 
           // Tell PHP that the user has signed in
@@ -41,39 +42,40 @@
           $.ajax('/facebookerLoggedIn', {
             'method': 'POST',
             'data': {
-              'uid': uid, // Don't think this changes, but just in case
-              'token': accessToken,
-
-              // Logically 'true' because we're in
-              // 'response.status === 'connected''
-              'in': true
-            },
-            'success': function (response) {
-              console.log('RESPONSE:');
-              console.log(response);
+              'uid': uid
             }
           });
 
           // The user is logged in; Let them log out
           $("#logoutLink").click(function() {
             FB.logout();
+
+            // Tell PHP that the user
+            // has signed out of TCP
+            $.ajax('/facebookerLoggedOut', {
+              'method': 'POST',
+              'data': {
+                'uid': uid
+              }
+            });
           });
-        } else {
-          /**
-           * The user either hasn't authorised TCP or
-           * they're logged out of Facebook. We'll
-           * present the pop-up to allow them to
-           * either give us permission to authenticate
-           * them or authenticate with Facebook (and
-           * TCP, of course), then they will have
-           * given us access to their information.
-           */
+        } else if (!facebooker) {
+           /**
+            * The user either hasn't authorised TCP or
+            * they're logged out of Facebook. We'll
+            * present the pop-up to allow them to
+            * either give us permission to authenticate
+            * them or authenticate with Facebook (and
+            * TCP, of course), then they will have
+            * given us access to their information.
+            */
+           console.log('Not authorised with TCP.')
           $('#facebook-signup').click(function () {
-            FB.login(function (response) {
-              if (response.status === 'connected') {
-                // The user has signed up through Facebook
-                var uid = response.authResponse.userID,
-                accessToken = response.authResponse.accessToken,
+            FB.login(function (loginResponse) {
+              console.log(loginResponse);
+              if (loginResponse.status === 'connected') {
+                var uid = loginResponse.authResponse.userID,
+                accessToken = loginResponse.authResponse.accessToken,
                 desiredData = 'id,first_name,last_name,gender,email';
 
                 FB.api('/' + uid + '?fields=' + desiredData, function(response) {
@@ -92,6 +94,9 @@
                     break;
                   }
 
+                  // TODO:
+                  // Determine if the user has signed up before by checking the database for their facebook user id. If there's one there, they've signed in through Facebook before. Otherwise, they haven't, and you should trigger the ajax call below.
+
                   /**
                    * At this point the data Facebook gave
                    * us is written to the database, and
@@ -106,10 +111,13 @@
                       'first_name': response.first_name,
                       'last_name': response.last_name,
                       'email': response.email,
-                      'gender': gender                    },
-                    'success': function (resposne) {
-                      console.log('success');
-                      console.log(resposne);
+                      'gender': gender,
+                      'facebookID': uid,
+                      'token': accessToken,
+                      'in': 1
+                    },
+                    'success': function () {
+                      console.log('Should have sent the user data to the database');
                     }
                   });
                 });

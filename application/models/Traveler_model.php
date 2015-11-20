@@ -29,7 +29,6 @@ class Traveler_model extends CI_Model {
 	 * the parameter value passed
 	 */
 	public function saveTraveler($traveler) {
-
 		$this->db->insert('travelers', $traveler);
 	}
 
@@ -37,11 +36,17 @@ class Traveler_model extends CI_Model {
 	 * Set that a traveler has
 	 * signed in with Facebook
 	 */
-	public function setFacebookerLoggedIn($facebooker) {
-		$this->db->update('travelers', [
-			'facebookID' => $facebooker['uid'],
-			'last_known_token' => $facebooker['token'],
-			'in' => $facebooker['in']
-		]);
+	public function setFacebookerLoggedIn($uid) {
+		$this->db->where(['facebookID' => $uid])
+			->update('travelers', ['in' => 1]);
+	}
+
+	/**
+	 * Set that a traveler has
+	 * signed out of TCP
+	 */
+	public function setFacebookerLoggedOut($uid) {
+		$this->db->where(['facebookID' => $uid])
+			->update('travelers', ['in' => 0]);
 	}
 }

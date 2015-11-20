@@ -38,6 +38,15 @@ class Home extends CI_Controller {
 			'title' => 'TCP Passport'
 		];
 
+		$facebookAPIData = [
+			// Determine whether the user has used
+			// Facebook to sign up. This value is
+			// passed to 'FacebookAPI.js' later
+			// which is the reason the values
+			// need to be strings
+			'facebooker' => ($this->session->userdata('facebooker')) ? $facebooker = 'true' : $facebooker = 'false'
+		];
+
 		$masterTemplateData = [
 			// This array contains values sent to 'MasterTemplate.php'
 			// which is a view. This view will have access to all of
@@ -79,7 +88,7 @@ class Home extends CI_Controller {
 				// starting with the home view
 				. $this->load->view('home_view', NULL, TRUE)
 				. $this->load->view('template/footer', NULL, TRUE)
-				. $this->load->view('FacebookAPI.html', NULL, TRUE)
+				. $this->load->view('FacebookAPI.php', $facebookAPIData, TRUE)
 		];
 
 		/**
@@ -145,11 +154,11 @@ class Home extends CI_Controller {
 		// Save the data of the new traveler
 		// to the database for use later
 		$this->Traveler_model->saveTraveler([
-			'username' => str_replace(' ', '', $_POST['first_name'] . $_POST['last_name']),
-			'first_name' => $_POST['first_name'],
-			'last_name' => $_POST['last_name'],
-			'email' => $_POST['email'],
-			'gender' => $_POST['gender'],
+			'username' => str_replace(' ', '', $this->input->post('first_name') .$this->input->post('last_name')),
+			'first_name' => $this->input->post('first_name'),
+			'last_name' => $this->input->post('last_name'),
+			'email' => $this->input->post('email'),
+			'gender' => $this->input->post('gender'),
 			'facebooker' => TRUE
 		]);
 	}
@@ -179,8 +188,22 @@ class Home extends CI_Controller {
 	/**
 	 * Tell the database that a user
 	 * authenticated with Facebook
+	 * and also set a value in the
+	 * session to indicate that a
+	 * user has signed in through it
 	 */
 	public function facebookerLoggedIn() {
-		$this->Traveler_model->setFacebookerLoggedIn($this->post());
+		$this->session->set_userdata('facebooker', true);
+		$this->Traveler_model->setFacebookerLoggedIn($this->input->post('uid'));
+	}
+
+	/**
+	 * Tell the database that a user
+	 * has deauthenticated from TCP
+	 * and remember it in the session
+	 */
+	public function facebookerLoggedOut() {
+		$this->session->set_userdata('facebooker', false);
+		$this->Traveler_model->setFacebookerLoggedOut($this->input->post('uid'));
 	}
 }
