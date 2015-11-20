@@ -25,7 +25,7 @@ class Home extends CI_Controller {
 				  ]);
 		$helper = $this->fb->getRedirectLoginHelper();
 		$permissions = ['email', 'public_profile']; // Optional permissions
-		$loginUrl = $helper->getLoginUrl('http://tcp.dev/', $permissions);
+		$loginUrl = $helper->getLoginUrl('https://tcp.dev/', $permissions);
 		$this->fbook = '<a href="' . htmlspecialchars($loginUrl) . '">Sign Up with Facebook!</a>';
 		$jsHelper = $this->fb->getJavaScriptHelper();
 		// $this->access_token = $jsHelper->getAccessToken();
