@@ -16,7 +16,7 @@ class Home extends CI_Controller {
 		$this->load->helper('url');
 
 		/* Models */
-		// $this->load->model('Traveler_model');
+		$this->load->model('Traveler_model');
 
 		/**
 		 * This Facebook stuff seems pretty useless considering
@@ -95,18 +95,24 @@ class Home extends CI_Controller {
 		$_POST['gender'] = 3;
 		$_POST['first_name'] = $_POST['first_name'];
 		$_POST['last_name'] = $_POST['last_name'];
-		$this->ion_auth->register($identity, $password, $email, $_POST);
+		$userWasSaved = $this->ion_auth->register($identity, $password, $email, $_POST);
 
-		// if ()) {
-			// $this->Journeys_model->save_traveler($_POST);
+		if($userWasSaved) {
+			redirect('home');
+		} else {
+			view('You weren\'t created');
+		}
+	}
 
-			// The user was successfully created
-			// $this->ion_auth->login($identity, $password);
-			// redirect('home');
-		// } else {
-			// The user was not created for some reason
-			// echo "You weren't created... :/";
-		// }
+	public function registerFacebooker() {
+		$this->Traveler_model->saveTraveler([
+			'username' => str_replace(' ', '', $_POST['first_name'] . $_POST['last_name']),
+			'first_name' => $_POST['first_name'],
+			'last_name' => $_POST['last_name'],
+			'email' => $_POST['email'],
+			'gender' => $_POST['gender'],
+			'facebooker' => TRUE
+		]);
 	}
 
 	public function getUserData($id)

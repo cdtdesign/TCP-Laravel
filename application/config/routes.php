@@ -57,6 +57,7 @@ $route['translate_uri_dashes'] = FALSE;
 /* Home */
 $route['home'] = 'Home/home';
 $route['create_traveler'] = 'Home/register';
+$route['create_facebooking_traveler'] = 'Home/registerFacebooker';
 $route['user/(:num)'] = 'Home/getUserData/$1';
 
 /* Journeys */

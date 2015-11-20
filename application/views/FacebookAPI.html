@@ -13,37 +13,12 @@
 
     $(document).ready(function() {
       FB.getLoginStatus(function(response) {
+        console.log(response.status);
         if (response.status === 'connected') {
           /**
            * The user has authenticated with
            * both Facebook and TCP.
            */
-          // The user has signed up through Facebook
-          var uid = response.authResponse.userID,
-          accessToken = response.authResponse.accessToken,
-          desiredData = 'id,first_name,last_name,gender,email';
-
-          FB.api('/' + uid + '?fields=' + desiredData, function(response) {
-            // We have successfully signed the user
-            // in, so we can fetch their data
-
-            // TODO: Remove this log stuff
-            console.log('Successful login for: ' + response.first_name);
-
-            // Pull FB info into traveler profile
-            $.ajax('create_traveler', {
-              'method': 'POST',
-              'successs': function() {
-                console.log('The new user should have been added to the database.')
-              },
-              'data': {
-                'first_name': response.first_name,
-                'last_name': response.last_name,
-                'email': response.email,
-                'facebooker': true
-              }
-            }); // '$.ajax()'
-          }); // 'FB.api()'
 
           // The user is logged in; Let them log out
           $("#logoutLink").click(function() {
@@ -55,14 +30,60 @@
            * they're logged out of Facebook. We'll
            * present the pop-up to allow them to
            * either give us permission to authenticate
-           * them or authenticate with Facebook, then
-           * give us access to their information.
+           * them or authenticate with Facebook (and
+           * TCP, of course), then they will have
+           * given us access to their information.
            */
           $('#facebook-signup').click(function () {
-            FB.login();
-          }); // '$('#facebook-signup').click'
-        } // 'if (!response.error)'
-      }); // 'FB.login()'
-    }); // '$(document).ready'
-  }; // 'window.fbAsyncInit'
+            FB.login(function (response) {
+              if (response.status === 'connected') {
+                // The user has signed up through Facebook
+                var uid = response.authResponse.userID,
+                accessToken = response.authResponse.accessToken,
+                desiredData = 'id,first_name,last_name,gender,email';
+
+                FB.api('/' + uid + '?fields=' + desiredData, function(response) {
+                  // We have successfully signed the user
+                  // in, so we can fetch their data
+                  var gender;
+                  switch (response.gender) {
+                  case "male":
+                    gender = 1;
+                    break;
+                  case "female":
+                    gender = 2;
+                    break;
+                  default:
+                    gender = 0;
+                    break;
+                  }
+
+                  /**
+                   * At this point the data Facebook gave
+                   * us is written to the database, and
+                   * we also make sure we say that the
+                   * user signed up with Facebook. We say
+                   * so in the PHP this AJAX calls (i.e.
+                   * Home/registerFacebooker in Home.php)
+                   */
+                  $.ajax('create_facebooking_traveler', {
+                    'method': 'POST',
+                    'data': {
+                      'first_name': response.first_name,
+                      'last_name': response.last_name,
+                      'email': response.email,
+                      'gender': gender                    },
+                    'success': function (resposne) {
+                      console.log('success');
+                      console.log(resposne);
+                    }
+                  });
+                });
+              }
+            }, {scope: 'public_profile,email'});
+          });
+        }
+      });
+    });
+  };
 </script>
