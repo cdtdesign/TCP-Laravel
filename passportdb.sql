@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # http://code.google.com/p/sequel-pro/
 #
-# Host: 127.0.0.1 (MySQL 5.5.42)
+# Host: 127.0.0.1 (MySQL 5.6.27)
 # Database: passportdb
-# Generation Time: 2015-11-11 22:43:33 +0000
+# Generation Time: 2015-11-19 21:28:01 +0000
 # ************************************************************
 
 
@@ -77,6 +77,30 @@ VALUES
 UNLOCK TABLES;
 
 
+# Dump of table groups
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `groups`;
+
+CREATE TABLE `groups` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `groups` WRITE;
+/*!40000 ALTER TABLE `groups` DISABLE KEYS */;
+
+INSERT INTO `groups` (`id`, `name`, `description`)
+VALUES
+	(1,'admin','Administrator'),
+	(2,'members','General User');
+
+/*!40000 ALTER TABLE `groups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 # Dump of table journeys
 # ------------------------------------------------------------
 
@@ -110,6 +134,21 @@ VALUES
 UNLOCK TABLES;
 
 
+# Dump of table login_attempts
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `login_attempts`;
+
+CREATE TABLE `login_attempts` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `ip_address` varchar(15) NOT NULL,
+  `login` varchar(100) NOT NULL,
+  `time` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
 # Dump of table travelers
 # ------------------------------------------------------------
 
@@ -118,16 +157,29 @@ DROP TABLE IF EXISTS `travelers`;
 CREATE TABLE `travelers` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `passportid` varchar(128) NOT NULL DEFAULT '',
-  `fname` varchar(50) NOT NULL DEFAULT '',
-  `lname` varchar(50) NOT NULL DEFAULT '',
-  `email` varchar(100) NOT NULL DEFAULT '',
+  `first_name` varchar(50) NOT NULL DEFAULT '',
+  `last_name` varchar(50) NOT NULL DEFAULT '',
   `street` varchar(100) DEFAULT '',
   `city` varchar(50) DEFAULT '',
   `state` varchar(3) DEFAULT '',
   `zip` int(5) DEFAULT NULL,
-  `birthday` date NOT NULL,
-  `gender` int(11) unsigned NOT NULL,
+  `birthday` date DEFAULT NULL,
+  `gender` int(11) unsigned DEFAULT NULL,
   `pic` varchar(100) DEFAULT '',
+  `ip_address` varchar(15) NOT NULL,
+  `username` varchar(100) DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `salt` varchar(255) DEFAULT NULL,
+  `email` varchar(100) NOT NULL,
+  `activation_code` varchar(40) DEFAULT NULL,
+  `forgotten_password_code` varchar(40) DEFAULT NULL,
+  `forgotten_password_time` int(11) unsigned DEFAULT NULL,
+  `remember_code` varchar(40) DEFAULT NULL,
+  `created_on` int(11) unsigned NOT NULL,
+  `last_login` int(11) unsigned DEFAULT NULL,
+  `active` tinyint(1) unsigned DEFAULT NULL,
+  `company` varchar(100) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_gender` (`gender`),
   CONSTRAINT `fk_gender` FOREIGN KEY (`gender`) REFERENCES `genders` (`id`)
@@ -136,22 +188,59 @@ CREATE TABLE `travelers` (
 LOCK TABLES `travelers` WRITE;
 /*!40000 ALTER TABLE `travelers` DISABLE KEYS */;
 
-INSERT INTO `travelers` (`id`, `passportid`, `fname`, `lname`, `email`, `street`, `city`, `state`, `zip`, `birthday`, `gender`, `pic`)
+INSERT INTO `travelers` (`id`, `passportid`, `first_name`, `last_name`, `street`, `city`, `state`, `zip`, `birthday`, `gender`, `pic`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `company`, `phone`)
 VALUES
-	(1,'','Christian','Patrick','chris@christianpatrick.me','537 Hearthglen Blvd','Winter Garden','FL',34787,'2015-06-15',1,''),
-	(2,'0','Christina','Thorpe-Rogers','christina@cdtdesign.com','123 Deland Ave','DeLand','FL',32804,'2005-08-31',1,''),
-	(3,'0','Patrick','Rogers','pat@cdtdesign.com','1414 Guernsey Street','Orlando','FL',32721,'1969-04-15',2,''),
-	(4,'3fe47988-88c4-11e5-b7f5-ece8c72b830e','Johnny','Crawford','johnny@me.com','654 Altamonte Drive','Altamonte','FL',32804,'2006-01-03',1,''),
-	(5,'faf8f902-88c3-11e5-b7f5-ece8c72b830e','Lucy','Smith','lucy@yahoo.com','123 DeLand Avenue','DeLand','FL',32751,'2006-05-09',2,'');
+	(1,'6475a028-8dac-11e5-a50d-d5fc6d2fa2a1','Christian','Patrick','537 Hearthglen Blvd','Winter Garden','FL',34787,'2015-06-15',1,'','',NULL,'',NULL,'chris@christianpatrick.me',NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL),
+	(2,'6475a456-8dac-11e5-a50d-d5fc6d2fa2a1','Christine','Rogers','123 Deland Ave','DeLand','FL',32804,'2005-08-31',1,'','',NULL,'',NULL,'chris@cdtdesign.com',NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL),
+	(3,'6475a564-8dac-11e5-a50d-d5fc6d2fa2a1','Patrick','Rogers','1414 Guernsey Street','Orlando','FL',32721,'1969-04-15',2,'','',NULL,'',NULL,'pat@cdtdesign.com',NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL),
+	(4,'6475a5e6-8dac-11e5-a50d-d5fc6d2fa2a1','Johnny','Crawford','654 Altamonte Drive','Altamonte','FL',32804,'2006-01-03',1,'','',NULL,'',NULL,'johnny@me.com',NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL),
+	(5,'6475db60-8dac-11e5-a50d-d5fc6d2fa2a1','Lucy','Smith','123 DeLand Avenue','DeLand','FL',32751,'2006-05-09',2,'','',NULL,'',NULL,'lucy@yahoo.com',NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL),
+	(18,'5ee1f610-8da8-11e5-a50d-d5fc6d2fa2a1','Admin','Admin','123 Admin Ave','Administor','FL',34787,NULL,2,'','127.0.0.1',NULL,'$2y$08$wqkjGRNW3g3W3N5YIcV8leX/W22HEqIAQl.jY43tMGHeuHEacsU/e',NULL,'admin@admin.com',NULL,NULL,NULL,NULL,1447818999,1447906183,1,NULL,NULL);
 
 /*!40000 ALTER TABLE `travelers` ENABLE KEYS */;
 UNLOCK TABLES;
 
 DELIMITER ;;
-/*!50003 SET SESSION SQL_MODE="" */;;
-/*!50003 CREATE */ /*!50017 DEFINER=`root`@`localhost` */ /*!50003 TRIGGER `passportid_uuid_generator` BEFORE INSERT ON `travelers` FOR EACH ROW SET NEW.passportid = UUID() */;;
+/*!50003 SET SESSION SQL_MODE="STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION" */;;
+/*!50003 CREATE */ /*!50017 DEFINER=`root`@`localhost` */ /*!50003 TRIGGER `generate_passportid` BEFORE INSERT ON `travelers` FOR EACH ROW SET NEW.passportid = UUID() */;;
 DELIMITER ;
 /*!50003 SET SESSION SQL_MODE=@OLD_SQL_MODE */;
+
+
+# Dump of table users_groups
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `users_groups`;
+
+CREATE TABLE `users_groups` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned NOT NULL,
+  `group_id` mediumint(8) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uc_users_groups` (`user_id`,`group_id`),
+  KEY `fk_users_groups_users1_idx` (`user_id`),
+  KEY `fk_users_groups_groups1_idx` (`group_id`),
+  CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `fk_users_groups_users1` FOREIGN KEY (`user_id`) REFERENCES `travelers` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `users_groups` WRITE;
+/*!40000 ALTER TABLE `users_groups` DISABLE KEYS */;
+
+INSERT INTO `users_groups` (`id`, `user_id`, `group_id`)
+VALUES
+	(1,1,1),
+	(2,1,2),
+	(3,2,2),
+	(4,3,2),
+	(5,4,2),
+	(6,5,2),
+	(7,6,2),
+	(8,9,2),
+	(9,18,2);
+
+/*!40000 ALTER TABLE `users_groups` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 

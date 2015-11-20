@@ -47,6 +47,7 @@ class Home extends CI_Controller {
 	public function home()
 	{
 		// var_dump($this->ion_auth->logged_in());
+		$this->load->view('template/header');
 		$viewData['title'] = 'TCP Passport';
 		$viewData['fbook'] = $this->fbook;
 		$viewData['userLoggedIn'] = $this->ion_auth->logged_in();
@@ -58,7 +59,6 @@ class Home extends CI_Controller {
 			// Loads view for navbar_signin.php + header.php, home_view.php and footer.php
 			$this->load->view('template/navbar_signin', $viewData);
 		}
-		$this->load->view('template/header');
 		$this->load->view('home_view');
 		$this->load->view('template/footer');
 	}
@@ -68,17 +68,21 @@ class Home extends CI_Controller {
 		$identity = $_POST['email'];
 		$password = $_POST['password'];
 		$email = $_POST['email'];
-		$_POST['gender'] = (int) $_POST['gender'];
-		if ($this->ion_auth->register($identity, $password, $email, $_POST)) {
-			$this->Journeys_model->save_traveler($_POST);
+		$_POST['gender'] = 3;
+		$_POST['first_name'] = $_POST['first_name'];
+		$_POST['last_name'] = $_POST['last_name'];
+		$this->ion_auth->register($identity, $password, $email, $_POST);
+	
+		// if ()) {
+			// $this->Journeys_model->save_traveler($_POST);
 			
 			// The user was successfully created
-			$this->ion_auth->login($identity, $password);
-			redirect('home');
-		} else {
+			// $this->ion_auth->login($identity, $password);
+			// redirect('home');
+		// } else {
 			// The user was not created for some reason
-			echo "You weren't created... :/";
-		}
+			// echo "You weren't created... :/";
+		// }
 	}
 	
 	public function getUserData($id)

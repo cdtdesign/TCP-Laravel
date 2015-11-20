@@ -23,9 +23,9 @@ class Journeys extends CI_Controller {
 	public function index()
 	{		
 		// Loads the views for navbar.php, header.php, journeys_view.php and footer.php
+		$this->load->view('template/header', $viewData);
 		$viewData['title'] = 'TCP Passport';
 		$this->load->view('template/navbar');
-		$this->load->view('template/header', $viewData);
 		
 		// Active Record Query to post journeys to Journey Blog
 		$viewData['ten_posts'] = $this->Journeys_model->getTenLatestPosts();

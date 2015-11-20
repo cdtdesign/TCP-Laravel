@@ -18,8 +18,8 @@ NAME: Christina D. Thorpe-Rogers
 					<form action="home/register" class="form-inline signup-form" method="POST" enctype="multipart/form-data">
 			   </div><!-- /.modal-header -->
 			      <div class="modal-body">
-					<input type="text" name="fname" class="form-control journeyPostTitle" value="" placeholder="Traveler's First Name" autocomplete="on" required ><br />
-					<input type="text" name="lname" class="form-control" value="" placeholder="Traveler's Last Name" autocomplete="on" required ><br />
+					<input type="text" name="first_name" class="form-control journeyPostTitle" value="" placeholder="Traveler's First Name" autocomplete="on" required ><br />
+					<input type="text" name="last_name" class="form-control" value="" placeholder="Traveler's Last Name" autocomplete="on" required ><br />
 					<input type="email" name="email" class="form-control" value="" placeholder="Email Address" required ><br />
 					<input type="password" name="password" class="form-control" value="" required ><br />
 					<input type="text" name="street" class="form-control" value="" placeholder="Street Address, Apt #" autocomplete="on" required ><br />

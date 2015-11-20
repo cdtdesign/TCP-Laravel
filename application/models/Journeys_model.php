@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Journeys_model extends CI_Model {
 	
-	public $fname;
+	public $first_name;
 	public $title;
 	public $date;
 	public $body;

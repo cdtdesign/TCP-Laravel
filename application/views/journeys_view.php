@@ -21,7 +21,6 @@ NAME: Christina D. Thorpe-Rogers
 				<h4><input type="text" name="title" value="TC Journey to " placeholder="Enter Journey Post Title…" style="background:none;border:none;width:300px;color:#ee6730;" required /></h4>
 			      </div>
 			      <div class="modal-body">
-					<input type="text" style="display:none;" name="travelerid" class="form-control journeyPostTitle" value="3" placeholder="Traveler's First Name…" required /><br />
 					<input type="date" name="date" class="form-control" value="" autocomplete="on" required /><br />
 					<textarea rows="10" name="body" class="form-control" value="" placeholder="Body..." required></textarea><br />
 					<input type="htags" name="htags" class="form-control" value="#HappyTravels #TravelingChristian" placeholder="#Hashtagserwttwttw" required /><br />
@@ -58,7 +57,7 @@ NAME: Christina D. Thorpe-Rogers
 					  <div class="jp_img"><img src="/assets/uploads/<?= $post->img ?>"></div>
 				  <?php endif ?>
 				  <div class="jpPadding">
-					  <p class="jp_fname_date"><em><a href="#"><b>Traveling <?= $post->user->fname ?></b></a> / <?= $post->date ?></em></p>
+					  <p class="jp_fname_date"><em><a href="#"><b>Traveling <?= $post->user->first_name ?></b></a> / <?= $post->date ?></em></p>
 					  <p class="jp_body"><?= $post->body ?></a></p>
 					  <p class="htags"><?= $post->htags ?></p>
 					  <!-- Modal Footer -->
@@ -87,7 +86,6 @@ NAME: Christina D. Thorpe-Rogers
 			var journeys 	= $(".journeyPost"),
 			buttons			= $(".journeyEditButton"),
 			submitButton	= $('input[type="submit"]')[0],
-			fnameField 		= $('input[name="fname"]')[0],
 			titleField 		= $('input[name="title"]')[0],
 			dateField 		= $('input[name="date"]')[0],
 			bodyField 		= $('textarea[name="body"]')[0],
@@ -105,7 +103,7 @@ NAME: Christina D. Thorpe-Rogers
 					// var idField = $('#id-element')[0],
 					// imgField 		= $('input[name="img"]')[0];
 					var travelerPost = JSON.parse(travelerPost)[0];
-					fnameField.value = travelerPost['fname'];
+					console.log(travelerPost);
 					titleField.value = travelerPost['title'];
 					dateField.value  = travelerPost['date'];
 					bodyField.value  = travelerPost['body'];

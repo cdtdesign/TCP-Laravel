@@ -77,7 +77,6 @@
 		  FB.getLoginStatus(function(response) {
 		    statusChangeCallback(response);
 		  });
-
 	  };
 
 	  // Load the SDK asynchronously
@@ -106,7 +105,7 @@
 		      console.log('Successful login for: ' + response.first_name);
 		      document.getElementById('status').innerHTML =
 		        'Thanks for logging in, ' + response.name + '!';
-		  
+				console.log(response);
 			  var users_email = response.email;
 			  console.log("Beginning to try creating the user");
 			  // Pull FB info into traveler profile
@@ -152,8 +151,8 @@
 			// buttons			= $(".journeyEditButton"),
 			signupButton	= $('input[type="submit"]')[0],
 			editProfileBttn = $(".editProfileButton")[0],
-			fnameField 		= $('input[name="fname"]')[0],
-			lnameField		= $('input[name="lname"]')[0],
+			first_nameField 		= $('input[name="first_name"]')[0],
+			last_nameField		= $('input[name="last_name"]')[0],
 			emailField 		= $('input[name="email"]')[0],
 			streetField 	= $('input[name="street"]')[0],
 			cityField 		= $('textarea[name="city"]')[0],
@@ -175,8 +174,9 @@
 					// var idField = $('#id-element')[0],
 					// picField 		= $('input[name="pic"]')[0];
 					var travelerProfile = JSON.parse(travelerProfile)[0];
-					fnameField.value    = travelerProfile['fname'];
-					lnameField.value    = travelerProfile['lname'];
+					console.log(travelerProfile);
+					first_nameField.value    = travelerProfile['first_name'];
+					last_nameField.value    = travelerProfile['last_name'];
 					emailField.value    = travelerProfile['email'];
 					streetField.value   = travelerProfile['street'];
 					cityField.value     = travelerProfile['city'];
@@ -198,11 +198,11 @@
 		});
 	</script>
 		
-		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+		<!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 		</fb:login-button>
-		
+
 		<div id="status">
-		</div>
+		</div> -->
 		
 	<link rel="stylesheet" type="text/css" href="/assets/css/custom3.css">
   </body>
