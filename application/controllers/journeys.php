@@ -14,16 +14,27 @@ class Journeys extends CI_Controller {
 		$upload_config['max_width']  = '1024';
 		$upload_config['max_height']  = '768';
 
-		// Load the 'Journeys_model', some libraries, and URL helpers
-		$this->load->model('Journeys_model');
+		/* Libraries */
+		$this->load->library('ion_auth'); // Ion auth
+		$this->load->library('parser'); // Template parser
 		$this->load->library('upload', $upload_config);
-		$this->load->library('session');
+
+		/* Helpers */
 		$this->load->helper('url');
+
+		/* Models */
+		$this->load->model('Journeys_model');
 	}
 
+	/**
+	 * Journeys page
+	 */
 	public function index()
 	{
-		// Loads the views for navbar.php, header.php, journeys_view.php and footer.php
+		$viewData = [
+			'title' => 'TCP Passport'
+		];
+
 		$viewData['title'] = 'TCP Passport';
 		$this->load->view('template/header', $viewData);
 		$this->load->view('template/navbar');
@@ -34,15 +45,21 @@ class Journeys extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	// Returns journey data for one journey as JSON
+	/**
+	 * Return journey information from
+	 * the database as JSON
+	 */
 	public function show($id)
 	{
 		echo $this->Journeys_model->journey_with_id($id);
 	}
 
+	/**
+	 * Save a record in the database
+	 * for a newly created journey
+	 */
 	public function create()
 	{
-		// Store the submitted data
 		$submittedPostData = $this->input->post();
 		$submittedPostData['img'] = $_FILES['journey_header_image']['name'];
 		echo "CREATE";
@@ -65,6 +82,10 @@ class Journeys extends CI_Controller {
 		redirect('journeys');
 	}
 
+	/**
+	 * Update a journey with the data
+	 * in the $_POST superglobal
+	 */
 	public function edit($id)
 	{
 		$data = $this->input->post();
@@ -96,6 +117,9 @@ class Journeys extends CI_Controller {
 		redirect('journeys');
 	}
 
+	/**
+	 * Delete a journey with a given 'id'
+	 */
 	public function delete($id)
 	{
 		$this->Journeys_model->delete($id);

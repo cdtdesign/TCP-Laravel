@@ -20,6 +20,40 @@
            * both Facebook and TCP.
            */
 
+          // Get their token; This prevents just anyone from
+          // sending a random POST request telling us a user
+          // has logged in through Facebook when they haven't
+          // by looking for the same token in the database
+          var uid = response.authResponse.userID,
+          accessToken = response.authResponse.token,
+          tokenExpirationStamp = response.authResponse.signedRequest.expires,
+          rightHereRightNow = new Date().getTime();
+
+          if (tokenExpirationStamp <=  rightHereRightNow) {
+            // The token has expired and the user
+            // must reauthenticate with Facebook
+            accessToken = 'Expired at ' + tokenExpirationStamp;
+            FB.login();
+          }
+
+          // Tell PHP that the user has signed in
+          // with Facebook rather than natively
+          $.ajax('/facebookerLoggedIn', {
+            'method': 'POST',
+            'data': {
+              'uid': uid, // Don't think this changes, but just in case
+              'token': accessToken,
+
+              // Logically 'true' because we're in
+              // 'response.status === 'connected''
+              'in': true
+            },
+            'success': function (response) {
+              console.log('RESPONSE:');
+              console.log(response);
+            }
+          });
+
           // The user is logged in; Let them log out
           $("#logoutLink").click(function() {
             FB.logout();

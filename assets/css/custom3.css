@@ -7551,3 +7551,11 @@ img.socialBadges {
 
 
 }
+.container:first-of-type {
+  width: 100%;
+}
+#footer.container {
+  margin-left: -2.5%;
+  padding: 25px;
+  width: 105%;
+}

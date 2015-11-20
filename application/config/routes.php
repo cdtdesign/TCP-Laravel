@@ -59,6 +59,7 @@ $route['home'] = 'Home/home';
 $route['create_traveler'] = 'Home/register';
 $route['create_facebooking_traveler'] = 'Home/registerFacebooker';
 $route['user/(:num)'] = 'Home/getUserData/$1';
+$route['facebookerLoggedIn'] = 'Home/facebookerLoggedIn';
 
 /* Journeys */
 $route['journeys'] = 'journeys';

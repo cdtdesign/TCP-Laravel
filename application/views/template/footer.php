@@ -22,95 +22,9 @@
     </div>
   </div> <!-- .footer -->
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins and probably Facebook's SDK) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
   <!-- Bootstrap Stuff -->
-  <script src="/assets/js/bootstrap.min.js"></script>
   <script>
-    $(function () {
-    	$('[data-toggle="tooltip"]').tooltip();
+    $(document).ready(function () {
+      $('[data-toggle="tooltip"]').tooltip();
     });
   </script>
-
-  <!-- Facebook API Stuff -->
-  <script>
-      // // Facebook SDK
-      // window.fbAsyncInit = function() {
-      //     FB.init({
-      //         appId: '1660831194160373',
-      //         cookie: true, // enable cookies to allow the server to access
-      //         // the session
-      //         xfbml: true, // parse social plugins on this page
-      //         version: 'v2.5' // use version 2.5
-      //     });
-      //
-      //     // Now that we've initialized the JavaScript SDK, we call
-      //     // FB.getLoginStatus().  This function gets the state of the
-      //     // person visiting this page and can return one of three states to
-      //     // the callback you provide.  They can be:
-      //     //
-      //     // 1. Logged into your app ('connected')
-      //     // 2. Logged into Facebook, but not your app ('not_authorized')
-      //     // 3. Not logged into Facebook and can't tell if they are logged into
-      //     //    your app or not.
-      //     //
-      //     // These three cases are handled in the callback function.
-      //
-      //     FB.getLoginStatus(function(response) {
-      //         statusChangeCallback(response);
-      //     });
-      //
-      // };
-      //
-      // // Load the SDK asynchronously
-      // (function(d, s, id) {
-      //     var js, fjs = d.getElementsByTagName(s)[0];
-      //     if (d.getElementById(id)) return;
-      //     js = d.createElement(s);
-      //     js.id = id;
-      //     js.src = "//connect.facebook.net/en_US/sdk.js";
-      //     fjs.parentNode.insertBefore(js, fjs);
-      // }(document, 'script', 'facebook-jssdk'));
-      //
-      // // Here we run a very simple test of the Graph API after login is
-      // // successful.  See statusChangeCallback() for when this call is made.
-      // function testAPI() {
-      //     console.log('Welcome!  Fetching your information.... ');
-      //
-      //     //We have successfully signed the user in so we can fetch their data
-      //     var desiredUserData = [
-      //         'first_name',
-      //         'last_name',
-      //         'gender',
-      //         'email'
-      //     ];
-      //
-      //     FB.api('/me', {
-      //         fields: desiredUserData
-      //     }, function(response) {
-      //         console.log('Successful login for: ' + response.first_name);
-      //         document.getElementById('status').innerHTML =
-      //             'Thanks for logging in, ' + response.name + '!';
-      //
-      //         var users_email = response.email;
-      //         console.log("Beginning to try creating the user");
-      //         // Pull FB info into traveler profile
-      //         $.ajax('create_traveler', {
-      //             'method': 'POST',
-      //             'data': {
-      //                 'first_name': response.first_name,
-      //                 'last_name': response.last_name,
-      //                 'email': response.email,
-      //                 'password': 'Facebook15',
-      //                 'password_confirm': 'Facebook15'
-      //             }
-      //         });
-      //     });
-      // }
-      //
-      // $("#logoutLink").click(function() {
-      //     FB.logout();
-      // });
-  </script>
-</html>

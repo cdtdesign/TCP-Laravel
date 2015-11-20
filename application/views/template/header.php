@@ -11,12 +11,21 @@
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-  <!-- Bootstrap Stylesheets and Scripts -->
+  <!-- Bootstrap Stylesheets -->
   <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="/assets/css/custom3.css" />
-  <link rel="stylesheet/less" type="text/css" href="/assets/css/variables.less" />
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
-  <!-- <script src="/assets/js/less.js" type="text/javascript"></script> -->
+  <!--
+    Less isn't something you link to.
+
+    It's compiled to a normal CSS
+    stylesheet, and you link to
+    that stylesheet, instead.
+  -->
+  <!-- <link rel="stylesheet/less" type="text/css" href="/assets/css/variables.less" /> -->
+
+  <!-- Bootstrap Scripts -->
+  <script src="/assets/js/bootstrap.min.js"></script>
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

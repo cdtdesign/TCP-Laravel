@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require_once __DIR__ . '../../../assets/Facebook/autoload.php';
-
 class Home extends CI_Controller {
 	public function __construct()
 	{
@@ -11,66 +9,93 @@ class Home extends CI_Controller {
 		/* Libraries */
 		$this->load->library('ion_auth'); // Ion auth
 		$this->load->library('parser'); // Template parser
+		$this->load->library('session'); // Session object
 
 		/* Helpers */
 		$this->load->helper('url');
 
 		/* Models */
 		$this->load->model('Traveler_model');
-
-		/**
-		 * This Facebook stuff seems pretty useless considering
-		 * Facebook wants us to use JavaScript anyway, but I'm
-		 * leaving it here just in case. I don't think it's
-		 * doing anything, so feel free to delete it if you
-		 * are comfortable doing so. The JavaScript does NOT
-		 * rely on these lines!
-		 */
-
-		/* Facebook API */
-		// $this->fb = new Facebook\Facebook([
-		// 		  'app_id' => '1660831194160373',
-		// 		  'app_secret' => '7a2c2ba7ec16c0f7c757375220d356c2',
-		// 		  'default_access_token' => '{access-token}',
-		// 		  'enable_beta_mode' => true,
-		// 		  'default_graph_version' => 'v2.5',
-		// 		  'persistent_data_handler' => 'session'
-		// 	  ]);
-		// $helper = $this->fb->getRedirectLoginHelper();
-		// $permissions = ['email', 'public_profile']; // Optional permissions
-		// $loginUrl = $helper->getLoginUrl('https://tcp.dev/', $permissions);
-		// $this->fbook = '<a href="' . htmlspecialchars($loginUrl) . '">Sign Up with Facebook!</a>';
-		// $jsHelper = $this->fb->getJavaScriptHelper();
-		// $this->access_token = $jsHelper->getAccessToken();
-		// echo $loginUrl;
 	}
 
+	/**
+	 * Redirect users to '/home' When
+	 * they request '/'
+	 */
 	public function index()
 	{
 		// When the user visits the root, send them to /home
 		redirect('home');
 	}
 
+	/**
+	 * Home page
+	 */
 	public function home()
 	{
-		// $viewData['title'] = 'TCP Passport';
-		// $viewData['fbook'] = $this->fbook;
-
-		// Data we want to be available in the views (we
-		// can also use them here in the controller, too)
-		$viewData = [
-			'title' => 'TCP Passport',
-			'userLoggedIn' => $this->ion_auth->logged_in()
+		// Data for the 'template/header' view
+		$headerViewData = [
+			'title' => 'TCP Passport'
 		];
 
-		$this->parser->parse('template/header', $viewData);
+		$masterTemplateData = [
+			// This array contains values sent to 'MasterTemplate.php'
+			// which is a view. This view will have access to all of
+			// the values we define in this array through enclosing
+			// them in curly brackets. If you look at
+			// '/application/views/MasterTemplate.php' you'll see
+			// these array keys are called between curly brackets
+			//
+			// Each of those curly-bracket enclosed variables are
+			// going to be replaced with the values we set right
+			// here before they're sent to the requesting browser
+			//
+			// The first value directly below this comment returns
+			// a boolean to indicate whether the user has logged in
+			// through our native authentication
+			//
+			'userLoggedIn' => $this->logged_in(),
+
+			// This is the content between the 'head' elements
+			// to which we're passing the values in '$headerViewData'
+			// meaning the 'title' is available in the page as '$title'
+			//
+			// The last argument -- 'TRUE' -- says that we don't want
+			// the view to be added to the output buffer yet. The
+			// output buffer is -- of course -- the data send back to
+			// the browser. We'll load this 'head' in 'MasterTemplate'
+			'head' => $this->parser->parse('template/header', $headerViewData, TRUE),
+
+			// Again, we load a view to the '$masterTemplateData'
+			// although we don't need to pass any variables this
+			// time so we say 'NULL' (you can't just send two
+			// parameters), and we lastly make sure we don't
+			// add this view to the output buffer
+			'content' => $this->load->view('template/navbar', [
+				'userLoggedIn' => $this->logged_in()
+			], TRUE)
+				// We can append more views with a
+				// period for string concatenation
+				// starting with the home view
+				. $this->load->view('home_view', NULL, TRUE)
+				. $this->load->view('template/footer', NULL, TRUE)
+				. $this->load->view('FacebookAPI.html', NULL, TRUE)
+		];
 
 		/**
 		 * Because the Facebook API has to be embedded
 		 * in the HTML we'll link to a view specifially
 		 * designated to hold Facebook's JavaScript API
+		 * but only if the user has signed in through it
 		 */
-		$this->load->view('FacebookAPI.html');
+		// if ($this->session->userdata('facebooker')) {
+			// $masterTemplateData['content'] .= $this->load->view('FacebookAPI.html', NULL, TRUE);
+		// }
+
+		/**
+		 * Now we'll mix it all together in the 'MasterTemplate'
+		 */
+		$this->parser->parse('MasterTemplate', $masterTemplateData);
 
 		/**
 		 * This time, we'll use '->view()' rather than
@@ -81,12 +106,16 @@ class Home extends CI_Controller {
 		 * of PHP spread throughout it to understand
 		 * what we expect it to do.
 		 */
-		$this->load->view('template/navbar', $viewData);
+		// $this->load->view('template/navbar', $masterTemplateData);
 
-		$this->parser->parse('home_view', $viewData);
-		$this->parser->parse('template/footer', $viewData);
+		// $this->parser->parse('home_view', $masterTemplateData);
+		// $this->parser->parse('template/footer', $masterTemplateData);
 	}
 
+	/**
+	 * Save a record in the database for those
+	 * who have chosen native authentication
+	 */
 	public function register()
 	{
 		$identity = $_POST['email'];
@@ -104,7 +133,17 @@ class Home extends CI_Controller {
 		}
 	}
 
+	/**
+	 * Save a record in the database for those
+	 * who have signed up with Facebook
+	 */
 	public function registerFacebooker() {
+		// Remember that the user has chosen
+		// authentication through Facebook
+		$this->session->set_userdata('facebooker', true);
+
+		// Save the data of the new traveler
+		// to the database for use later
 		$this->Traveler_model->saveTraveler([
 			'username' => str_replace(' ', '', $_POST['first_name'] . $_POST['last_name']),
 			'first_name' => $_POST['first_name'],
@@ -115,9 +154,33 @@ class Home extends CI_Controller {
 		]);
 	}
 
+	/**
+	 * Return user information from
+	 * the database as JSON
+	 */
 	public function getUserData($id)
 	{
 		header("Content-Type: application/json");
 		echo json_encode($this->ion_auth->user($id)->row());
+	}
+
+	/**
+	 * Return a boolean to say whether
+	 * a user has logged in
+	 */
+	public function logged_in() {
+		if ($this->session->userdata('facebooker') || $this->ion_auth->logged_in()) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
+	/**
+	 * Tell the database that a user
+	 * authenticated with Facebook
+	 */
+	public function facebookerLoggedIn() {
+		$this->Traveler_model->setFacebookerLoggedIn($this->post());
 	}
 }

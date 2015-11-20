@@ -24,11 +24,24 @@ class Traveler_model extends CI_Model {
     parent::__construct();
   }
 
+	/**
+	 * Save a traveler to the database through
+	 * the parameter value passed
+	 */
 	public function saveTraveler($traveler) {
-		/**
-		 * Accept data from the controller method 'create_traveler()'
-		 * then save the data to the database
-		 */
+
 		$this->db->insert('travelers', $traveler);
+	}
+
+	/**
+	 * Set that a traveler has
+	 * signed in with Facebook
+	 */
+	public function setFacebookerLoggedIn($facebooker) {
+		$this->db->update('travelers', [
+			'facebookID' => $facebooker['uid'],
+			'last_known_token' => $facebooker['token'],
+			'in' => $facebooker['in']
+		]);
 	}
 }
