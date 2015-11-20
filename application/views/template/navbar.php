@@ -24,10 +24,12 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Passport <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li id=""><a href="#"></a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Account Settings</a></li>
-            </ul>
+    				  <!-- Button trigger modal -->
+    				  <li data-toggle="modal" data-target="#passportProfileModal"><a href="#passportProfileModal">View Passport Profile</a></li>
+	            <!-- <li><a href="#">Passport Profile</a></li> -->
+	            <li role="separator" class="divider"></li>
+	            <li><a href="/auth/logout" id="logoutLink">Sign Out</a></li>
+	          </ul>
           </li>
         </ul>
       </div>
