@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.23)
 # Database: TravelingChildrenProject
-# Generation Time: 2015-11-20 13:51:39 +0000
+# Generation Time: 2015-11-20 23:30:01 +0000
 # ************************************************************
 
 
@@ -157,48 +157,51 @@ DROP TABLE IF EXISTS `travelers`;
 CREATE TABLE `travelers` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `passportid` varchar(128) NOT NULL DEFAULT '',
-  `facebooker` tinyint(1) DEFAULT '0',
   `first_name` varchar(50) NOT NULL DEFAULT '',
   `last_name` varchar(50) NOT NULL DEFAULT '',
-  `street` varchar(100) DEFAULT '',
-  `city` varchar(50) DEFAULT '',
-  `state` varchar(3) DEFAULT '',
+  `street` varchar(100) DEFAULT NULL,
+  `city` varchar(50) DEFAULT NULL,
+  `state` varchar(3) DEFAULT NULL,
   `zip` int(5) DEFAULT NULL,
+  `pic` varchar(100) DEFAULT NULL,
   `birthday` date DEFAULT NULL,
   `gender` int(11) unsigned NOT NULL,
-  `pic` varchar(100) DEFAULT '',
-  `ip_address` varchar(15) DEFAULT '',
-  `username` varchar(100) NOT NULL DEFAULT '',
-  `password` varchar(255) DEFAULT '',
+  `email` varchar(100) NOT NULL,
   `salt` varchar(255) DEFAULT NULL,
-  `email` varchar(100) NOT NULL DEFAULT '',
-  `activation_code` varchar(40) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `facebooker` tinyint(1) DEFAULT '0',
+  `facebookID` varchar(256) DEFAULT NULL,
+  `last_known_token` varchar(256) DEFAULT NULL,
+  `in` tinyint(1) DEFAULT '0',
   `forgotten_password_code` varchar(40) DEFAULT NULL,
   `forgotten_password_time` int(11) unsigned DEFAULT NULL,
+  `activation_code` varchar(40) DEFAULT NULL,
   `remember_code` varchar(40) DEFAULT NULL,
-  `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `ip_address` varchar(15) DEFAULT NULL,
   `last_login` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `active` tinyint(1) unsigned DEFAULT NULL,
+  `username` varchar(100) NOT NULL,
   `company` varchar(100) DEFAULT NULL,
   `phone` int(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_gender` (`gender`),
   CONSTRAINT `fk_gender` FOREIGN KEY (`gender`) REFERENCES `genders` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `travelers` WRITE;
 /*!40000 ALTER TABLE `travelers` DISABLE KEYS */;
 
-INSERT INTO `travelers` (`id`, `passportid`, `facebooker`, `first_name`, `last_name`, `street`, `city`, `state`, `zip`, `birthday`, `gender`, `pic`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `company`, `phone`)
+INSERT INTO `travelers` (`id`, `passportid`, `first_name`, `last_name`, `street`, `city`, `state`, `zip`, `pic`, `birthday`, `gender`, `email`, `salt`, `password`, `facebooker`, `facebookID`, `last_known_token`, `in`, `forgotten_password_code`, `forgotten_password_time`, `activation_code`, `remember_code`, `ip_address`, `last_login`, `created_on`, `active`, `username`, `company`, `phone`)
 VALUES
-	(1,'6475a028-8dac-11e5-a50d-d5fc6d2fa2a1',NULL,'Christian','Patrick','537 Hearthglen Blvd','Winter Garden','FL',34787,'2015-06-15',1,'','','','',NULL,'chris@christianpatrick.me',NULL,NULL,NULL,NULL,'2015-11-20 08:44:17','2006-05-09 00:00:00',NULL,NULL,NULL),
-	(2,'6475a456-8dac-11e5-a50d-d5fc6d2fa2a1',NULL,'Christine','Rogers','123 Deland Ave','DeLand','FL',32804,'2005-08-31',1,'','','','',NULL,'chris@cdtdesign.com',NULL,NULL,NULL,NULL,'2015-11-20 08:44:17','2006-05-09 00:00:00',NULL,NULL,NULL),
-	(3,'6475a564-8dac-11e5-a50d-d5fc6d2fa2a1',NULL,'Patrick','Rogers','1414 Guernsey Street','Orlando','FL',32721,'1969-04-15',2,'','','','',NULL,'pat@cdtdesign.com',NULL,NULL,NULL,NULL,'2015-11-20 08:44:17','2006-05-09 00:00:00',NULL,NULL,NULL),
-	(4,'6475a5e6-8dac-11e5-a50d-d5fc6d2fa2a1',NULL,'Johnny','Crawford','654 Altamonte Drive','Altamonte','FL',32804,'2006-01-03',1,'','','','',NULL,'johnny@me.com',NULL,NULL,NULL,NULL,'2015-11-20 08:44:17','2006-05-09 00:00:00',NULL,NULL,NULL),
-	(5,'6475db60-8dac-11e5-a50d-d5fc6d2fa2a1',NULL,'Lucy','Smith','123 DeLand Avenue','DeLand','FL',32751,'2006-05-09',2,'','','','',NULL,'lucy@yahoo.com',NULL,NULL,NULL,NULL,'2015-11-20 08:44:17','2006-05-09 00:00:00',NULL,NULL,NULL),
-	(18,'5ee1f610-8da8-11e5-a50d-d5fc6d2fa2a1',NULL,'Admin','Admin','123 Admin Ave','Administor','FL',34787,NULL,2,'','127.0.0.1','','$2y$08$wqkjGRNW3g3W3N5YIcV8leX/W22HEqIAQl.jY43tMGHeuHEacsU/e',NULL,'admin@admin.com',NULL,NULL,NULL,NULL,'2015-11-20 08:44:17','2006-05-09 00:00:00',1,NULL,NULL),
-	(19,'7f39eea8-8f84-11e5-a714-9c9823e825fc',0,'first_name','last_name','street','city','SC',90210,NULL,3,'','127.0.0.1','','$2y$08$hKJY0tHjqtHiy/r/os0f/eQXtQaiDBGQqWTXj0XQkqThXg0brIP96',NULL,'example@example.com',NULL,NULL,NULL,NULL,'2015-11-20 08:44:17','2006-05-09 00:00:00',1,NULL,NULL),
-	(22,'6dbce94c-8f8d-11e5-a714-9c9823e825fc',1,'Alexander','Crammer','','','',NULL,NULL,1,'','','AlexanderCrammer','',NULL,'alexander2475914@gmail.com',NULL,NULL,NULL,NULL,'2015-11-20 08:48:49','0000-00-00 00:00:00',NULL,NULL,NULL);
+	(1,'6475a028-8dac-11e5-a50d-d5fc6d2fa2a1','Christian','Patrick','537 Hearthglen Blvd','Winter Garden','FL',34787,NULL,'2006-05-09',1,'chris@christianpatrick.me',NULL,NULL,0,NULL,NULL,0,NULL,NULL,NULL,NULL,'','2006-05-09 00:00:00','2015-11-20 18:02:56',NULL,'',NULL,NULL),
+	(2,'6475a456-8dac-11e5-a50d-d5fc6d2fa2a1','Christine','Rogers','123 Deland Ave','DeLand','FL',32804,NULL,'2006-05-09',1,'chris@cdtdesign.com',NULL,NULL,0,NULL,NULL,0,NULL,NULL,NULL,NULL,'','2006-05-09 00:00:00','2015-11-20 18:02:56',NULL,'',NULL,NULL),
+	(3,'6475a564-8dac-11e5-a50d-d5fc6d2fa2a1','Patrick','Rogers','1414 Guernsey Street','Orlando','FL',32721,NULL,'2006-05-09',2,'pat@cdtdesign.com',NULL,NULL,0,NULL,NULL,0,NULL,NULL,NULL,NULL,'','2006-05-09 00:00:00','2015-11-20 18:02:56',NULL,'',NULL,NULL),
+	(4,'6475a5e6-8dac-11e5-a50d-d5fc6d2fa2a1','Johnny','Crawford','654 Altamonte Drive','Altamonte','FL',32804,NULL,'2006-05-09',1,'johnny@me.com',NULL,NULL,0,NULL,NULL,0,NULL,NULL,NULL,NULL,'','2006-05-09 00:00:00','2015-11-20 18:02:56',NULL,'',NULL,NULL),
+	(5,'6475db60-8dac-11e5-a50d-d5fc6d2fa2a1','Lucy','Smith','123 DeLand Avenue','DeLand','FL',32751,NULL,'2006-05-09',2,'lucy@yahoo.com',NULL,NULL,0,NULL,NULL,0,NULL,NULL,NULL,NULL,'','2006-05-09 00:00:00','2015-11-20 18:02:56',NULL,'',NULL,NULL),
+	(18,'5ee1f610-8da8-11e5-a50d-d5fc6d2fa2a1','Admin','Admin','123 Admin Ave','Administor','FL',34787,NULL,'2006-05-09',2,'admin@admin.com',NULL,'$2y$08$wqkjGRNW3g3W3N5YIcV8leX/W22HEqIAQl.jY43tMGHeuHEacsU/e',0,NULL,NULL,0,NULL,NULL,NULL,NULL,'127.0.0.1','2006-05-09 00:00:00','2015-11-20 18:02:56',NULL,'',NULL,NULL),
+	(27,'74ddf59e-8fd9-11e5-a714-9c9823e825fc','Alexander','Crammer',NULL,NULL,NULL,NULL,NULL,NULL,1,'alexander2475914@gmail.com',NULL,NULL,1,'547545992062761',NULL,0,NULL,NULL,NULL,NULL,NULL,'0000-00-00 00:00:00','2015-11-20 18:08:49',NULL,'AlexanderCrammer',NULL,NULL),
+	(29,'b0cea5f6-8fdb-11e5-a714-9c9823e825fc','Alexander','Crammer',NULL,NULL,NULL,NULL,NULL,NULL,1,'alexander2475914@gmail.com',NULL,NULL,1,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,'0000-00-00 00:00:00','2015-11-20 18:09:03',NULL,'AlexanderCrammer',NULL,NULL);
 
 /*!40000 ALTER TABLE `travelers` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -240,8 +243,7 @@ VALUES
 	(6,5,2),
 	(7,6,2),
 	(8,9,2),
-	(9,18,2),
-	(10,19,2);
+	(9,18,2);
 
 /*!40000 ALTER TABLE `users_groups` ENABLE KEYS */;
 UNLOCK TABLES;
