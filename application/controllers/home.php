@@ -8,33 +8,41 @@ class Home extends CI_Controller {
 	{
 		parent::__construct();
 
-		/* Ion Auth */
-		$this->load->library('ion_auth');
+		/* Libraries */
+		$this->load->library('ion_auth'); // Ion auth
+		$this->load->library('parser'); // Template parser
 
-		/* Facebook API */
-		$this->fb = new Facebook\Facebook([
-				  'app_id' => '1660831194160373',
-				  'app_secret' => '7a2c2ba7ec16c0f7c757375220d356c2',
-				  'default_access_token' => '{access-token}',
-				  'enable_beta_mode' => true,
-				  'default_graph_version' => 'v2.5',
-				  // 'http_client_handler' => 'guzzle',
-				  'persistent_data_handler' => 'session' // Other option is 'memory'
-				  // 'url_detection_handler' => new MyUrlDetectionHandler(),
-				  // 'pseudo_random_string_generator' => new MyPseudoRandomStringGenerator(),
-				  ]);
-		$helper = $this->fb->getRedirectLoginHelper();
-		$permissions = ['email', 'public_profile']; // Optional permissions
-		$loginUrl = $helper->getLoginUrl('https://tcp.dev/', $permissions);
-		$this->fbook = '<a href="' . htmlspecialchars($loginUrl) . '">Sign Up with Facebook!</a>';
-		$jsHelper = $this->fb->getJavaScriptHelper();
-		// $this->access_token = $jsHelper->getAccessToken();
-		// echo $loginUrl;
+		/* Helpers */
+		$this->load->helper('url');
 
+		/* Models */
 		// $this->load->model('Traveler_model');
 
-		// $this->load->library('upload', $upload_config);
-		$this->load->helper('url');
+		/**
+		 * This Facebook stuff seems pretty useless considering
+		 * Facebook wants us to use JavaScript anyway, but I'm
+		 * leaving it here just in case. I don't think it's
+		 * doing anything, so feel free to delete it if you
+		 * are comfortable doing so. The JavaScript does NOT
+		 * rely on these lines!
+		 */
+
+		/* Facebook API */
+		// $this->fb = new Facebook\Facebook([
+		// 		  'app_id' => '1660831194160373',
+		// 		  'app_secret' => '7a2c2ba7ec16c0f7c757375220d356c2',
+		// 		  'default_access_token' => '{access-token}',
+		// 		  'enable_beta_mode' => true,
+		// 		  'default_graph_version' => 'v2.5',
+		// 		  'persistent_data_handler' => 'session'
+		// 	  ]);
+		// $helper = $this->fb->getRedirectLoginHelper();
+		// $permissions = ['email', 'public_profile']; // Optional permissions
+		// $loginUrl = $helper->getLoginUrl('https://tcp.dev/', $permissions);
+		// $this->fbook = '<a href="' . htmlspecialchars($loginUrl) . '">Sign Up with Facebook!</a>';
+		// $jsHelper = $this->fb->getJavaScriptHelper();
+		// $this->access_token = $jsHelper->getAccessToken();
+		// echo $loginUrl;
 	}
 
 	public function index()
@@ -45,20 +53,37 @@ class Home extends CI_Controller {
 
 	public function home()
 	{
-		// var_dump($this->ion_auth->logged_in());
-		$this->load->view('template/header');
-		$viewData['title'] = 'TCP Passport';
-		$viewData['fbook'] = $this->fbook;
-		$viewData['userLoggedIn'] = $this->ion_auth->logged_in();
+		// $viewData['title'] = 'TCP Passport';
+		// $viewData['fbook'] = $this->fbook;
 
-		if ($viewData['userLoggedIn']) {
-			// Loads the views for navbar.php + header.php, home_view.php and footer.php
-			$this->load->view('template/navbar', $viewData);
-		} else {
-			// Loads view for navbar_signin.php + header.php, home_view.php and footer.php
-			$this->load->view('template/navbar_signin', $viewData);
-		}
+		// Data we want to be available in the views (we
+		// can also use them here in the controller, too)
+		$viewData = [
+			'title' => 'TCP Passport',
+			'userLoggedIn' => $this->ion_auth->logged_in()
+		];
+
+		$this->parser->parse('template/header', $viewData);
+
+		/**
+		 * Because the Facebook API has to be embedded
+		 * in the HTML we'll link to a view specifially
+		 * designated to hold Facebook's JavaScript API
+		 */
+		$this->load->view('FacebookAPI.html');
+
+		/**
+		 * This time, we'll use '->view()' rather than
+		 * '->parse()' because '->parse()' doesn't send
+		 * anything to PHP within this view. That means
+		 * we can't send values surrounded by brackets
+		 * to the view and expect the bits of PHP
+		 * spread throughout it to understand them
+		 */
+		$this->load->view('template/navbar', $viewData);
+
 		$this->load->view('home_view');
+
 		$this->load->view('template/footer');
 	}
 

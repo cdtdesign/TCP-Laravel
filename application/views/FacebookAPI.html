@@ -1,5 +1,9 @@
-// Facebook SDK
-window.fbAsyncInit = function() {
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="//connect.facebook.net/en_US/sdk.js"></script>
+<script>
+  console.log('Facebook API has loaded');
+  // Facebook SDK
+  window.fbAsyncInit = function() {
     FB.init({
         appId: '1660831194160373',
         cookie: true,
@@ -46,4 +50,5 @@ window.fbAsyncInit = function() {
         } // 'if (!response.error)'
       }); // 'FB.login()'
     }); // '$(document).ready'
-}; // 'window.fbAsyncInit'
+  }; // 'window.fbAsyncInit'
+</script>
