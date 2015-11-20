@@ -5,19 +5,18 @@
   <!-- The above 3 meta tags *must* come first in the head; Any other head content must come *after* these tags -->
 
   <!-- Browser Tab Data Stuff -->
-    <title>{title}</title>
-    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+  <title>{title}</title>
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
 
   <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
   <!-- Bootstrap Stylesheets and Scripts -->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/custom3.css" />
-    <link rel="stylesheet/less" type="text/css" href="/assets/css/variables.less" />
-
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <!-- <script src="/assets/js/less.js" type="text/javascript"></script> -->
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/custom3.css" />
+  <link rel="stylesheet/less" type="text/css" href="/assets/css/variables.less" />
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+  <!-- <script src="/assets/js/less.js" type="text/javascript"></script> -->
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

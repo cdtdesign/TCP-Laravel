@@ -75,16 +75,16 @@ class Home extends CI_Controller {
 		/**
 		 * This time, we'll use '->view()' rather than
 		 * '->parse()' because '->parse()' doesn't send
-		 * anything to PHP within this view. That means
-		 * we can't send values surrounded by brackets
-		 * to the view and expect the bits of PHP
-		 * spread throughout it to understand them
+		 * anything to the PHP within this view. That
+		 * means we can't send values surrounded by
+		 * brackets to the view and expect the bits
+		 * of PHP spread throughout it to understand
+		 * what we expect it to do.
 		 */
 		$this->load->view('template/navbar', $viewData);
 
-		$this->load->view('home_view');
-
-		$this->load->view('template/footer');
+		$this->parser->parse('home_view', $viewData);
+		$this->parser->parse('template/footer', $viewData);
 	}
 
 	public function register()

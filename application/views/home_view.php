@@ -4,6 +4,7 @@
     <img src="/assets/img/tcp-crest-yllwshirt.svg" class="crest hvr-grow-rotate" />
     <p class="lead center">Welcome to the Traveling Children Project Passport! Your passport to fun experiences!</p>
   </div>
+
   <!-- SEARCH FORM -->
   <form style="" class="form-inline center" id="destSearch">
     <div class="form-group">
@@ -22,6 +23,7 @@
       <button type="submit" class="btn btn-warning">Search</button>
     </div>
   </form>
+
   <!-- BUTTONS -->
   <div class="center" id="destButtons">
     <div class="btn-group btn-group-lg center" role="group" aria-label="...">
@@ -36,5 +38,4 @@
       <button type="button" class="btn btn-info"><a href="#">Technology</a></button>
     </div>
   </div>
-</div>
-<!-- .container -->
+</div> <!-- .container -->

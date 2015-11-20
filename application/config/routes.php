@@ -61,6 +61,7 @@ $route['user/(:num)'] = 'Home/getUserData/$1';
 
 /* Journeys */
 $route['journeys'] = 'journeys';
+$route['journey/edit/(:num)'] = 'journeys/edit/$1';
 
 /* Errors */
 $route['404_override'] = '';
