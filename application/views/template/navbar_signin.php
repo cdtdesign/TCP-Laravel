@@ -26,13 +26,14 @@ NAME: Christina D. Thorpe-Rogers
 					<input type="text" name="city" class="form-control" value="" placeholder="City" autocomplete="on" required /><br />
 					<div>
 						<input type="text" style="display:inline;width:30%;margin-right:5%;" name="state" class="form-control" value="" placeholder="ST" autocomplete="on" required > 
-						<input style="display:inline;float:right;width:65%;" type="text" name="zip" class="form-control" value="" placeholder="Zip Code" autocomplete="on" required ></div><br />
-					<input type="date" name="birth" class="form-control" value="" autocomplete="on" required >
+						<input style="display:inline;float:right;width:65%;" type="text" name="zip" class="form-control" value="" placeholder="Zip Code" autocomplete="on" required >
+					</div><br />
+					<input type="date" name="birthday" class="form-control" value="" autocomplete="on" required >
 					<div style="margin-top:15px;margin-bottom:15px;">
 						<input type="radio" name="gender" value="1" checked> Male </input>
 						<input type="radio" name="gender" value="2" style="margin:5px;"> Female </input>
 						<input type="radio" name="gender" value="3" style="margin:5px;"> Decline <br /></div>
-					<input type="file" name="img" class="input-group" value="" accept="image/*" /><br />
+					<input type="file" name="pic" class="input-group" value="" accept="image/*" /><br />
 			      </div><!-- /.modal-body -->
 			      <div class="modal-footer">
 			      <input style="font-size:1.5em;border-radius:6px;" type="submit" class="btn btn-warning signupButton" value="Sign Up!">

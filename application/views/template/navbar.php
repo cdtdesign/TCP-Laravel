@@ -1,28 +1,27 @@
 <!-- Passport Profile Modal -->
-<div class="modal fade" id="passportProfileModal">
+<div class="modal fade" id="profileModal">
 	
   <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header"  data-profile-id="<?= $traveler->id ?>">
+    <div class="modal-content travelerProfile">
+      <div class="modal-header"  data-traveler-id="<?= $traveler->id ?>">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">My Passport Profile</h4>
+        <h2 class="pp_title">My Passport Profile</h2>
       </div>
       <div class="modal-body">
 		  	<?php if($traveler->pic != NULL): ?>
-		<div class="pp_pic"><img></img></div>
+		<div class="pp_pic"><img src="/assets/uploads/<?= $traveler->pic ?>"></div>
 			<?php endif ?>
-        <p>First Name: <?= $traveler->first_name ?></p>
-		<p>Last Name: <?= $traveler->last_name ?></p>
-		<p>Email: <?= $traveler->user_email ?></p>
-		<p>Password: <?= $traveler->user_pass ?></p>
-		<p>Street Address: <?= $traveler->street ?></p>
-		<p>City: <?= $traveler->city ?></p>
-		<p>State: <?= $traveler->state ?> Zip: <?= $traveler->zip ?></p>
-		<p>Birthday: <?= $traveler->birthday ?></p>
+        <p><b>First Name:</b> <?= $traveler->first_name ?></p>
+		<p><b>Last Name:</b> <?= $traveler->last_name ?></p>
+		<p><b>Email:</b> <?= $traveler->email ?></p>
+		<p><b>Street Address:</b> <?= $traveler->street ?></p>
+		<p><b>City:</b> <?= $traveler->city ?></p>
+		<p><b>State:</b> <?= $traveler->state ?> Zip: <?= $traveler->zip ?></p>
+		<p><b>Birthday:</b> <?= $traveler->birthday ?></p>
       </div>
       <div class="modal-footer">
-		<button type="button" class="btn btn-primary editProfileButton">Edit</button>
-        <button type="button" class="btn btn-warning deleteProfileButton" data-dismiss="modal">Delete Passport</button>
+		<button type="button" class="btn btn-primary editProfileButton" data-toggle="modal" data-target="#signupModal">Edit</button>
+        <a href="/travelers/delete/<?= $traveler->id ?>" class="btn btn-warning deleteProfileButton" data-dismiss="modal" role="button">Delete Passport</a>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -52,7 +51,7 @@
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Passport <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 				  <!-- Button trigger modal -->
-				  <li data-toggle="modal" data-target="#passportProfileModal"><a href="#passportProfileModal">View Passport Profile</a></li>
+				  <li data-toggle="modal" data-target="#profileModal"><a href="#profileModal">View Passport Profile</a></li>
 	            <!-- <li><a href="#">Passport Profile</a></li> -->
 	            <li role="separator" class="divider"></li>
 	            <li><a href="/auth/logout" id="logoutLink">Sign Out</a></li>
@@ -67,7 +66,7 @@
 	<script>
 		// Link variables to Passport Profile field inputs
 		$(document).ready(function () {
-			var traveler 	= $(".signupModal"),
+			var traveler 	= $(".travelerProfile"),
 			// buttons		= $(".profileEditButton"),
 			signupButton	= $('input[type="submit"]')[0],
 			editProfileBttn = $(".editProfileButton")[0],
@@ -75,10 +74,10 @@
 			last_nameField	= $('input[name="last_name"]')[0],
 			emailField 		= $('input[name="email"]')[0],
 			streetField 	= $('input[name="street"]')[0],
-			cityField 		= $('textarea[name="city"]')[0],
+			cityField 		= $('input[name="city"]')[0],
 			stateField 		= $('input[name="state"]')[0],
 			zipField 		= $('input[name="zip"]')[0],
-			birthField 		= $('input[name="birthday"]')[0],
+			birthField 		= $('date[name="birth"]')[0],
 			sexField 		= $('input[name="gender"]')[0],
 			// picField 	= $('input[name="htags"]')[0],
 			travelerID 		= null;

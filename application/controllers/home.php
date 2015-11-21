@@ -11,7 +11,7 @@ class Home extends CI_Controller {
 		
 		/* Ion Auth */
 		$this->load->library('ion_auth');
-		
+
 		/* Facebook API */
 		$this->fb = new Facebook\Facebook([
 				  'app_id' => '1660831194160373',
@@ -31,10 +31,17 @@ class Home extends CI_Controller {
 		$jsHelper = $this->fb->getJavaScriptHelper();
 		// $this->access_token = $jsHelper->getAccessToken();
 		// echo $loginUrl;
-	
-		// $this->load->model('Traveler_model');
 		
-		// $this->load->library('upload', $upload_config);
+		// Config for the upload library
+		$upload_config['upload_path'] = '/assets/uploads/';
+		$upload_config['allowed_types'] = 'gif|jpg|png';
+		$upload_config['max_size']	= '100';
+		$upload_config['max_width']  = '1024';
+		$upload_config['max_height']  = '768';
+		
+		// Load some libraries
+		$this->load->model('Traveler_model');
+		$this->load->library('upload', $upload_config);
 		$this->load->helper('url');
 	}
 	
@@ -42,9 +49,6 @@ class Home extends CI_Controller {
 	{
 		// When the user visits the root, send them to /home
 		redirect('home');
-		
-		// Active Record Query to post Traveler to Passport Profile
-		$viewData['get_traveler'] = $this->Traveler_model->getTraveler();
 	}
 	
 	public function home()
@@ -54,8 +58,10 @@ class Home extends CI_Controller {
 		$viewData['fbook'] = $this->fbook;
 		$this->load->view('template/header', $viewData);
 		$viewData['userLoggedIn'] = $this->ion_auth->logged_in();
-		
 		if ($viewData['userLoggedIn']) {
+			$id = $this->ion_auth->user()->row()->id;
+			// Active Record Query to post Traveler to Passport Profile
+			$viewData['traveler'] = $this->Traveler_model->getTraveler($id);
 			// Loads the views for navbar.php + header.php, home_view.php and footer.php
 			$this->load->view('template/navbar', $viewData);
 		} else {
@@ -71,47 +77,10 @@ class Home extends CI_Controller {
 		$identity = $_POST['email'];
 		$password = $_POST['password'];
 		$email = $_POST['email'];
-		$_POST['gender'] = 3;
+		$_POST['gender'] = $_POST['gender'];
 		$_POST['first_name'] = $_POST['first_name'];
 		$_POST['last_name'] = $_POST['last_name'];
 		$this->ion_auth->register($identity, $password, $email, $_POST);
-	}
-	
-	// Display submitted Passport Profile data to view
-	public function create()
-	{
-		// Store Passport Profile submitted data
-		$submittedProfileData = $this->input->traveler();
-		$submittedProfileData['pic'] = $_FILES['pic']['name'];
-		
-		// Move file to 'uploads' folder
-		move_uploaded_file($_FILES['pic']['tmp_name'], APPPATH . '/assets/uploads/' . $_FILES['pic']['name']);
-		
-		// Save the image uploaded and get its' filename
-		// var_dump($this->upload->display_errors());
-		$this->Travelers_model->insert_entry($submittedProfileData);
-		$this->load->view('home_view');
-		redirect('home');
-	}
-	
-	// Edit Passport Profile
-	public function edit($id)
-	{
-		$data = $this->input->traveler();
-		$data['id'] = $id;
-		$data['pic'] = $_FILES['pic']['name'];
-		
-		// Move file to 'uploads' folder
-		move_uploaded_file($_FILES['pic']['tmp_name'], APPPATH . 'assets/uploads/' . $_FILES['pic']['name']);
-		
-		$this->Journeys_model->update_record($data);
-		redirect('journeys');
-	}
-	
-	// Delete Traveler & Passport Profile 
-	public function delete($id)
-	{
-		$this->Travler_model->delete($id);
 		redirect('home');
 	}
 	
@@ -119,5 +88,12 @@ class Home extends CI_Controller {
 	{
 		header("Content-Type: application/json");
 		echo json_encode($this->ion_auth->user($id)->row());
+	}
+	
+	// Deletes Traveler Passport
+	public function delete($id)
+	{
+		$this->Traveler_model->delete($id);
+		redirect('/auth/logout');
 	}
 }

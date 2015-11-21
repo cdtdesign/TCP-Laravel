@@ -46,7 +46,7 @@ class Journeys extends CI_Controller {
 		$submittedPostData['img'] = $_FILES['img']['name'];
 		
 		// Move file to 'uploads' folder
-		move_uploaded_file($_FILES['img']['tmp_name'], '/Applications/MAMP/htdocs/assets/uploads/' . $_FILES['img']['name']);
+		move_uploaded_file($_FILES['img']['tmp_name'], '/Users/Christina/Sites/TCP/assets/uploads/' . $_FILES['img']['name']);
 		
 		// Save the image uploaded and get its' filename
 		// var_dump($this->upload->display_errors());
@@ -62,7 +62,7 @@ class Journeys extends CI_Controller {
 		$data['img'] = $_FILES['img']['name'];
 		
 		// Move file to 'uploads' folder
-		move_uploaded_file($_FILES['img']['tmp_name'], '/Applications/MAMP/htdocs/assets/uploads/' . $_FILES['img']['name']);
+		move_uploaded_file($_FILES['img']['tmp_name'], '/Users/Christina/Sites/TCP/assets/uploads/' . $_FILES['img']['name']);
 		
 		$this->Journeys_model->update_record($data);
 		redirect('journeys');

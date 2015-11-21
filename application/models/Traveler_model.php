@@ -23,11 +23,14 @@ class Traveler_model extends CI_Model {
     }
 
 	// Gets Traveler info from DB
-	public function getTraveler()
+	public function getTraveler($id)
 	{
-		$traveler = $this->db->get_where('travelers', array('id' => $traveler->id))->result(); //[0]
-		}
-		return $traveler;
+		return $traveler = $this->db->get_where('travelers', array('id' => $id))->result()[0];
 	}
-
+	
+	// Deletes selected Traveler from DB
+	public function delete($id)
+	{
+		$this->db->delete('travelers', array('id' => $id));
+	}
 }

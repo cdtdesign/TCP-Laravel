@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Journeys_model extends CI_Model {
-	
+	/* Properties */
 	public $first_name;
 	public $title;
 	public $date;
