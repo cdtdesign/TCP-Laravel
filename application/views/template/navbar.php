@@ -1,17 +1,28 @@
 <!-- Passport Profile Modal -->
 <div class="modal fade" id="passportProfileModal">
+	
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header"  data-profile-id="<?= $traveler->id ?>">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">My Passport Profile</h4>
       </div>
       <div class="modal-body">
-        <p>One fine passport!&hellip;</p>
+		  	<?php if($traveler->pic != NULL): ?>
+		<div class="pp_pic"><img></img></div>
+			<?php endif ?>
+        <p>First Name: <?= $traveler->first_name ?></p>
+		<p>Last Name: <?= $traveler->last_name ?></p>
+		<p>Email: <?= $traveler->user_email ?></p>
+		<p>Password: <?= $traveler->user_pass ?></p>
+		<p>Street Address: <?= $traveler->street ?></p>
+		<p>City: <?= $traveler->city ?></p>
+		<p>State: <?= $traveler->state ?> Zip: <?= $traveler->zip ?></p>
+		<p>Birthday: <?= $traveler->birthday ?></p>
       </div>
       <div class="modal-footer">
-		<button type="button" class="btn btn-primary">Edit</button>
-        <button type="button" class="btn btn-warning" data-dismiss="modal">Delete Passport</button>
+		<button type="button" class="btn btn-primary editProfileButton">Edit</button>
+        <button type="button" class="btn btn-warning deleteProfileButton" data-dismiss="modal">Delete Passport</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -52,3 +63,57 @@
 	  </div><!-- /.container-fluid -->
 	</nav>
 </div><!-- /.container -->
+
+	<script>
+		// Link variables to Passport Profile field inputs
+		$(document).ready(function () {
+			var traveler 	= $(".signupModal"),
+			// buttons		= $(".profileEditButton"),
+			signupButton	= $('input[type="submit"]')[0],
+			editProfileBttn = $(".editProfileButton")[0],
+			first_nameField = $('input[name="first_name"]')[0],
+			last_nameField	= $('input[name="last_name"]')[0],
+			emailField 		= $('input[name="email"]')[0],
+			streetField 	= $('input[name="street"]')[0],
+			cityField 		= $('textarea[name="city"]')[0],
+			stateField 		= $('input[name="state"]')[0],
+			zipField 		= $('input[name="zip"]')[0],
+			birthField 		= $('input[name="birthday"]')[0],
+			sexField 		= $('input[name="gender"]')[0],
+			// picField 	= $('input[name="htags"]')[0],
+			travelerID 		= null;
+			
+			// editProfile button click functionality
+			editProfileBttn.click(function () {
+				var button = this;
+				var travelerProfile = traveler[$(editProfileBttn).index(button)];
+				travelerID = $(travelerProfile).data('traveler-id');
+				
+				// Gets the Traveler info and decodes JSON
+				$.get('/travelers/show/' + travelerID, function (travelerProfile) {
+					// var idField = $('#id-element')[0],
+					// picField 		= $('input[name="pic"]')[0];
+					var travelerProfile = JSON.parse(travelerProfile)[0];
+					console.log(travelerProfile);
+					first_nameField.value   = travelerProfile['first_name'];
+					last_nameField.value    = travelerProfile['last_name'];
+					emailField.value    	= travelerProfile['email'];
+					streetField.value  		= travelerProfile['street'];
+					cityField.value     	= travelerProfile['city'];
+					stateField.value    	= travelerProfile['state'];
+					zipField.value      	= travelerProfile['zip'];
+					birthField.value    	= travelerProfile['birthday'];
+					sexField.value      	= travelerProfile['gender'];
+					saveButton.value    	= "Save";
+					// imgField.value		= travelerProfile['img'];
+					$(".signup-form")[0].setAttribute("action", "/traveler/edit/" + travelerID);
+				});
+			});
+			// SignUp button click functionality
+			var signupButton = $(".signupButton")[0],
+			editProfileButton = $('.editProfileButton')[0];
+			$(signupButton).click(function () {
+				submitButton.value = "Sign Up!";
+			});
+		});
+	</script>

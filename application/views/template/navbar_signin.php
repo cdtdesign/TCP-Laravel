@@ -21,11 +21,12 @@ NAME: Christina D. Thorpe-Rogers
 					<input type="text" name="first_name" class="form-control journeyPostTitle" value="" placeholder="Traveler's First Name" autocomplete="on" required ><br />
 					<input type="text" name="last_name" class="form-control" value="" placeholder="Traveler's Last Name" autocomplete="on" required ><br />
 					<input type="email" name="email" class="form-control" value="" placeholder="Email Address" required ><br />
-					<input type="password" name="password" class="form-control" value="" required ><br />
+					<input type="password" name="password" class="form-control" value="" placeholder="Password" required ><br />
 					<input type="text" name="street" class="form-control" value="" placeholder="Street Address, Apt #" autocomplete="on" required ><br />
 					<input type="text" name="city" class="form-control" value="" placeholder="City" autocomplete="on" required /><br />
-					<input type="text" name="state" class="form-control" value="" placeholder="ST" autocomplete="on" required ><br />
-					<input type="text" name="zip" class="form-control" value="" placeholder="Zip Code" autocomplete="on" required ><br />
+					<div>
+						<input type="text" style="display:inline;width:30%;margin-right:5%;" name="state" class="form-control" value="" placeholder="ST" autocomplete="on" required > 
+						<input style="display:inline;float:right;width:65%;" type="text" name="zip" class="form-control" value="" placeholder="Zip Code" autocomplete="on" required ></div><br />
 					<input type="date" name="birth" class="form-control" value="" autocomplete="on" required >
 					<div style="margin-top:15px;margin-bottom:15px;">
 						<input type="radio" name="gender" value="1" checked> Male </input>

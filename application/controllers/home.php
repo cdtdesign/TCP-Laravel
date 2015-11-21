@@ -42,14 +42,17 @@ class Home extends CI_Controller {
 	{
 		// When the user visits the root, send them to /home
 		redirect('home');
+		
+		// Active Record Query to post Traveler to Passport Profile
+		$viewData['get_traveler'] = $this->Traveler_model->getTraveler();
 	}
 	
 	public function home()
 	{
 		// var_dump($this->ion_auth->logged_in());
-		$this->load->view('template/header');
 		$viewData['title'] = 'TCP Passport';
 		$viewData['fbook'] = $this->fbook;
+		$this->load->view('template/header', $viewData);
 		$viewData['userLoggedIn'] = $this->ion_auth->logged_in();
 		
 		if ($viewData['userLoggedIn']) {
@@ -72,17 +75,44 @@ class Home extends CI_Controller {
 		$_POST['first_name'] = $_POST['first_name'];
 		$_POST['last_name'] = $_POST['last_name'];
 		$this->ion_auth->register($identity, $password, $email, $_POST);
+	}
 	
-		// if ()) {
-			// $this->Journeys_model->save_traveler($_POST);
-			
-			// The user was successfully created
-			// $this->ion_auth->login($identity, $password);
-			// redirect('home');
-		// } else {
-			// The user was not created for some reason
-			// echo "You weren't created... :/";
-		// }
+	// Display submitted Passport Profile data to view
+	public function create()
+	{
+		// Store Passport Profile submitted data
+		$submittedProfileData = $this->input->traveler();
+		$submittedProfileData['pic'] = $_FILES['pic']['name'];
+		
+		// Move file to 'uploads' folder
+		move_uploaded_file($_FILES['pic']['tmp_name'], APPPATH . '/assets/uploads/' . $_FILES['pic']['name']);
+		
+		// Save the image uploaded and get its' filename
+		// var_dump($this->upload->display_errors());
+		$this->Travelers_model->insert_entry($submittedProfileData);
+		$this->load->view('home_view');
+		redirect('home');
+	}
+	
+	// Edit Passport Profile
+	public function edit($id)
+	{
+		$data = $this->input->traveler();
+		$data['id'] = $id;
+		$data['pic'] = $_FILES['pic']['name'];
+		
+		// Move file to 'uploads' folder
+		move_uploaded_file($_FILES['pic']['tmp_name'], APPPATH . 'assets/uploads/' . $_FILES['pic']['name']);
+		
+		$this->Journeys_model->update_record($data);
+		redirect('journeys');
+	}
+	
+	// Delete Traveler & Passport Profile 
+	public function delete($id)
+	{
+		$this->Travler_model->delete($id);
+		redirect('home');
 	}
 	
 	public function getUserData($id)
