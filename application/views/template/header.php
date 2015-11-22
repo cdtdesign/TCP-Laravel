@@ -30,7 +30,7 @@
   		  <div class="modal-dialog" role="document">
   		    <div class="modal-content">
   		      <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				  <h2>About</h2>
+				  <h2 class="lead a_title">About</h2>
   		        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
   			      </div>
   			      <div class="modal-body">

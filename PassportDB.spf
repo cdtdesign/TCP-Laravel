@@ -15,11 +15,11 @@
 			<key>host</key>
 			<string>127.0.0.1</string>
 			<key>kcid</key>
-			<string>1793026532196030071</string>
+			<string>-843569938509206395</string>
 			<key>name</key>
-			<string>Local</string>
+			<string>Local (Not MAMP)</string>
 			<key>port</key>
-			<integer>8889</integer>
+			<integer>3306</integer>
 			<key>rdbms_type</key>
 			<string>mysql</string>
 			<key>sslCACertFileLocation</key>
@@ -45,6 +45,8 @@
 		<dict>
 			<key>connectionEncoding</key>
 			<string>utf8</string>
+			<key>contentFilter</key>
+			<dict/>
 			<key>contentPageNumber</key>
 			<integer>1</integer>
 			<key>contentSelection</key>
@@ -56,27 +58,27 @@
 			bkRldGFpbFR5cGVQcmltYXJ5S2V5ZWREZXRhaWxz0wkKCxobHKCg
 			gAfSHh8gIVokY2xhc3NuYW1lWCRjbGFzc2VzXxATTlNNdXRhYmxl
 			RGljdGlvbmFyeaMgIiNcTlNEaWN0aW9uYXJ5WE5TT2JqZWN00goL
-			JSehJoAJgAvSCykqK1lOUy5zdHJpbmeACld1c2VyX2lk0h4fLS5f
-			EA9OU011dGFibGVTdHJpbmejLS8jWE5TU3RyaW5n0h4fMTJeTlNN
-			dXRhYmxlQXJyYXmjMTMjV05TQXJyYXnSHh8iNaIiI18QD05TS2V5
-			ZWRBcmNoaXZlctE4OVRkYXRhgAEACAARABoAIwAtADIANwBFAEsA
-			UgBaAGUAbABwAHIAdAB2AHoAfAB+AIAAggCHAIwAkQC6AMEAwgDD
-			AMUAygDVAN4A9AD4AQUBDgETARUBFwEZAR4BKAEqATIBNwFJAU0B
-			VgFbAWoBbgF2AXsBfgGQAZMBmAAAAAAAAAIBAAAAAAAAADoAAAAA
-			AAAAAAAAAAAAAAGa
+			JSehJoAJgAvSCykqK1lOUy5zdHJpbmeAClJpZNIeHy0uXxAPTlNN
+			dXRhYmxlU3RyaW5noy0vI1hOU1N0cmluZ9IeHzEyXk5TTXV0YWJs
+			ZUFycmF5ozEzI1dOU0FycmF50h4fIjWiIiNfEA9OU0tleWVkQXJj
+			aGl2ZXLRODlUZGF0YYABAAgAEQAaACMALQAyADcARQBLAFIAWgBl
+			AGwAcAByAHQAdgB6AHwAfgCAAIIAhwCMAJEAugDBAMIAwwDFAMoA
+			1QDeAPQA+AEFAQ4BEwEVARcBGQEeASgBKgEtATIBRAFIAVEBVgFl
+			AWkBcQF2AXkBiwGOAZMAAAAAAAACAQAAAAAAAAA6AAAAAAAAAAAA
+			AAAAAAABlQ==
 			</data>
 			<key>contentSortColIsAsc</key>
 			<true/>
 			<key>contentViewport</key>
-			<string>{{0, 0}, {1192, 723}}</string>
+			<string>{{0, 0}, {1283.5, 326}}</string>
 			<key>isToolbarVisible</key>
 			<true/>
 			<key>table</key>
-			<string>travelers</string>
+			<string>destinations</string>
 			<key>view</key>
-			<string>SP_VIEW_STRUCTURE</string>
+			<string>SP_VIEW_CONTENT</string>
 			<key>windowVerticalDividerPosition</key>
-			<real>247</real>
+			<real>155</real>
 		</dict>
 	</dict>
 	<key>encrypted</key>
@@ -87,39 +89,9 @@
 	<array/>
 	<key>queryHistory</key>
 	<array>
-		<string>INSERT INTO `travelers` (`user_name`, `user_pass`, `user_email`, `user_level`, `user_salt`, `user_id`, `user_date`, `user_modified`) VALUES ('cdtdesign', '$2a$09$1efed50ec1e44bbb4dc3euIRjJ6ququF57qxuk36As/pOzcwI9Wmu', 'christina@cdtdesign.com', '1', '1efed50ec1e44bbb4dc3e3c45ab00b47', 800255157, '2015-11-15 22:25:11', '2015-11-15 22:25:11')</string>
-		<string>SET FOREIGN_KEY_CHECKS=0</string>
-		<string>SET FOREIGN_KEY_CHECKS=0
-
-INSERT INTO `travelers` (`user_name`, `user_pass`, `user_email`, `user_level`, `user_salt`, `user_id`, `user_date`, `user_modified`) VALUES ('cdtdesign', '$2a$09$1efed50ec1e44bbb4dc3euIRjJ6ququF57qxuk36As/pOzcwI9Wmu', 'christina@cdtdesign.com', '1', '1efed50ec1e44bbb4dc3e3c45ab00b47', 800255157, '2015-11-15 22:25:11', '2015-11-15 22:25:11')</string>
-		<string>SET FOREIGN_KEY_CHECKS=1</string>
-		<string>INSERT INTO `travelers` (`fname`, `lname`, `email`, `street`, `city`, `state`, `zip`, `birthday`, `gender`, `pic`)
-VALUES
-	('Chrdistian','Padtrick','chris@chrisdtianpatrick.me','537 Hearthglen Blvd','Winter Garden','FL',34787,'2015-06-15',1,'')</string>
-		<string>INSERT INTO `travelers` (`fname`, `lname`, `email`, `street`, `city`, `state`, `zip`, `birthday`, `gender`, `pic`)
-VALUES
-	('Christian','Patrick','chris@chrisdtianpatrick.me','537 Hearthglen Blvd','Winter Garden','FL',34787,'2015-06-15',1,'')</string>
-		<string>INSERT INTO `travelers` (`user_id`, `fname`, `lname`, `email`, `street`, `city`, `state`, `zip`, `birthday`, `gender`, `pic`)
-VALUES
-	(1, 'Christian','Patrick','chris@christianpatrick.me','537 Hearthglen Blvd','Winter Garden','FL',34787,'2015-06-15',1,''),
-	(2, 'Christina','Thorpe-Rogers','christina@cdtdesign.comm','123 Deland Ave','DeLand','FL',32804,'2005-08-31',1,''),
-	(3, 'Patrick','Rogers','pat@cdtdesign.com','1414 Guernsey Street','Orlando','FL',32721,'1969-04-15',2,''),
-	(4, 'Johnny','Crawford','johnny@me.com','654 Altamonte Drive','Altamonte','FL',32804,'2006-01-03',1,''),
-	(5, 'Lucy','Smith','lucy@yahoo.com','123 DeLand Avenue','DeLand','FL',32751,'2006-05-09',2,'')</string>
-		<string>INSERT INTO `travelers` (`user_id`, `fname`, `lname`, `email`, `street`, `city`, `state`, `zip`, `birthday`, `gender`, `pic`)
-VALUES
-	(1, 'Christian','Patrick','chris@christianpatrick.me','537 Hearthglen Blvd','Winter Garden','FL',34787,'2015-06-15',1,''),
-	(2, 'Christina','Thorpe-Rogers','christina@cdtdesign.com','123 Deland Ave','DeLand','FL',32804,'2005-08-31',1,''),
-	(3, 'Patrick','Rogers','pat@cdtdesign.com','1414 Guernsey Street','Orlando','FL',32721,'1969-04-15',2,''),
-	(4, 'Johnny','Crawford','johnny@me.com','654 Altamonte Drive','Altamonte','FL',32804,'2006-01-03',1,''),
-	(5, 'Lucy','Smith','lucy@yahoo.com','123 DeLand Avenue','DeLand','FL',32751,'2006-05-09',2,'')</string>
-		<string>INSERT INTO `travelers` (`user_id`, `passportid`, `fname`, `lname`, `email`, `street`, `city`, `state`, `zip`, `birthday`, `gender`, `pic`)
-VALUES
-	(1,'','Christian','Patrick','chris@christianpatrick.me','537 Hearthglen Blvd','Winter Garden','FL',34787,'2015-06-15',1,''),
-	(2,'0','Christina','Thorpe-Rogers','christina@cdtdesign.com','123 Deland Ave','DeLand','FL',32804,'2005-08-31',1,''),
-	(3,'0','Patrick','Rogers','pat@cdtdesign.com','1414 Guernsey Street','Orlando','FL',32721,'1969-04-15',2,''),
-	(4,'3fe47988-88c4-11e5-b7f5-ece8c72b830e','Johnny','Crawford','johnny@me.com','654 Altamonte Drive','Altamonte','FL',32804,'2006-01-03',1,''),
-	(5,'faf8f902-88c3-11e5-b7f5-ece8c72b830e','Lucy','Smith','lucy@yahoo.com','123 DeLand Avenue','DeLand','FL',32751,'2006-05-09',2,'')</string>
+		<string>SELECT id AS firstid, fname, lname
+  FROM travelers
+  JOIN travelers ON traveler.id = firstid</string>
 		<string>INSERT INTO `travelers` (`id`, `passportid`, `fname`, `lname`, `email`, `street`, `city`, `state`, `zip`, `birthday`, `gender`, `pic`)
 VALUES
 	(1,'','Christian','Patrick','chris@christianpatrick.me','537 Hearthglen Blvd','Winter Garden','FL',34787,'2015-06-15',1,''),
@@ -127,138 +99,702 @@ VALUES
 	(3,'0','Patrick','Rogers','pat@cdtdesign.com','1414 Guernsey Street','Orlando','FL',32721,'1969-04-15',2,''),
 	(4,'3fe47988-88c4-11e5-b7f5-ece8c72b830e','Johnny','Crawford','johnny@me.com','654 Altamonte Drive','Altamonte','FL',32804,'2006-01-03',1,''),
 	(5,'faf8f902-88c3-11e5-b7f5-ece8c72b830e','Lucy','Smith','lucy@yahoo.com','123 DeLand Avenue','DeLand','FL',32751,'2006-05-09',2,'')</string>
-		<string>UPDATE contacts SET fname='Patrick', lname='Rogers', phone='534453', email='pat@cdtdesign.com', url='https://www.facebook.com/patrick.rogers.7946' WHERE id='12'</string>
-		<string>select n as age,
-	case 
-	when dvdCount is not null then dvdCount
-	else 0
-	end as dvdCount
-from numbers
-left join (
-	select age, Price, count(dvd.dvdId) as dvdCount
-	from dvd
-	join userDvd on userDvd.dvdId = dvd.dvdId
-	join users on users.userId = userDvd.userId
-	group by age
-) as dvdCount on dvdCount.age = numbers.n
-where numbers.n &gt;= 1
-and numbers.n &lt;= 100</string>
-		<string>select n as age, Price,
-	case 
-	when dvdCount is not null then dvdCount
-	else 0
-	end as dvdCount
-from numbers
-left join (
-	select age, Price, count(dvd.dvdId) as dvdCount
-	from dvd
-	join userDvd on userDvd.dvdId = dvd.dvdId
-	join users on users.userId = userDvd.userId
-	group by age
-) as dvdCount on dvdCount.age = numbers.n
-where numbers.n &gt;= 1
-and numbers.n &lt;= 100</string>
-		<string>select n as age, Price,
-	case 
-	when dvdCount is not null then dvdCount
-	else 0
-	end as dvdCount
-from numbers
-left join (
-	select age, Price, count(dvd.dvdId) as dvdCount
-	from dvd
-	join userDvd on userDvd.dvdId = dvd.dvdId
-	join users on users.userId = userDvd.userId
-	group by age
-) as dvdCount on dvdCount.age = numbers.n
-where numbers.n &gt;= 18
-and numbers.n &lt;= 65</string>
-		<string>select n as age, Price,
-	case 
-	when dvdCount is not null then dvdCount
-	else 0
-	end as dvdCount
-from numbers
-left join (
-	select age, Price, count(dvd.dvdId) as dvdCount
-	from dvd
-	join userDvd on userDvd.dvdId = dvd.dvdId
-	join users on users.userId = userDvd.userId
-	group by Price 
-) as dvdCount on dvdCount.age = numbers.n
-where numbers.n &gt;= 18
-and numbers.n &lt;= 65</string>
-		<string>where age = n
-) as dvdCount on dvdCount.age = numbers.n
-where numbers.n &gt;= 18
-an</string>
-		<string>select n as age, Price,
-	case 
-	when dvdCount is not null then dvdCount
-	else 0
-	end as dvdCount
-from numbers
-left join (
-	select age, Price, count(dvd.dvdId) as dvdCount
-	from dvd
-	join userDvd on userDvd.dvdId = dvd.dvdId
-	join users on users.userId = userDvd.userId
-	group by Price
-	where age = n
-) as dvdCount on dvdCount.age = numbers.n
-where numbers.n &gt;= 18
-and numbers.n &lt;= 65</string>
-		<string>select n as age, Price,
-	(SELECT
-	case 
-	when dvdCount is not null then dvdCount
-	else 0
-	end as dvdCount
-from numbers
-	select age, Price, count(dvd.dvdId) as dvdCount
-	from dvd
-	join userDvd on userDvd.dvdId = dvd.dvdId
-	join users on users.userId = userDvd.userId
-	group by Price
-	where age = n
-) as dvdCount on dvdCount.age = numbers.n
-where numbers.n &gt;= 18
-and numbers.n &lt;= 65</string>
-		<string>select n as age, Price,
-	(SELECT
-	case 
-	when dvdCount is not null then dvdCount
-	else 0
-	end as dvdCount
-from numbers
-	select age, Price, count(dvd.dvdId) as dvdCount
-	from dvd
-	join userDvd on userDvd.dvdId = dvd.dvdId
-	join users on users.userId = userDvd.userId
-	group by Price
-) as dvdCount on dvdCount.age = numbers.n
-where numbers.n &gt;= 18
-and numbers.n &lt;= 65</string>
-		<string>select n as age, Price,
-	case 
-	when dvdCount is not null then dvdCount
-	else 0
-	end as dvdCount
-from numbers
-left join (
-	select age, Price, count(dvd.dvdId) as dvdCount
-	from dvd
-	join userDvd on userDvd.dvdId = dvd.dvdId
-	join users on users.userId = userDvd.userId
-	group by Price
-) as dvdCount on dvdCount.age = numbers.n
-where numbers.n &gt;= 18
-and numbers.n &lt;= 65</string>
+		<string>SET FOREIGN_KEY_CHECKS=0;
+DROP TABLE IF EXISTS `groups`;
+#
+# Table structure for table 'groups'
+#
+
+CREATE TABLE `groups` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+#
+# Dumping data for table 'groups'
+#
+
+INSERT INTO `groups` (`id`, `name`, `description`) VALUES
+     (1,'admin','Administrator'),
+     (2,'members','General User');
+DROP TABLE IF EXISTS `travelers`;
+#
+# Table structure for table 'travelers'
+#
+
+CREATE TABLE `travelers` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  -- 'Travelers' Stuff
+	`passportid` varchar(128) NOT NULL DEFAULT '',
+	`fname` varchar(50) NOT NULL DEFAULT '',
+	`lname` varchar(50) NOT NULL DEFAULT '',
+	`street` varchar(100) DEFAULT '',
+	`city` varchar(50) DEFAULT '',
+	`state` varchar(3) DEFAULT '',
+	`zip` int(5) DEFAULT NULL,
+	`birthday` date,
+	`gender` int(11) unsigned NOT NULL,
+	`pic` varchar(100) DEFAULT '',
+
+	-- 'Ion-auth' Stuff
+	`ip_address` varchar(15) NOT NULL,
+	`username` varchar(100) NULL,
+	`password` varchar(255) NOT NULL,
+	`salt` varchar(255) DEFAULT NULL,
+	`email` varchar(100) NOT NULL,
+	`activation_code` varchar(40) DEFAULT NULL,
+	`forgotten_password_code` varchar(40) DEFAULT NULL,
+	`forgotten_password_time` int(11) unsigned DEFAULT NULL,
+	`remember_code` varchar(40) DEFAULT NULL,
+	`created_on` int(11) unsigned NOT NULL,
+	`last_login` int(11) unsigned DEFAULT NULL,
+	`active` tinyint(1) unsigned DEFAULT NULL,
+	`first_name` varchar(50) DEFAULT NULL,
+	`last_name` varchar(50) DEFAULT NULL,
+	`company` varchar(100) DEFAULT NULL,
+	`phone` varchar(20) DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	
+	-- 'Travelers' Stuff
+	CONSTRAINT `fk_gender` FOREIGN KEY (`gender`) REFERENCES `genders` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+#
+# Dumping data for table 'users'
+#
+
+INSERT INTO `travelers` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `gender`) VALUES
+     ('1','127.0.0.1','administrator','$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36','','admin@admin.com','',NULL,'1268889823','1268889823','1', 'Admin','istrator','ADMIN','0', 3);
+DROP TABLE IF EXISTS `users_groups`;
+#
+# Table structure for table 'users_groups'
+#
+
+CREATE TABLE `users_groups` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned NOT NULL,
+  `group_id` mediumint(8) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_users_groups_users1_idx` (`user_id`),
+  KEY `fk_users_groups_groups1_idx` (`group_id`),
+  CONSTRAINT `uc_users_groups` UNIQUE (`user_id`, `group_id`),
+  CONSTRAINT `fk_users_groups_users1` FOREIGN KEY (`user_id`) REFERENCES `travelers` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
+     (1,1,1),
+     (2,1,2);
+DROP TABLE IF EXISTS `login_attempts`;
+#
+# Table structure for table 'login_attempts'
+#
+
+CREATE TABLE `login_attempts` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `ip_address` varchar(15) NOT NULL,
+  `login` varchar(100) NOT NULL,
+  `time` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</string>
+		<string># ************************************************************
+# Sequel Pro SQL dump
+# Version 4135
+#
+# http://www.sequelpro.com/
+# http://code.google.com/p/sequel-pro/
+#
+# Host: 127.0.0.1 (MySQL 5.5.42)
+# Database: passportdb
+# Generation Time: 2015-11-11 22:43:33 +0000
+# ************************************************************
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+# Dump of table destinations
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `destinations`;
+CREATE TABLE `destinations` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `dname` varchar(100) NOT NULL DEFAULT '',
+  `dtype` varchar(50) NOT NULL DEFAULT '',
+  `dscrptn` varchar(300) NOT NULL DEFAULT '',
+  `dstreet` varchar(50) NOT NULL DEFAULT '',
+  `dcity` varchar(50) NOT NULL DEFAULT '',
+  `dstate` varchar(3) NOT NULL DEFAULT '',
+  `dzip` int(5) NOT NULL,
+  `adult_cost` decimal(10,2) NOT NULL,
+  `child_cost` decimal(10,2) NOT NULL,
+  `discount` float(4,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+LOCK TABLES `destinations` WRITE;
+/*!40000 ALTER TABLE `destinations` DISABLE KEYS */;
+INSERT INTO `destinations` (`id`, `dname`, `dtype`, `dscrptn`, `dstreet`, `dcity`, `dstate`, `dzip`, `adult_cost`, `child_cost`, `discount`)
+VALUES
+	(1,'Central Florida Zoo','Outdoor','The Central Florida Zoo &amp; Botanical Gardens is a 116-acre (47 ha) zoo and botanical garden located north of Orlando, Florida at the intersection of I-4 and Hwy 17-92 near the city of Sanford.','3755 Hwy 17-92','Sanford','FL',34787,16.50,11.95,0.20),
+	(2,'Orlando Science Center','Learning','The Orlando Science Center is a private science museum located in Orlando, Florida. Its purposes are to provide experience-based opportunities for learning about science and technology and to promote public understanding of science.','777 E. Princeton Street','Orlando','FL',32803,27.00,18.00,0.20),
+	(3,'Busch Gardens Tampa Bay','Fun','Busch Gardens Tampa is a 335-acre 19th century African-themed animal theme park located in the city of Tampa, Florida.','10165 N Malcolm McKinley Dr','Tampa','FL',33612,89.00,89.00,0.20);
+/*!40000 ALTER TABLE `destinations` ENABLE KEYS */;
+UNLOCK TABLES;
+# Dump of table genders
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `genders`;
+CREATE TABLE `genders` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `gender` varchar(10) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+LOCK TABLES `genders` WRITE;
+/*!40000 ALTER TABLE `genders` DISABLE KEYS */;
+INSERT INTO `genders` (`id`, `gender`)
+VALUES
+	(1,'Male'),
+	(2,'Female'),
+	(3,'Decline');
+/*!40000 ALTER TABLE `genders` ENABLE KEYS */;
+UNLOCK TABLES;
+# Dump of table journeys
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `journeys`;
+CREATE TABLE `journeys` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `travelerid` int(11) unsigned NOT NULL,
+  `title` varchar(150) NOT NULL DEFAULT '',
+  `date` date NOT NULL,
+  `body` text NOT NULL,
+  `htags` varchar(100) NOT NULL DEFAULT '',
+  `img` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_travelerid` (`travelerid`),
+  CONSTRAINT `fk_travelerid` FOREIGN KEY (`travelerid`) REFERENCES `travelers` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+LOCK TABLES `journeys` WRITE;
+/*!40000 ALTER TABLE `journeys` DISABLE KEYS */;
+INSERT INTO `journeys` (`id`, `travelerid`, `title`, `date`, `body`, `htags`, `img`)
+VALUES
+	(1,1,'TC Journey to Pumpkin Patch Farm','2015-10-24','We needed a pumpkin and a day of family fun, since Monday was a day off from school, so we went to check out the Pumpkin Patch Farm. Here, we all rode the hayride, while Christian had fun on the jumping pillow, a horse ride and their 40-foot zipline. Ended the fun visit with a challenging maze, where we had to locate 12 creepy Halloween characters within the maze.','#TravelingChristian #HappyTravels #fall #pumpkin','2015-10-26 12.10.30.jpg'),
+	(2,2,'TC Journey to a Fun Amusement Park!!','2015-10-30','Had an awesome day of fun riding so many great rides, eating yummy cotton candy and goofing off with my family. Can\'t wait to go back!!','#TravelingChristian #HappyTravels #amusementpark','FunDestination_ThemeParks.jpg'),
+	(3,3,'TC Journey to the World of Harry Potter!','2015-11-07','Journeyed to Hogwarts School of Witchcraft and Wizardry in the third book of Harry Potter and the Prisoner of Azkaban. Looking forward to see what happens on my next journey in Harry Potter and the Goblet of Fire.','#HappyTravels #TravelingChristian #HarryPotter #readinggoals','ReadingDestination_NewBook_sq.jpg'),
+	(4,4,'TC Journey to Orlando Science Center','2015-11-08','Great time at the science center today! Can\'t wait to go back! Saw a friend there and we had a great time.','#HappyTravels #TravelingChristian #science #OrlandoScienceCenter','LearningDestination_ScienceMuseum.jpg'),
+	(5,5,'TC Journey to ZOOmAir Zipline','2015-11-09','Fun time zipping along the ziplines of ZOOmAir at the Central Florida Zoo!','#HappyTravels #TravelingChristian #zipline','ActiveDestination_ZiplineCourse_sq.jpg');
+/*!40000 ALTER TABLE `journeys` ENABLE KEYS */;
+UNLOCK TABLES;
+# Dump of table travelers
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `travelers`;
+CREATE TABLE `travelers` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `passportid` varchar(128) NOT NULL DEFAULT '',
+  `fname` varchar(50) NOT NULL DEFAULT '',
+  `lname` varchar(50) NOT NULL DEFAULT '',
+  `email` varchar(100) NOT NULL DEFAULT '',
+  `street` varchar(100) DEFAULT '',
+  `city` varchar(50) DEFAULT '',
+  `state` varchar(3) DEFAULT '',
+  `zip` int(5) DEFAULT NULL,
+  `birthday` date NOT NULL,
+  `gender` int(11) unsigned NOT NULL,
+  `pic` varchar(100) DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `fk_gender` (`gender`),
+  CONSTRAINT `fk_gender` FOREIGN KEY (`gender`) REFERENCES `genders` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+LOCK TABLES `travelers` WRITE;
+/*!40000 ALTER TABLE `travelers` DISABLE KEYS */;
+INSERT INTO `travelers` (`id`, `passportid`, `fname`, `lname`, `email`, `street`, `city`, `state`, `zip`, `birthday`, `gender`, `pic`)
+VALUES
+	(1,'','Christian','Patrick','chris@christianpatrick.me','537 Hearthglen Blvd','Winter Garden','FL',34787,'2015-06-15',1,''),
+	(2,'0','Christina','Thorpe-Rogers','christina@cdtdesign.com','123 Deland Ave','DeLand','FL',32804,'2005-08-31',1,''),
+	(3,'0','Patrick','Rogers','pat@cdtdesign.com','1414 Guernsey Street','Orlando','FL',32721,'1969-04-15',2,''),
+	(4,'3fe47988-88c4-11e5-b7f5-ece8c72b830e','Johnny','Crawford','johnny@me.com','654 Altamonte Drive','Altamonte','FL',32804,'2006-01-03',1,''),
+	(5,'faf8f902-88c3-11e5-b7f5-ece8c72b830e','Lucy','Smith','lucy@yahoo.com','123 DeLand Avenue','DeLand','FL',32751,'2006-05-09',2,'');
+/*!40000 ALTER TABLE `travelers` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!50003 SET SESSION SQL_MODE="" */;
+/*!50003 CREATE */ /*!50017 DEFINER=`root`@`localhost` */ /*!50003 TRIGGER `passportid_uuid_generator` BEFORE INSERT ON `travelers` FOR EACH ROW SET NEW.passportid = UUID() */;
+/*!50003 SET SESSION SQL_MODE=@OLD_SQL_MODE */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */</string>
+		<string>INSERT INTO `travelers` (`fname`, `lname`, `street`, `city`, `state`, `zip`, `gender`, `password`, `email`, `ip_address`, `created_on`, `active`) VALUES ('Alexander', 'Crammer', '123 Blues Lane', 'New York', 'NY', '10038', 1, '$2y$08$eZE6zF.S03p6t.JiE00EQeWZjbBi85gw8S.ybf2Dt3Xhrju54yWcO', 'Alexander2475914@gmail.com', '127.0.0.1', 1447739366, 1)</string>
+		<string>SET FOREIGN_KEY_CHECKS=0</string>
+		<string>INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
+     (1,1,1),
+     (2,1,2);
+DROP TABLE IF EXISTS `login_attempts`;
+#
+# Table structure for table 'login_attempts'
+#
+
+CREATE TABLE `login_attempts` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `ip_address` varchar(15) NOT NULL,
+  `login` varchar(100) NOT NULL,
+  `time` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</string>
+		<string>#
+# Table structure for table 'users_groups'
+#
+
+CREATE TABLE `users_groups` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned NOT NULL,
+  `group_id` mediumint(8) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_users_groups_users1_idx` (`user_id`),
+  KEY `fk_users_groups_groups1_idx` (`group_id`),
+  CONSTRAINT `uc_users_groups` UNIQUE (`user_id`, `group_id`),
+  CONSTRAINT `fk_users_groups_users1` FOREIGN KEY (`user_id`) REFERENCES `travelers` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</string>
+		<string>DROP TABLE IF EXISTS `users_groups`</string>
+		<string>#
+# Dumping data for table 'users'
+#
+
+INSERT INTO `travelers` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `gender`) VALUES
+     ('1','127.0.0.1','administrator','$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36','','admin@admin.com','',NULL,'1268889823','1268889823','1', 'Admin','istrator','ADMIN','0', 3)</string>
+		<string>#
+# Table structure for table 'travelers'
+#
+
+CREATE TABLE `travelers` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  -- 'Travelers' Stuff
+	`passportid` varchar(128) NOT NULL DEFAULT '',
+	`fname` varchar(50) NOT NULL DEFAULT '',
+	`lname` varchar(50) NOT NULL DEFAULT '',
+	`street` varchar(100) DEFAULT '',
+	`city` varchar(50) DEFAULT '',
+	`state` varchar(3) DEFAULT '',
+	`zip` int(5) DEFAULT NULL,
+	`birthday` date,
+	`gender` int(11) unsigned NOT NULL,
+	`pic` varchar(100) DEFAULT '',
+
+	-- 'Ion-auth' Stuff
+	`ip_address` varchar(15) NOT NULL,
+	`username` varchar(100) NULL,
+	`password` varchar(255) NOT NULL,
+	`salt` varchar(255) DEFAULT NULL,
+	`email` varchar(100) NOT NULL,
+	`activation_code` varchar(40) DEFAULT NULL,
+	`forgotten_password_code` varchar(40) DEFAULT NULL,
+	`forgotten_password_time` int(11) unsigned DEFAULT NULL,
+	`remember_code` varchar(40) DEFAULT NULL,
+	`created_on` int(11) unsigned NOT NULL,
+	`last_login` int(11) unsigned DEFAULT NULL,
+	`active` tinyint(1) unsigned DEFAULT NULL,
+	`first_name` varchar(50) DEFAULT NULL,
+	`last_name` varchar(50) DEFAULT NULL,
+	`company` varchar(100) DEFAULT NULL,
+	`phone` varchar(20) DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	
+	-- 'Travelers' Stuff
+	CONSTRAINT `fk_gender` FOREIGN KEY (`gender`) REFERENCES `genders` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</string>
+		<string>DROP TABLE IF EXISTS `travelers`</string>
+		<string>#
+# Table structure for table 'travelers'
+#
+
+CREATE TABLE `travelers` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  -- 'Travelers' Stuff
+	`passportid` varchar(128) NOT NULL DEFAULT '',
+	`fname` varchar(50) NOT NULL DEFAULT '',
+	`lname` varchar(50) NOT NULL DEFAULT '',
+	`street` varchar(100) DEFAULT '',
+	`city` varchar(50) DEFAULT '',
+	`state` varchar(3) DEFAULT '',
+	`zip` int(5) DEFAULT NULL,
+	`birthday` date NOT NULL,
+	`gender` int(11) unsigned NOT NULL,
+	`pic` varchar(100) DEFAULT '',
+
+	-- 'Ion-auth' Stuff
+	`ip_address` varchar(15) NOT NULL,
+	`username` varchar(100) NULL,
+	`password` varchar(255) NOT NULL,
+	`salt` varchar(255) DEFAULT NULL,
+	`email` varchar(100) NOT NULL,
+	`activation_code` varchar(40) DEFAULT NULL,
+	`forgotten_password_code` varchar(40) DEFAULT NULL,
+	`forgotten_password_time` int(11) unsigned DEFAULT NULL,
+	`remember_code` varchar(40) DEFAULT NULL,
+	`created_on` int(11) unsigned NOT NULL,
+	`last_login` int(11) unsigned DEFAULT NULL,
+	`active` tinyint(1) unsigned DEFAULT NULL,
+	`first_name` varchar(50) DEFAULT NULL,
+	`last_name` varchar(50) DEFAULT NULL,
+	`company` varchar(100) DEFAULT NULL,
+	`phone` varchar(20) DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	
+	-- 'Travelers' Stuff
+	CONSTRAINT `fk_gender` FOREIGN KEY (`gender`) REFERENCES `genders` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</string>
+		<string>#
+# Dumping data for table 'groups'
+#
+
+INSERT INTO `groups` (`id`, `name`, `description`) VALUES
+     (1,'admin','Administrator'),
+     (2,'members','General User')</string>
+		<string>#
+# Table structure for table 'groups'
+#
+
+CREATE TABLE `groups` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</string>
+		<string>DROP TABLE IF EXISTS `groups`</string>
+		<string>DROP TABLE IF EXISTS `groups`;
+#
+# Table structure for table 'groups'
+#
+
+CREATE TABLE `groups` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+#
+# Dumping data for table 'groups'
+#
+
+INSERT INTO `groups` (`id`, `name`, `description`) VALUES
+     (1,'admin','Administrator'),
+     (2,'members','General User');
+DROP TABLE IF EXISTS `travelers`;
+#
+# Table structure for table 'travelers'
+#
+
+CREATE TABLE `travelers` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  -- 'Travelers' Stuff
+	`passportid` varchar(128) NOT NULL DEFAULT '',
+	`fname` varchar(50) NOT NULL DEFAULT '',
+	`lname` varchar(50) NOT NULL DEFAULT '',
+	`street` varchar(100) DEFAULT '',
+	`city` varchar(50) DEFAULT '',
+	`state` varchar(3) DEFAULT '',
+	`zip` int(5) DEFAULT NULL,
+	`birthday` date NOT NULL,
+	`gender` int(11) unsigned NOT NULL,
+	`pic` varchar(100) DEFAULT '',
+
+	-- 'Ion-auth' Stuff
+	`ip_address` varchar(15) NOT NULL,
+	`username` varchar(100) NULL,
+	`password` varchar(255) NOT NULL,
+	`salt` varchar(255) DEFAULT NULL,
+	`email` varchar(100) NOT NULL,
+	`activation_code` varchar(40) DEFAULT NULL,
+	`forgotten_password_code` varchar(40) DEFAULT NULL,
+	`forgotten_password_time` int(11) unsigned DEFAULT NULL,
+	`remember_code` varchar(40) DEFAULT NULL,
+	`created_on` int(11) unsigned NOT NULL,
+	`last_login` int(11) unsigned DEFAULT NULL,
+	`active` tinyint(1) unsigned DEFAULT NULL,
+	`first_name` varchar(50) DEFAULT NULL,
+	`last_name` varchar(50) DEFAULT NULL,
+	`company` varchar(100) DEFAULT NULL,
+	`phone` varchar(20) DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	
+	-- 'Travelers' Stuff
+-- 	CONSTRAINT `fk_gender` FOREIGN KEY (`gender`) REFERENCES `genders` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+#
+# Dumping data for table 'users'
+#
+
+INSERT INTO `travelers` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `gender`) VALUES
+     ('1','127.0.0.1','administrator','$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36','','admin@admin.com','',NULL,'1268889823','1268889823','1', 'Admin','istrator','ADMIN','0', 3)</string>
+		<string>SET FOREIGN_KEY_CHECKS=0;
+DROP TABLE IF EXISTS `groups`;
+#
+# Table structure for table 'groups'
+#
+
+CREATE TABLE `groups` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+#
+# Dumping data for table 'groups'
+#
+
+INSERT INTO `groups` (`id`, `name`, `description`) VALUES
+     (1,'admin','Administrator'),
+     (2,'members','General User');
+DROP TABLE IF EXISTS `travelers`;
+#
+# Table structure for table 'travelers'
+#
+
+CREATE TABLE `travelers` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  -- 'Travelers' Stuff
+	`passportid` varchar(128) NOT NULL DEFAULT '',
+	`fname` varchar(50) NOT NULL DEFAULT '',
+	`lname` varchar(50) NOT NULL DEFAULT '',
+	`street` varchar(100) DEFAULT '',
+	`city` varchar(50) DEFAULT '',
+	`state` varchar(3) DEFAULT '',
+	`zip` int(5) DEFAULT NULL,
+	`birthday` date NOT NULL,
+	`gender` int(11) unsigned NOT NULL,
+	`pic` varchar(100) DEFAULT '',
+
+	-- 'Ion-auth' Stuff
+	`ip_address` varchar(15) NOT NULL,
+	`username` varchar(100) NULL,
+	`password` varchar(255) NOT NULL,
+	`salt` varchar(255) DEFAULT NULL,
+	`email` varchar(100) NOT NULL,
+	`activation_code` varchar(40) DEFAULT NULL,
+	`forgotten_password_code` varchar(40) DEFAULT NULL,
+	`forgotten_password_time` int(11) unsigned DEFAULT NULL,
+	`remember_code` varchar(40) DEFAULT NULL,
+	`created_on` int(11) unsigned NOT NULL,
+	`last_login` int(11) unsigned DEFAULT NULL,
+	`active` tinyint(1) unsigned DEFAULT NULL,
+	`first_name` varchar(50) DEFAULT NULL,
+	`last_name` varchar(50) DEFAULT NULL,
+	`company` varchar(100) DEFAULT NULL,
+	`phone` varchar(20) DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	
+	-- 'Travelers' Stuff
+-- 	CONSTRAINT `fk_gender` FOREIGN KEY (`gender`) REFERENCES `genders` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+#
+# Dumping data for table 'users'
+#
+
+INSERT INTO `travelers` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `gender`) VALUES
+     ('1','127.0.0.1','administrator','$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36','','admin@admin.com','',NULL,'1268889823','1268889823','1', 'Admin','istrator','ADMIN','0', 3);
+DROP TABLE IF EXISTS `users_groups`;
+#
+# Table structure for table 'users_groups'
+#
+
+CREATE TABLE `users_groups` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned NOT NULL,
+  `group_id` mediumint(8) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_users_groups_users1_idx` (`user_id`),
+  KEY `fk_users_groups_groups1_idx` (`group_id`),
+  CONSTRAINT `uc_users_groups` UNIQUE (`user_id`, `group_id`),
+  CONSTRAINT `fk_users_groups_users1` FOREIGN KEY (`user_id`) REFERENCES `travelers` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
+     (1,1,1),
+     (2,1,2);
+DROP TABLE IF EXISTS `login_attempts`;
+#
+# Table structure for table 'login_attempts'
+#
+
+CREATE TABLE `login_attempts` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `ip_address` varchar(15) NOT NULL,
+  `login` varchar(100) NOT NULL,
+  `time` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</string>
+		<string>DROP TABLE IF EXISTS `groups`;
+#
+# Table structure for table 'groups'
+#
+
+CREATE TABLE `groups` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+#
+# Dumping data for table 'groups'
+#
+
+INSERT INTO `groups` (`id`, `name`, `description`) VALUES
+     (1,'admin','Administrator'),
+     (2,'members','General User');
+DROP TABLE IF EXISTS `travelers`;
+#
+# Table structure for table 'travelers'
+#
+
+CREATE TABLE `travelers` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  -- 'Travelers' Stuff
+	`passportid` varchar(128) NOT NULL DEFAULT '',
+	`fname` varchar(50) NOT NULL DEFAULT '',
+	`lname` varchar(50) NOT NULL DEFAULT '',
+	`street` varchar(100) DEFAULT '',
+	`city` varchar(50) DEFAULT '',
+	`state` varchar(3) DEFAULT '',
+	`zip` int(5) DEFAULT NULL,
+	`birthday` date NOT NULL,
+	`gender` int(11) unsigned NOT NULL,
+	`pic` varchar(100) DEFAULT '',
+
+	-- 'Ion-auth' Stuff
+	`ip_address` varchar(15) NOT NULL,
+	`username` varchar(100) NULL,
+	`password` varchar(255) NOT NULL,
+	`salt` varchar(255) DEFAULT NULL,
+	`email` varchar(100) NOT NULL,
+	`activation_code` varchar(40) DEFAULT NULL,
+	`forgotten_password_code` varchar(40) DEFAULT NULL,
+	`forgotten_password_time` int(11) unsigned DEFAULT NULL,
+	`remember_code` varchar(40) DEFAULT NULL,
+	`created_on` int(11) unsigned NOT NULL,
+	`last_login` int(11) unsigned DEFAULT NULL,
+	`active` tinyint(1) unsigned DEFAULT NULL,
+	`first_name` varchar(50) DEFAULT NULL,
+	`last_name` varchar(50) DEFAULT NULL,
+	`company` varchar(100) DEFAULT NULL,
+	`phone` varchar(20) DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	
+	-- 'Travelers' Stuff
+	CONSTRAINT `fk_gender` FOREIGN KEY (`gender`) REFERENCES `genders` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+#
+# Dumping data for table 'users'
+#
+
+INSERT INTO `travelers` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `gender`) VALUES
+     ('1','127.0.0.1','administrator','$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36','','admin@admin.com','',NULL,'1268889823','1268889823','1', 'Admin','istrator','ADMIN','0', 3)</string>
+		<string>DROP TABLE IF EXISTS `groups`;
+#
+# Table structure for table 'groups'
+#
+
+CREATE TABLE `groups` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+#
+# Dumping data for table 'groups'
+#
+
+INSERT INTO `groups` (`id`, `name`, `description`) VALUES
+     (1,'admin','Administrator'),
+     (2,'members','General User');
+DROP TABLE IF EXISTS `travelers`;
+#
+# Table structure for table 'travelers'
+#
+
+CREATE TABLE `travelers` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  -- 'Travelers' Stuff
+	`passportid` varchar(128) NOT NULL DEFAULT '',
+	`fname` varchar(50) NOT NULL DEFAULT '',
+	`lname` varchar(50) NOT NULL DEFAULT '',
+	`street` varchar(100) DEFAULT '',
+	`city` varchar(50) DEFAULT '',
+	`state` varchar(3) DEFAULT '',
+	`zip` int(5) DEFAULT NULL,
+	`birthday` date NOT NULL,
+	`gender` int(11) unsigned NOT NULL,
+	`pic` varchar(100) DEFAULT '',
+
+	-- 'Ion-auth' Stuff
+	`ip_address` varchar(15) NOT NULL,
+	`username` varchar(100) NULL,
+	`password` varchar(255) NOT NULL,
+	`salt` varchar(255) DEFAULT NULL,
+	`email` varchar(100) NOT NULL,
+	`activation_code` varchar(40) DEFAULT NULL,
+	`forgotten_password_code` varchar(40) DEFAULT NULL,
+	`forgotten_password_time` int(11) unsigned DEFAULT NULL,
+	`remember_code` varchar(40) DEFAULT NULL,
+	`created_on` int(11) unsigned NOT NULL,
+	`last_login` int(11) unsigned DEFAULT NULL,
+	`active` tinyint(1) unsigned DEFAULT NULL,
+	`first_name` varchar(50) DEFAULT NULL,
+	`last_name` varchar(50) DEFAULT NULL,
+	`company` varchar(100) DEFAULT NULL,
+	`phone` varchar(20) DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	
+	-- 'Travelers' Stuff
+	CONSTRAINT `fk_gender` FOREIGN KEY (`gender`) REFERENCES `genders` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+#
+# Dumping data for table 'users'
+#
+
+INSERT INTO `travelers` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `gender`) VALUES
+     ('1','127.0.0.1','administrator','$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36','','admin@admin.com','',NULL,'1268889823','1268889823','1', 'Admin','istrator','ADMIN','0', 3);
+DROP TABLE IF EXISTS `users_groups`;
+#
+# Table structure for table 'users_groups'
+#
+
+CREATE TABLE `users_groups` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned NOT NULL,
+  `group_id` mediumint(8) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_users_groups_users1_idx` (`user_id`),
+  KEY `fk_users_groups_groups1_idx` (`group_id`),
+  CONSTRAINT `uc_users_groups` UNIQUE (`user_id`, `group_id`),
+  CONSTRAINT `fk_users_groups_users1` FOREIGN KEY (`user_id`) REFERENCES `travelers` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
+     (1,1,1),
+     (2,1,2);
+DROP TABLE IF EXISTS `login_attempts`;
+#
+# Table structure for table 'login_attempts'
+#
+
+CREATE TABLE `login_attempts` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `ip_address` varchar(15) NOT NULL,
+  `login` varchar(100) NOT NULL,
+  `time` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</string>
 	</array>
 	<key>rdbms_type</key>
 	<string>mysql</string>
 	<key>rdbms_version</key>
-	<string>5.5.42</string>
+	<string>5.6.27</string>
 	<key>version</key>
 	<integer>1</integer>
 </dict>

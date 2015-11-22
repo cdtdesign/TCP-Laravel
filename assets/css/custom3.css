@@ -6838,6 +6838,15 @@ form.journey-form input[type="text"] {
   
 }
 
+/* ----------------------------- MODAL TITLES ----------------------------- */
+
+.pp_title, .jd_title, .a_title {
+  font-weight: 300;
+  font-size: 2.5em;
+  text-align: left;
+  line-height: 1.125em;
+  color: #ee6730; /* Orange */
+}
 
 /* ----------------------------- MODAL ------------------------------ */
 
@@ -6897,16 +6906,6 @@ button.close {
   border-width: none;
   border-top: 0px;
   border-color: #fbd163; /* Gold */
-}
-
-/* ----------------------------- PASSPORT PROFILE ----------------------------- */
-
-.pp_title, .jd_title {
-  font-weight: 300;
-  font-size: 2.5em;
-  text-align: left;
-  line-height: 1.125em;
-  color: #ee6730; /* Orange */
 }
 
 /* -------------------------- JOURNEY POSTS [ .jp ] -------------------------- */
