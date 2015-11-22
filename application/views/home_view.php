@@ -30,7 +30,8 @@
 	<!-- Crest & Welcome Text -->
 	<div class="center welcome">
 		<img src="/assets/img/tcp-crest-yllwshirt.svg" class="crest hvr-grow-rotate" />
-		<p class="lead center">Welcome to the Traveling Children Project Passport! Your passport to fun experiences!</p>
+		<p class="lead center">Welcome to the Traveling Children Project Passport! Your passport to fun experiences!<br>
+		Search our destinations here:</p>
 	</div>
 	
 	<!-- SEARCH FORM -->
@@ -38,7 +39,7 @@
 	<form style="" class="form-inline center" id="destSearch">
 	  <div class="form-group">
 		<select id="type" class="form-control">
-			<option name="all_types" value="">Choose destination type… </option>
+			<option name="all_types" value="">Choose destination type </option>
 		  	<option name="active" value="1">Active</option>
 		  	<option name="create" value="2">Creative</option>
 		  	<option name="fun" value="3">Fun</option>
@@ -50,7 +51,7 @@
 		  	<option name="tech" value="9">Technology</option>
 		</select>
 		<select id="location" class="form-control">
-			<option name="all_locations" value="">Choose destination location…</option>
+			<option name="all_locations" value="">Choose destination location </option>
 			<option name="daytona" value="5">Daytona</option>
 			<option name="kissimmee" value="1">Kissimmee</option>
 			<option name="orlando" value="2">Orlando</option>
@@ -86,10 +87,12 @@
 </div><!-- /.container -->
 
 <script>
+// Button click function functionality
 $('#destSearchBtn').click(function(){
 var type = $($('#type')[0]).val(),
 	local =  $($('#location')[0]).val();
 	console.log(type,local);
+	// Posts destination info 
 	$.ajax('/destinations', {
 		'method':'post',
 		'data':{
@@ -102,16 +105,12 @@ var type = $($('#type')[0]).val(),
 			$.each(response,function(index,destination){
 				console.log(destination);
 				var dest = '<div class="modal-body journeyDestSearch">';
-			        dest += '<p><b>Destination Name: </b>' + destination.dname + '</p>';
-					dest += '<p><b>Type: </b>' + destination.type + '</p>';
+			        dest += '<p class="dname">' + destination.dname + '</p>';
+					dest += '<p><b>Destination Type: </b>' + destination.type + '</p>';
 					dest += '<p><b>Description: </b>' + destination.dscrptn + '</p>';
-					dest += '<p><b>Street Address: </b>' + destination.dstreet + '</p>';
-					dest += '<p><b>City: </b>' + destination.cities + '</p>';
-					dest += '<p><b>State: </b>' + destination.dstate + '<b> Zip: </b>' + destination.dzip + '</p>';
-					dest += '<p><b>Adult Cost: </b>' + destination.adult_cost + '</p>';
-					dest += '<p><b>Child Cost: </b>' + destination.child_cost + '</p>';
-					dest += '<p><b>Discount Amount: </b>' + destination.discount + '</p>';
-			      	dest += '</div>';
+					dest += '<p><b>Venue Address: </b>' + destination.dstreet + ', ' + destination.cities + ' ' + destination.dzip + '</p>';
+					dest += '<p><b>Adult Cost: </b> $' + destination.adult_cost + ' <b>Child Cost: </b> $' + destination.child_cost + ' <b>Discount Amount: </b>' + destination.discount + '</p>';
+			      	dest += '<br /><hr class="jp_divider"></hr></div>';
 					$('#destination').after(dest);
 			});
 		}

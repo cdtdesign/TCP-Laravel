@@ -6887,10 +6887,16 @@ button.close {
   filter: alpha(opacity=50);
 }
 
-/* ----------------------------- PASSPORT PROFILE ----------------------------- */
+/* ----------------------------- DESTINATION SEARCH ----------------------------- */
 
-.journeyDestSearch {
-  
+.journeyDestSearch .dname {
+  font-size: 1.75em;
+}
+
+.journeyDestSearch .modal-footer hr {
+  border-width: none;
+  border-top: 0px;
+  border-color: #fbd163; /* Gold */
 }
 
 /* ----------------------------- PASSPORT PROFILE ----------------------------- */

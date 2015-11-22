@@ -86,6 +86,7 @@ class Home extends CI_Controller {
 		redirect('home');
 	}
 	
+	// Send info retreived from model to Home view
 	public function fetchLocationData()
 	{
 		$type = $this->input->post('type');
