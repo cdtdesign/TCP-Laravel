@@ -16,12 +16,12 @@
 		<p><b>Email:</b> <?= $traveler->email ?></p>
 		<p><b>Street Address:</b> <?= $traveler->street ?></p>
 		<p><b>City:</b> <?= $traveler->city ?></p>
-		<p><b>State:</b> <?= $traveler->state ?> Zip: <?= $traveler->zip ?></p>
+		<p><b>State:</b> <?= $traveler->state ?> <b>Zip:</b> <?= $traveler->zip ?></p>
 		<p><b>Birthday:</b> <?= $traveler->birthday ?></p>
       </div>
       <div class="modal-footer">
-		<button type="button" class="btn btn-primary editProfileButton" data-toggle="modal" data-target="#signupModal">Edit</button>
-        <a href="/travelers/delete/<?= $traveler->id ?>" class="btn btn-warning deleteProfileButton" data-dismiss="modal" role="button">Delete Passport</a>
+		<button class="btn btn-primary btn-lg editProfileButton" data-toggle="modal" data-target="#signupModal">Edit</button>
+        <a href="/travelers/delete/<?= $traveler->id ?>" class="btn btn-warning btn-lg deleteProfileButton" data-dismiss="modal" role="button">Delete Passport</a>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -103,9 +103,9 @@
 					zipField.value      	= travelerProfile['zip'];
 					birthField.value    	= travelerProfile['birthday'];
 					sexField.value      	= travelerProfile['gender'];
-					saveButton.value    	= "Save";
+					submitButton.value    	= "Update";
 					// imgField.value		= travelerProfile['img'];
-					$(".signup-form")[0].setAttribute("action", "/traveler/edit/" + travelerID);
+					$(".signup-form")[0].setAttribute("action", "/home/edit/" + travelerID);
 				});
 			});
 			// SignUp button click functionality

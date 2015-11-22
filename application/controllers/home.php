@@ -41,6 +41,7 @@ class Home extends CI_Controller {
 		
 		// Load some libraries
 		$this->load->model('Traveler_model');
+		$this->load->model('Home_model');
 		$this->load->library('upload', $upload_config);
 		$this->load->helper('url');
 	}
@@ -53,6 +54,7 @@ class Home extends CI_Controller {
 	
 	public function home()
 	{
+		// $this->output->enable_profiler(TRUE);
 		// var_dump($this->ion_auth->logged_in());
 		$viewData['title'] = 'TCP Passport';
 		$viewData['fbook'] = $this->fbook;
@@ -68,7 +70,7 @@ class Home extends CI_Controller {
 			// Loads view for navbar_signin.php + header.php, home_view.php and footer.php
 			$this->load->view('template/navbar_signin', $viewData);
 		}
-		$this->load->view('home_view');
+		$this->load->view('home_view', $viewData);
 		$this->load->view('template/footer');
 	}
 	
@@ -77,17 +79,39 @@ class Home extends CI_Controller {
 		$identity = $_POST['email'];
 		$password = $_POST['password'];
 		$email = $_POST['email'];
-		$_POST['gender'] = $_POST['gender'];
+		$_POST['gender'] = 3;
 		$_POST['first_name'] = $_POST['first_name'];
 		$_POST['last_name'] = $_POST['last_name'];
 		$this->ion_auth->register($identity, $password, $email, $_POST);
 		redirect('home');
 	}
 	
+	public function fetchLocationData()
+	{
+		$type = $this->input->post('type');
+		$location = $this->input->post('location');
+		$destination = $this->Home_model->getDestinations($type, $location);
+		header("Content-Type: application/json");
+		echo $destination;
+	}
+	
 	public function getUserData($id)
 	{
 		header("Content-Type: application/json");
 		echo json_encode($this->ion_auth->user($id)->row());
+	}
+	
+	public function edit($id)
+	{
+		$data = $this->input->traveler();
+		$data['id'] = $id;
+		
+		// $data['pic'] = $_FILES['pic']['name'];
+		// Move file to 'uploads' folder
+		// move_uploaded_file($_FILES['pic']['tmp_name'], '/Users/Christina/Sites/TCP/assets/uploads/' . $_FILES['pic']['name']);
+		
+		$this->Traveler_model->update_record($data);
+		redirect('home');
 	}
 	
 	// Deletes Traveler Passport

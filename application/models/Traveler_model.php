@@ -28,6 +28,13 @@ class Traveler_model extends CI_Model {
 		return $traveler = $this->db->get_where('travelers', array('id' => $id))->result()[0];
 	}
 	
+	// Updates DB with edited profile
+	public function update_record($data)
+	{
+		$this->db->where('id', $data['id']);
+		$this->db->update('travelers', $data);
+	}
+	
 	// Deletes selected Traveler from DB
 	public function delete($id)
 	{

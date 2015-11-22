@@ -6887,6 +6887,22 @@ button.close {
   filter: alpha(opacity=50);
 }
 
+/* ----------------------------- PASSPORT PROFILE ----------------------------- */
+
+.journeyDestSearch {
+  
+}
+
+/* ----------------------------- PASSPORT PROFILE ----------------------------- */
+
+.pp_title, .jd_title {
+  font-weight: 300;
+  font-size: 2.5em;
+  text-align: left;
+  line-height: 1.125em;
+  color: #ee6730; /* Orange */
+}
+
 /* -------------------------- JOURNEY POSTS [ .jp ] -------------------------- */
 
 /*.glyphicon.glyphicon-plus {
@@ -6961,7 +6977,7 @@ button.close {
     left: 0px;
 }
 
-.jp_title, .pp_title {
+.jp_title {
   font-weight: 300;
   font-size: 1.5em;
   text-align: center;

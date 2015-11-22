@@ -9,14 +9,14 @@ NAME: Christina D. Thorpe-Rogers
 	
 <div class="navAllowance container">
 
-	<!-- Modal -->
+	<!-- Journey Form Modal -->
 		<div class="modal fade" id="journeyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			
-				<!-- Journey Post Entry -->
+				<!-- Journey Post Entries -->
 				<form action="journeys/create" class="form-inline journey-form" method="POST" enctype="multipart/form-data">
 				<h4><input type="text" name="title" value="TC Journey to " placeholder="Enter Journey Post Title…" style="background:none;border:none;width:300px;color:#ee6730;" required /></h4>
 			      </div>
@@ -43,7 +43,7 @@ NAME: Christina D. Thorpe-Rogers
 		</button>
 	</div>
 	
-	<!-- JOURNEY BLOG -->
+	<!-- JOURNEY BLOG POST -->
 	<div class="jp_section">
 		<div class="journey_post">
 			<div class="jp_wrapper">
